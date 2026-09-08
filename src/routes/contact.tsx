@@ -2,9 +2,9 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 
-const title = "Contact — Claire Tabouret";
+const title = "Contact — Anne DeCamp";
 const description =
-  "Contact the studio of Claire Tabouret: studio and press enquiries, telephone, and social channels.";
+  "Contact the studio of Anne DeCamp: studio and press enquiries, telephone, and social channels.";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -21,10 +21,10 @@ export const Route = createFileRoute("/contact")({
 });
 
 const ROWS = [
-  { label: "Studio", value: "studio@clairetabouret.com", href: "mailto:studio@clairetabouret.com" },
-  { label: "Press", value: "press@clairetabouret.com", href: "mailto:press@clairetabouret.com" },
+  { label: "Studio", value: "studio@annedecamp.com", href: "mailto:studio@annedecamp.com" },
+  { label: "Press", value: "press@annedecamp.com", href: "mailto:press@annedecamp.com" },
   { label: "Telephone", value: "+1 (323) 555 0142", href: "tel:+13235550142" },
-  { label: "Instagram", value: "@clairetabouret", href: "https://www.instagram.com/clairetabouret/" },
+  { label: "Instagram", value: "@annedecamp", href: "https://www.instagram.com/annedecamp/" },
 ];
 
 function ContactPage() {

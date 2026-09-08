@@ -42,7 +42,7 @@ export function SiteHeader() {
           <MenuIcon />
         </button>
         <h1 className="ct-wordmark">
-          <a href="/">Claire Tabouret</a>
+          <a href="/">Anne DeCamp</a>
         </h1>
       </div>
 
