@@ -686,7 +686,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .ct-page, .ct-page-title, .ct-page-lead, .ct-block, .ct-stat, .ct-contact-row { animation: none; }
+  .ct-page, .ct-page-title, .ct-page-lead, .ct-block, .ct-stat, .ct-contact-row, .ct-bio-para { animation: none; }
   .ct-strip-track { animation: none; }
 }
 
