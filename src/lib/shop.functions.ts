@@ -124,9 +124,9 @@ export const createArtworkCheckout = createServerFn({ method: "POST" })
 
       const stripe = createStripeClient(data.environment);
       const imageUrl = artwork.image_url as string;
-      const session = await stripe.checkout.sessions.create({
-        mode: "payment",
-        ui_mode: "embedded_page",
+      const baseParams = {
+        mode: "payment" as const,
+        ui_mode: "embedded_page" as const,
         return_url: data.returnUrl,
         line_items: [
           {
@@ -144,7 +144,6 @@ export const createArtworkCheckout = createServerFn({ method: "POST" })
             },
           },
         ],
-        automatic_tax: { enabled: true },
         shipping_address_collection: {
           allowed_countries: ["US", "CA", "GB", "IE", "FR", "DE", "IT", "ES", "NL", "AU", "NZ"],
         },
@@ -157,7 +156,22 @@ export const createArtworkCheckout = createServerFn({ method: "POST" })
           item_label: label,
           quantity: String(quantity),
         },
-      });
+      } as Parameters<typeof stripe.checkout.sessions.create>[0];
+
+      let session;
+      try {
+        // Tax is calculated and collected at checkout once a business address
+        // is on file in the payments account.
+        session = await stripe.checkout.sessions.create({
+          ...baseParams,
+          automatic_tax: { enabled: true },
+        });
+      } catch (taxError) {
+        const message = getStripeErrorMessage(taxError);
+        if (!/automatic tax|head office|origin address/i.test(message)) throw taxError;
+        console.warn("Automatic tax unavailable, continuing without it:", message);
+        session = await stripe.checkout.sessions.create(baseParams);
+      }
 
       return { clientSecret: session.client_secret ?? "" };
     } catch (error) {
