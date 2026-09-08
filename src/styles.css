@@ -802,3 +802,120 @@
   .ct-work, .ct-where-row { animation: none; }
   .ct-work-frame img { transition: none; }
 }
+
+/* ---- Purchasing ---- */
+.ct-pay-banner {
+  width: 100%;
+  padding: 10px 16px;
+  text-align: center;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: #f3efe7;
+  border-bottom: 1px solid #e2dcd1;
+  color: #6b6155;
+}
+.ct-pay-banner a { color: inherit; text-decoration: underline; }
+.ct-pay-banner--error { background: #f7e9e6; border-bottom-color: #e6cfc9; color: #8a3b2c; }
+
+.ct-work-price {
+  display: block;
+  margin-top: 6px;
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  opacity: 0.8;
+}
+.ct-buy-toggle {
+  margin-top: 12px;
+  padding: 8px 18px;
+  background: transparent;
+  border: 1px solid currentColor;
+  font: inherit;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 240ms cubic-bezier(0.22, 0.61, 0.36, 1), color 240ms;
+}
+.ct-buy-toggle:hover { background: #111; color: #fff; }
+.ct-buy-panel {
+  margin-top: 14px;
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+  animation: ctFadeUp 420ms cubic-bezier(0.22, 0.61, 0.36, 1) both;
+}
+.ct-buy-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+}
+.ct-buy-label { font-size: 13px; letter-spacing: 0.05em; }
+.ct-buy-row button {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid currentColor;
+  font: inherit;
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  padding: 2px 0;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.ct-buy-row button:hover { opacity: 0.6; }
+.ct-buy-sold { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.5; }
+.ct-buy-qty {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 0 0;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  opacity: 0.75;
+}
+.ct-buy-qty input {
+  width: 64px;
+  padding: 6px 8px;
+  font: inherit;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  background: transparent;
+}
+
+.ct-checkout-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(255, 255, 255, 0.96);
+  overflow-y: auto;
+  animation: ctFade 300ms ease-out both;
+}
+.ct-checkout-panel { max-width: 760px; margin: 0 auto; padding: 0 20px 60px; }
+.ct-checkout-bar {
+  position: sticky;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 20px 0;
+  background: inherit;
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.ct-checkout-bar button {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid currentColor;
+  font: inherit;
+  cursor: pointer;
+  padding: 2px 0;
+}
+.ct-checkout-body { min-height: 60vh; }
+
+@keyframes ctFade { from { opacity: 0; } to { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) {
+  .ct-buy-panel, .ct-checkout-overlay { animation: none; }
+}
