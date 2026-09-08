@@ -43,7 +43,7 @@ export function HomeSlideshow() {
     };
   }, [paused, index]);
 
-  const active = SLIDES[index];
+  const active = SLIDES[index] ?? SLIDES[0]!;
 
   return (
     <section id="home" className="ct-home">
