@@ -14,7 +14,173 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      artworks: {
+        Row: {
+          created_at: string
+          description: string | null
+          dimensions: string | null
+          id: string
+          image_url: string
+          medium: string | null
+          original_available: boolean
+          original_price_cents: number | null
+          slug: string
+          sort_order: number
+          title: string
+          year: string | null
+        }
+        Insert: {
+          created_at?: string
+          description?: string | null
+          dimensions?: string | null
+          id?: string
+          image_url: string
+          medium?: string | null
+          original_available?: boolean
+          original_price_cents?: number | null
+          slug: string
+          sort_order?: number
+          title: string
+          year?: string | null
+        }
+        Update: {
+          created_at?: string
+          description?: string | null
+          dimensions?: string | null
+          id?: string
+          image_url?: string
+          medium?: string | null
+          original_available?: boolean
+          original_price_cents?: number | null
+          slug?: string
+          sort_order?: number
+          title?: string
+          year?: string | null
+        }
+        Relationships: []
+      }
+      orders: {
+        Row: {
+          amount_cents: number
+          artwork_id: string | null
+          created_at: string
+          currency: string
+          customer_email: string | null
+          customer_name: string | null
+          environment: string
+          fulfillment_status: string
+          id: string
+          item_kind: string
+          item_label: string
+          print_option_id: string | null
+          prodigi_order_id: string | null
+          quantity: number
+          shipping_address: Json | null
+          status: string
+          stripe_payment_intent_id: string | null
+          stripe_session_id: string | null
+          updated_at: string
+        }
+        Insert: {
+          amount_cents?: number
+          artwork_id?: string | null
+          created_at?: string
+          currency?: string
+          customer_email?: string | null
+          customer_name?: string | null
+          environment?: string
+          fulfillment_status?: string
+          id?: string
+          item_kind: string
+          item_label: string
+          print_option_id?: string | null
+          prodigi_order_id?: string | null
+          quantity?: number
+          shipping_address?: Json | null
+          status?: string
+          stripe_payment_intent_id?: string | null
+          stripe_session_id?: string | null
+          updated_at?: string
+        }
+        Update: {
+          amount_cents?: number
+          artwork_id?: string | null
+          created_at?: string
+          currency?: string
+          customer_email?: string | null
+          customer_name?: string | null
+          environment?: string
+          fulfillment_status?: string
+          id?: string
+          item_kind?: string
+          item_label?: string
+          print_option_id?: string | null
+          prodigi_order_id?: string | null
+          quantity?: number
+          shipping_address?: Json | null
+          status?: string
+          stripe_payment_intent_id?: string | null
+          stripe_session_id?: string | null
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "orders_artwork_id_fkey"
+            columns: ["artwork_id"]
+            isOneToOne: false
+            referencedRelation: "artworks"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "orders_print_option_id_fkey"
+            columns: ["print_option_id"]
+            isOneToOne: false
+            referencedRelation: "print_options"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      print_options: {
+        Row: {
+          artwork_id: string
+          created_at: string
+          id: string
+          kind: string
+          label: string
+          price_cents: number
+          prodigi_sku: string | null
+          sort_order: number
+        }
+        Insert: {
+          artwork_id: string
+          created_at?: string
+          id?: string
+          kind?: string
+          label: string
+          price_cents: number
+          prodigi_sku?: string | null
+          sort_order?: number
+        }
+        Update: {
+          artwork_id?: string
+          created_at?: string
+          id?: string
+          kind?: string
+          label?: string
+          price_cents?: number
+          prodigi_sku?: string | null
+          sort_order?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "print_options_artwork_id_fkey"
+            columns: ["artwork_id"]
+            isOneToOne: false
+            referencedRelation: "artworks"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
     }
     Views: {
       [_ in never]: never
