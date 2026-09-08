@@ -4,7 +4,7 @@ import { SiteFooter } from "@/components/SiteFooter";
 
 const title = "About — Annie DeCamp";
 const description =
-  "Biography and practice of the painter Annie DeCamp: portraiture, memory, collective identity, and exhibitions in institutions worldwide.";
+  "Annie DeCamp is a mixed-media artist based in Aspen, Colorado, whose work draws upon history, human nature, and the natural world.";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -20,35 +20,21 @@ export const Route = createFileRoute("/about")({
   component: AboutPage,
 });
 
-const BLOCKS = [
-  {
-    heading: "Practice",
-    body: "Annie DeCamp is a French artist based in Los Angeles. Working primarily in painting, she builds large-scale figures from washes of acrylic laid over saturated grounds, letting colour bleed at the edges so that each portrait holds both presence and disappearance.",
-  },
-  {
-    heading: "Subject",
-    body: "Her paintings draw on found photographs, historical archives and personal images. Groups of children, dancers, brides and swimmers recur — figures caught between an assigned role and an inner life that refuses it.",
-  },
-  {
-    heading: "Method",
-    body: "Alongside painting she works in sculpture, works on paper and stained glass, including a commission for the doors of Notre-Dame de Paris. Colour is set first, drawing follows, and the figure emerges from what the ground already allows.",
-  },
+const PARAGRAPHS = [
+  "Annie DeCamp is a mixed-media artist whose work draws upon history, human nature, and the natural world. Grounded in historical research and a deep curiosity about the relationship between people, animals, and place, her work moves between past and present, the joyful and the somber.",
+  "An astute observer of human nature, DeCamp is interested in the stories we tell about ourselves—identity, memory, beauty, belonging, and the ways history continues to inhabit contemporary life. Her paintings and mixed-media works often bring together seemingly disparate imagery, inviting the viewer to discover multiple narratives and emotional truths within a single image.",
+  "DeCamp's work is collected throughout Colorado, the United States, and internationally and has been exhibited in museums and galleries throughout Colorado.",
+  "She has exhibited and curated exhibitions at the Red Brick Center for the Arts in Aspen and has completed commissions for public spaces throughout Colorado. Her large-scale mixed-media portrait of pioneering preservationist Dana Crawford is prominently installed in the Crawford Hotel at Denver Union Station.",
+  "A longtime arts educator, DeCamp has taught extensively in the Denver area, both from her own studio and through educational institutions.",
+  "She is also co-founder of Yard Art Contemporary, a Denver-based art movement created to bring artists and collectors together in intimate settings and to provide a platform for the work of fellow artists.",
+  "DeCamp lives and works in Aspen, Colorado, where the surrounding landscape continues to inform her exploration of humanity's relationship with the natural world.",
 ];
 
-const INSTITUTIONS = [
-  "Colby College Museum of Art",
-  "Yuz Museum, Shanghai",
-  "Collection Lambert, Avignon",
-  "Museum of Contemporary Art, Long Beach",
-  "Kunsthalle Bielefeld",
-  "Notre-Dame de Paris",
-];
-
-const STATS = [
-  { value: "2013", label: "First institutional solo exhibition" },
-  { value: "40+", label: "Solo and group exhibitions" },
-  { value: "12", label: "Museum collections worldwide" },
-  { value: "2026", label: "Notre-Dame de Paris commission" },
+const VENUES = [
+  "Red Brick Center for the Arts, Aspen",
+  "Crawford Hotel, Denver Union Station",
+  "Yard Art Contemporary, Denver",
+  "Museums and galleries throughout Colorado",
 ];
 
 function AboutPage() {
@@ -58,30 +44,20 @@ function AboutPage() {
       <main className="ct-page-main">
         <h2 className="ct-page-title">About</h2>
 
-        <section className="ct-blocks" aria-label="Mission">
-          {BLOCKS.map((b, i) => (
-            <article key={b.heading} className="ct-block" style={{ ["--i" as string]: String(i) }}>
-              <h3>{b.heading}</h3>
-              <p>{b.body}</p>
-            </article>
+        <section className="ct-bio" aria-label="Biography">
+          {PARAGRAPHS.map((p, i) => (
+            <p key={i} className="ct-bio-para" style={{ ["--i" as string]: String(i) }}>
+              {p}
+            </p>
           ))}
         </section>
 
-        <section className="ct-strip" aria-label="Institutions">
+        <section className="ct-strip" aria-label="Venues">
           <div className="ct-strip-track">
-            {[...INSTITUTIONS, ...INSTITUTIONS].map((name, i) => (
+            {[...VENUES, ...VENUES].map((name, i) => (
               <span key={`${name}-${i}`}>{name}</span>
             ))}
           </div>
-        </section>
-
-        <section className="ct-stats" aria-label="In numbers">
-          {STATS.map((s, i) => (
-            <div key={s.label} className="ct-stat" style={{ ["--i" as string]: String(i) }}>
-              <strong>{s.value}</strong>
-              <span>{s.label}</span>
-            </div>
-          ))}
         </section>
       </main>
       <SiteFooter />
