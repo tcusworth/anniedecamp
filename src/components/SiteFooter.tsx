@@ -2,6 +2,8 @@ import { Link } from "@tanstack/react-router";
 
 const LINKS = [
   { label: "About", to: "/about" as const },
+  { label: "Gallery", to: "/gallery" as const },
+  { label: "Where to see", to: "/news" as const },
   { label: "Contact", to: "/contact" as const },
 ];
 
@@ -33,9 +35,6 @@ export function SiteFooter() {
               {l.label}
             </Link>
           ))}
-          <a href="https://www.clairetabouret.com/en/presentation-presse/">Press</a>
-          <a href="https://www.clairetabouret.com/en/news/">News</a>
-          <a href="https://www.clairetabouret.com/en/publications/">Publications</a>
         </nav>
 
         <ul className="ct-sitefooter-social">

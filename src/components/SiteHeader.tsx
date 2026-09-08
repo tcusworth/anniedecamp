@@ -2,9 +2,8 @@ import { useEffect, useState } from "react";
 
 const MENU_ITEMS = [
   { label: "About", href: "/about" },
-  { label: "Press", href: "https://www.clairetabouret.com/en/presentation-presse/" },
-  { label: "News", href: "https://www.clairetabouret.com/en/news/" },
-  { label: "Publications", href: "https://www.clairetabouret.com/en/publications/" },
+  { label: "Gallery", href: "/gallery" },
+  { label: "Where to see", href: "/news" },
   { label: "Contact", href: "/contact" },
 ];
 
