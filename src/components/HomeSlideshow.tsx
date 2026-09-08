@@ -81,7 +81,7 @@ export function HomeSlideshow() {
 
       <div className="ct-description">
         <h3 key={active.caption}>{active.caption}</h3>
-        <a href={active.url} className="ct-read-more">
+        <a href="/contact" className="ct-read-more">
           More information
         </a>
       </div>
