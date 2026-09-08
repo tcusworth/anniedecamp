@@ -88,7 +88,7 @@ export const createArtworkCheckout = createServerFn({ method: "POST" })
       const { data: artwork, error } = await supabase
         .from("artworks")
         .select(
-          "id, title, year, medium, dimensions, image_url, original_price_cents, original_available",
+          "id, title, year, medium, dimensions, image_url, original_price_cents, original_available, stripe_price_key",
         )
         .eq("id", data.artworkId)
         .maybeSingle();
@@ -96,14 +96,14 @@ export const createArtworkCheckout = createServerFn({ method: "POST" })
       if (!artwork) return { error: "That work could not be found." };
 
       let label: string;
-      let unitAmount: number;
+      let priceKey: string | null;
       let kind: "original" | "print";
       let quantity = 1;
 
       if (data.printOptionId) {
         const { data: option } = await supabase
           .from("print_options")
-          .select("id, label, price_cents, artwork_id")
+          .select("id, label, price_cents, artwork_id, stripe_price_key")
           .eq("id", data.printOptionId)
           .maybeSingle();
         if (!option || option.artwork_id !== artwork.id) {
@@ -111,7 +111,7 @@ export const createArtworkCheckout = createServerFn({ method: "POST" })
         }
         kind = "print";
         label = `${artwork.title} — ${option.label}`;
-        unitAmount = option.price_cents as number;
+        priceKey = (option.stripe_price_key as string | null) ?? null;
         quantity = Math.min(Math.max(data.quantity ?? 1, 1), 10);
       } else {
         if (!artwork.original_available || !artwork.original_price_cents) {
@@ -119,31 +119,21 @@ export const createArtworkCheckout = createServerFn({ method: "POST" })
         }
         kind = "original";
         label = `${artwork.title} (original)`;
-        unitAmount = artwork.original_price_cents as number;
+        priceKey = (artwork.stripe_price_key as string | null) ?? null;
       }
 
+      if (!priceKey) return { error: "This item is not available for purchase yet." };
+
       const stripe = createStripeClient(data.environment);
-      const imageUrl = artwork.image_url as string;
+      const prices = await stripe.prices.list({ lookup_keys: [priceKey] });
+      if (!prices.data.length) return { error: "This item is not available for purchase yet." };
+      const stripePrice = prices.data[0]!;
+
       const baseParams = {
         mode: "payment" as const,
         ui_mode: "embedded_page" as const,
         return_url: data.returnUrl,
-        line_items: [
-          {
-            quantity,
-            price_data: {
-              currency: "usd",
-              unit_amount: unitAmount,
-              product_data: {
-                name: label,
-                ...(imageUrl.startsWith("http") ? { images: [imageUrl] } : {}),
-                ...(artwork.dimensions
-                  ? { description: `${artwork.medium ?? ""} ${artwork.dimensions}`.trim() }
-                  : {}),
-              },
-            },
-          },
-        ],
+        line_items: [{ price: stripePrice.id, quantity }],
         shipping_address_collection: {
           allowed_countries: ["US", "CA", "GB", "IE", "FR", "DE", "IT", "ES", "NL", "AU", "NZ"],
         },
