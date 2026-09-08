@@ -2,9 +2,9 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 
-const title = "Where to See the Work — Anne DeCamp";
+const title = "Where to See the Work — Annie DeCamp";
 const description =
-  "Current and upcoming exhibitions, museum collections and permanent installations where paintings by Anne DeCamp can be seen.";
+  "Current and upcoming exhibitions, museum collections and permanent installations where paintings by Annie DeCamp can be seen.";
 
 export const Route = createFileRoute("/news")({
   head: () => ({
@@ -104,7 +104,7 @@ function NewsPage() {
         <h2 className="ct-page-title">Where to see the work</h2>
         <p className="ct-page-lead">
           Exhibitions currently open, shows opening soon, and the institutions holding
-          paintings by Anne DeCamp in their permanent collections.
+          paintings by Annie DeCamp in their permanent collections.
         </p>
 
         <Listing heading="On view now" items={ON_VIEW} />

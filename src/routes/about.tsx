@@ -2,9 +2,9 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 
-const title = "About — Anne DeCamp";
+const title = "About — Annie DeCamp";
 const description =
-  "Biography and practice of the painter Anne DeCamp: portraiture, memory, collective identity, and exhibitions in institutions worldwide.";
+  "Biography and practice of the painter Annie DeCamp: portraiture, memory, collective identity, and exhibitions in institutions worldwide.";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -23,7 +23,7 @@ export const Route = createFileRoute("/about")({
 const BLOCKS = [
   {
     heading: "Practice",
-    body: "Anne DeCamp is a French artist based in Los Angeles. Working primarily in painting, she builds large-scale figures from washes of acrylic laid over saturated grounds, letting colour bleed at the edges so that each portrait holds both presence and disappearance.",
+    body: "Annie DeCamp is a French artist based in Los Angeles. Working primarily in painting, she builds large-scale figures from washes of acrylic laid over saturated grounds, letting colour bleed at the edges so that each portrait holds both presence and disappearance.",
   },
   {
     heading: "Subject",
