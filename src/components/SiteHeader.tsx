@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 
 const MENU_ITEMS = [
-  { label: "About", href: "https://www.clairetabouret.com/en/presentation-presentation/" },
+  { label: "About", href: "/about" },
   { label: "Press", href: "https://www.clairetabouret.com/en/presentation-presse/" },
   { label: "News", href: "https://www.clairetabouret.com/en/news/" },
   { label: "Publications", href: "https://www.clairetabouret.com/en/publications/" },
-  { label: "Contact", href: "https://www.clairetabouret.com/en/contact/" },
+  { label: "Contact", href: "/contact" },
 ];
 
 function MenuIcon() {
