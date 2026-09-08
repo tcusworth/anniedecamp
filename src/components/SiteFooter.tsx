@@ -35,9 +35,6 @@ export function SiteFooter() {
               {l.label}
             </Link>
           ))}
-          <a href="https://www.clairetabouret.com/en/presentation-presse/">Press</a>
-          <a href="https://www.clairetabouret.com/en/news/">News</a>
-          <a href="https://www.clairetabouret.com/en/publications/">Publications</a>
         </nav>
 
         <ul className="ct-sitefooter-social">

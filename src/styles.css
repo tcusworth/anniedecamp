@@ -674,3 +674,116 @@
   .ct-page, .ct-page-title, .ct-page-lead, .ct-block, .ct-stat, .ct-contact-row { animation: none; }
   .ct-strip-track { animation: none; }
 }
+
+/* ---- Gallery ---- */
+.ct-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 48px 40px;
+}
+.ct-work {
+  margin: 0;
+  animation: ct-rise-in 0.6s ease-out both;
+  animation-delay: calc(var(--i) * 0.08s);
+}
+.ct-work-frame {
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid #000;
+}
+.ct-work-frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+.ct-work:hover .ct-work-frame img {
+  transform: scale(1.04);
+}
+.ct-work figcaption {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-top: 14px;
+}
+.ct-work-title {
+  font-size: 13px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+.ct-work-meta {
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  opacity: 0.6;
+}
+
+/* ---- Where to see ---- */
+.ct-where {
+  margin-bottom: 64px;
+}
+.ct-where-heading {
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 400;
+  margin: 0 0 4px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #000;
+}
+.ct-where-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.ct-where-row {
+  display: grid;
+  grid-template-columns: 200px 1fr 200px;
+  gap: 20px;
+  padding: 22px 0;
+  border-bottom: 1px solid #000;
+  animation: ct-rise-in 0.5s ease-out both;
+  animation-delay: calc(var(--i) * 0.08s);
+  transition: background 0.3s ease-out, color 0.3s ease-out;
+}
+.ct-where-row:hover {
+  background: #000;
+  color: #fff;
+}
+.ct-where-dates,
+.ct-where-kind {
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding-top: 4px;
+}
+.ct-where-kind {
+  text-align: right;
+  opacity: 0.7;
+}
+.ct-where-main {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.ct-where-main strong {
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+}
+.ct-where-main span {
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  opacity: 0.75;
+}
+
+@media (max-width: 767px) {
+  .ct-gallery { grid-template-columns: 1fr; gap: 36px; }
+  .ct-where-row { grid-template-columns: 1fr; gap: 10px; padding: 18px 0; }
+  .ct-where-kind { text-align: left; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ct-work, .ct-where-row { animation: none; }
+  .ct-work-frame img { transition: none; }
+}
