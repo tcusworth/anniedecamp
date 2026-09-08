@@ -5,9 +5,9 @@ import work1 from "@/assets/work-1.jpg";
 import work2 from "@/assets/work-2.jpg";
 import work3 from "@/assets/work-3.jpg";
 
-const title = "Gallery — Anne DeCamp";
+const title = "Gallery — Annie DeCamp";
 const description =
-  "Selected paintings by Anne DeCamp: large-scale figures built from translucent acrylic washes over saturated grounds.";
+  "Selected paintings by Annie DeCamp: large-scale figures built from translucent acrylic washes over saturated grounds.";
 
 export const Route = createFileRoute("/gallery")({
   head: () => ({

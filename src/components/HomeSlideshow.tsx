@@ -8,21 +8,21 @@ const SLIDES: Slide[] = [
     caption:
       "Les Créatures, Almine Rech, Gstaad, Switzerland. From July 10 to September 3, 2026.",
     url: "https://www.clairetabouret.com/en/news/",
-    alt: "Painting by Anne DeCamp shown for Les Créatures at Almine Rech, Gstaad",
+    alt: "Painting by Annie DeCamp shown for Les Créatures at Almine Rech, Gstaad",
   },
   {
     src: "https://www.clairetabouret.com/files/media_high_935.jpg",
     caption:
       "Dimanche Sans Fin, Centre Pompidou-Metz, Metz, France. From May 8th 2025 to February 2nd 2027.",
     url: "https://www.clairetabouret.com/en/news/",
-    alt: "Painting by Anne DeCamp shown for Dimanche Sans Fin at Centre Pompidou-Metz",
+    alt: "Painting by Annie DeCamp shown for Dimanche Sans Fin at Centre Pompidou-Metz",
   },
   {
     src: "https://www.clairetabouret.com/files/media_high_952.jpeg",
     caption:
       "Visages d’artistes, Petit Palais, Paris, France. From March 18 to July 19, 2026.",
     url: "https://www.clairetabouret.com/en/news/",
-    alt: "Painting by Anne DeCamp shown for Visages d’artistes at the Petit Palais, Paris",
+    alt: "Painting by Annie DeCamp shown for Visages d’artistes at the Petit Palais, Paris",
   },
 ];
 

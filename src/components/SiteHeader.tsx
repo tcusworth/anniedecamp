@@ -41,7 +41,7 @@ export function SiteHeader() {
           <MenuIcon />
         </button>
         <h1 className="ct-wordmark">
-          <a href="/">Anne DeCamp</a>
+          <a href="/">Annie DeCamp</a>
         </h1>
       </div>
 

@@ -2,9 +2,9 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 
-const title = "Contact — Anne DeCamp";
+const title = "Contact — Annie DeCamp";
 const description =
-  "Contact the studio of Anne DeCamp: studio and press enquiries, telephone, and social channels.";
+  "Contact the studio of Annie DeCamp: studio and press enquiries, telephone, and social channels.";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
