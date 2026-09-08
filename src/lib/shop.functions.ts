@@ -126,8 +126,8 @@ export const createArtworkCheckout = createServerFn({ method: "POST" })
 
       const stripe = createStripeClient(data.environment);
       const prices = await stripe.prices.list({ lookup_keys: [priceKey] });
-      if (!prices.data.length) return { error: "This item is not available for purchase yet." }
-      const stripePrice = prices.data[0];
+      if (!prices.data.length) return { error: "This item is not available for purchase yet." };
+      const stripePrice = prices.data[0]!;
 
       const baseParams = {
         mode: "payment" as const,
