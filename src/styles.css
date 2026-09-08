@@ -328,7 +328,8 @@
   z-index: 120;
 }
 .ct-slide-controls button {
-  background: none;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 2px;
   border: 0;
   padding: 4px;
   cursor: pointer;
