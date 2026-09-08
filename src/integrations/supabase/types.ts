@@ -26,6 +26,7 @@ export type Database = {
           original_price_cents: number | null
           slug: string
           sort_order: number
+          stripe_price_key: string | null
           title: string
           year: string | null
         }
@@ -40,6 +41,7 @@ export type Database = {
           original_price_cents?: number | null
           slug: string
           sort_order?: number
+          stripe_price_key?: string | null
           title: string
           year?: string | null
         }
@@ -54,6 +56,7 @@ export type Database = {
           original_price_cents?: number | null
           slug?: string
           sort_order?: number
+          stripe_price_key?: string | null
           title?: string
           year?: string | null
         }
@@ -150,6 +153,7 @@ export type Database = {
           price_cents: number
           prodigi_sku: string | null
           sort_order: number
+          stripe_price_key: string | null
         }
         Insert: {
           artwork_id: string
@@ -160,6 +164,7 @@ export type Database = {
           price_cents: number
           prodigi_sku?: string | null
           sort_order?: number
+          stripe_price_key?: string | null
         }
         Update: {
           artwork_id?: string
@@ -170,6 +175,7 @@ export type Database = {
           price_cents?: number
           prodigi_sku?: string | null
           sort_order?: number
+          stripe_price_key?: string | null
         }
         Relationships: [
           {
