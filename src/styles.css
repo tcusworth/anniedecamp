@@ -841,7 +841,7 @@
 .ct-buy-panel {
   margin-top: 14px;
   border-top: 1px solid rgba(0, 0, 0, 0.12);
-  animation: ctFadeUp 420ms cubic-bezier(0.22, 0.61, 0.36, 1) both;
+  animation: ct-rise-in 420ms cubic-bezier(0.22, 0.61, 0.36, 1) both;
 }
 .ct-buy-row {
   display: flex;
@@ -889,7 +889,7 @@
   z-index: 200;
   background: rgba(255, 255, 255, 0.96);
   overflow-y: auto;
-  animation: ctFade 300ms ease-out both;
+  animation: ct-overlay-in 300ms ease-out both;
 }
 .ct-checkout-panel { max-width: 760px; margin: 0 auto; padding: 0 20px 60px; }
 .ct-checkout-bar {
@@ -915,7 +915,7 @@
 }
 .ct-checkout-body { min-height: 60vh; }
 
-@keyframes ctFade { from { opacity: 0; } to { opacity: 1; } }
+@keyframes ct-overlay-in { from { opacity: 0; } to { opacity: 1; } }
 @media (prefers-reduced-motion: reduce) {
   .ct-buy-panel, .ct-checkout-overlay { animation: none; }
 }
