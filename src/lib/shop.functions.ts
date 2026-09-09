@@ -66,18 +66,18 @@ export const listArtworks = createServerFn({ method: "GET" }).handler(
 
 type CheckoutResult = { clientSecret: string } | { error: string };
 
-export const createArtworkCheckout = createServerFn({ method: "POST" })
+const UUID = /^[0-9a-fA-F-]{36}$/;
+
+type CartLine = { artworkId: string; printOptionId?: string | null; quantity?: number };
+
+export const createCartCheckout = createServerFn({ method: "POST" })
   .inputValidator(
-    (data: {
-      artworkId: string;
-      printOptionId?: string | null;
-      quantity?: number;
-      returnUrl: string;
-      environment: StripeEnv;
-    }) => {
-      if (!/^[0-9a-fA-F-]{36}$/.test(data.artworkId)) throw new Error("Invalid artwork");
-      if (data.printOptionId && !/^[0-9a-fA-F-]{36}$/.test(data.printOptionId)) {
-        throw new Error("Invalid option");
+    (data: { items: CartLine[]; returnUrl: string; environment: StripeEnv }) => {
+      if (!Array.isArray(data.items) || data.items.length === 0) throw new Error("Cart is empty");
+      if (data.items.length > 20) throw new Error("Too many items");
+      for (const item of data.items) {
+        if (!UUID.test(item.artworkId)) throw new Error("Invalid artwork");
+        if (item.printOptionId && !UUID.test(item.printOptionId)) throw new Error("Invalid option");
       }
       return data;
     },
@@ -85,66 +85,77 @@ export const createArtworkCheckout = createServerFn({ method: "POST" })
   .handler(async ({ data }): Promise<CheckoutResult> => {
     try {
       const supabase = publicClient();
-      const { data: artwork, error } = await supabase
+      const artworkIds = [...new Set(data.items.map((i) => i.artworkId))];
+      const optionIds = data.items.map((i) => i.printOptionId).filter(Boolean) as string[];
+
+      const { data: artworks, error } = await supabase
         .from("artworks")
-        .select(
-          "id, title, year, medium, dimensions, image_url, original_price_cents, original_available, stripe_price_key",
-        )
-        .eq("id", data.artworkId)
-        .maybeSingle();
+        .select("id, title, original_price_cents, original_available, stripe_price_key")
+        .in("id", artworkIds);
       if (error) throw new Error(error.message);
-      if (!artwork) return { error: "That work could not be found." };
 
-      let label: string;
-      let priceKey: string | null;
-      let kind: "original" | "print";
-      let quantity = 1;
-
-      if (data.printOptionId) {
-        const { data: option } = await supabase
+      let options: any[] = [];
+      if (optionIds.length) {
+        const { data: opts, error: optError } = await supabase
           .from("print_options")
-          .select("id, label, price_cents, artwork_id, stripe_price_key")
-          .eq("id", data.printOptionId)
-          .maybeSingle();
-        if (!option || option.artwork_id !== artwork.id) {
-          return { error: "That option is no longer available." };
-        }
-        kind = "print";
-        label = `${artwork.title} — ${option.label}`;
-        priceKey = (option.stripe_price_key as string | null) ?? null;
-        quantity = Math.min(Math.max(data.quantity ?? 1, 1), 10);
-      } else {
-        if (!artwork.original_available || !artwork.original_price_cents) {
-          return { error: "This original has already sold." };
-        }
-        kind = "original";
-        label = `${artwork.title} (original)`;
-        priceKey = (artwork.stripe_price_key as string | null) ?? null;
+          .select("id, label, artwork_id, stripe_price_key")
+          .in("id", optionIds);
+        if (optError) throw new Error(optError.message);
+        options = opts ?? [];
       }
 
-      if (!priceKey) return { error: "This item is not available for purchase yet." };
-
+      const lineItems: { price: string; quantity: number }[] = [];
+      const labels: string[] = [];
       const stripe = createStripeClient(data.environment);
-      const prices = await stripe.prices.list({ lookup_keys: [priceKey] });
-      if (!prices.data.length) return { error: "This item is not available for purchase yet." };
-      const stripePrice = prices.data[0]!;
+
+      for (const item of data.items) {
+        const artwork = (artworks ?? []).find((a) => a.id === item.artworkId);
+        if (!artwork) return { error: "One of the items could not be found." };
+
+        let priceKey: string | null;
+        let quantity = 1;
+        let label: string;
+
+        if (item.printOptionId) {
+          const option = options.find((o) => o.id === item.printOptionId);
+          if (!option || option.artwork_id !== artwork.id) {
+            return { error: "One of the options is no longer available." };
+          }
+          priceKey = (option.stripe_price_key as string | null) ?? null;
+          label = `${artwork.title} — ${option.label}`;
+          quantity = Math.min(Math.max(item.quantity ?? 1, 1), 10);
+        } else {
+          if (!artwork.original_available || !artwork.original_price_cents) {
+            return { error: `${artwork.title} has already sold.` };
+          }
+          priceKey = (artwork.stripe_price_key as string | null) ?? null;
+          label = `${artwork.title} (original)`;
+        }
+
+        if (!priceKey) return { error: "One of the items is not available for purchase yet." };
+        const prices = await stripe.prices.list({ lookup_keys: [priceKey] });
+        if (!prices.data.length) {
+          return { error: "One of the items is not available for purchase yet." };
+        }
+        lineItems.push({ price: prices.data[0]!.id, quantity });
+        labels.push(label);
+      }
+
+      const summary = labels.join(", ").slice(0, 480);
 
       const baseParams = {
         mode: "payment" as const,
         ui_mode: "embedded_page" as const,
         return_url: data.returnUrl,
-        line_items: [{ price: stripePrice.id, quantity }],
+        line_items: lineItems,
         shipping_address_collection: {
           allowed_countries: ["US", "CA", "GB", "IE", "FR", "DE", "IT", "ES", "NL", "AU", "NZ"],
         },
         phone_number_collection: { enabled: true },
-        payment_intent_data: { description: label },
+        payment_intent_data: { description: summary },
         metadata: {
-          artwork_id: artwork.id as string,
-          print_option_id: data.printOptionId ?? "",
-          item_kind: kind,
-          item_label: label,
-          quantity: String(quantity),
+          item_label: summary,
+          item_count: String(lineItems.length),
         },
       } as Parameters<typeof stripe.checkout.sessions.create>[0];
 

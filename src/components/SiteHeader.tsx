@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
+import { useCart } from "@/lib/cart";
 
 const MENU_ITEMS = [
   { label: "About", href: "/about" },
   { label: "Gallery", href: "/gallery" },
+  { label: "Merchandise", href: "/shop" },
   { label: "Where to see", href: "/news" },
   { label: "Contact", href: "/contact" },
 ];
@@ -19,6 +21,7 @@ function MenuIcon() {
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
+  const { count, setOpen: setCartOpen } = useCart();
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -44,6 +47,15 @@ export function SiteHeader() {
           <a href="/">Annie DeCamp</a>
         </h1>
       </div>
+
+      <button
+        type="button"
+        className="ct-cart-toggle"
+        aria-label={`Open cart, ${count} item${count === 1 ? "" : "s"}`}
+        onClick={() => setCartOpen(true)}
+      >
+        Cart{count > 0 ? ` (${count})` : ""}
+      </button>
 
       <div className={`ct-menu${open ? " is-open" : ""}`} aria-hidden={!open}>
         <div className="ct-menu-wrapper">

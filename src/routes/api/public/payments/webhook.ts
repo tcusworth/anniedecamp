@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { createClient } from "@supabase/supabase-js";
-import { type StripeEnv, verifyWebhook } from "@/lib/stripe.server";
+import { type StripeEnv, verifyWebhook, createStripeClient } from "@/lib/stripe.server";
 
 let _supabase: any = null;
 function getSupabase(): any {
@@ -59,70 +59,92 @@ async function submitToProdigi(order: Record<string, any>, session: any) {
 
 async function fulfillSession(session: any, env: StripeEnv) {
   const supabase = getSupabase();
-  const meta = session.metadata ?? {};
   const shipping = session.collected_information?.shipping_details ?? session.shipping_details;
+  const paid = session.payment_status !== "unpaid";
 
-  const { data: existing } = await supabase
-    .from("orders")
-    .select("id")
-    .eq("stripe_session_id", session.id)
-    .maybeSingle();
+  const stripe = createStripeClient(env);
+  const lineItems = await stripe.checkout.sessions.listLineItems(session.id, {
+    limit: 100,
+    expand: ["data.price"],
+  });
 
-  const record = {
+  const lookupKeys = lineItems.data
+    .map((li: any) => li.price?.lookup_key)
+    .filter(Boolean) as string[];
+
+  const { data: artworks } = await supabase
+    .from("artworks")
+    .select("id, title, image_url, stripe_price_key")
+    .in("stripe_price_key", lookupKeys.length ? lookupKeys : ["__none__"]);
+  const { data: options } = await supabase
+    .from("print_options")
+    .select("id, label, kind, artwork_id, prodigi_sku, stripe_price_key")
+    .in("stripe_price_key", lookupKeys.length ? lookupKeys : ["__none__"]);
+
+  // Rebuild the order rows for this session so repeated webhooks stay idempotent.
+  await supabase.from("orders").delete().eq("stripe_session_id", session.id);
+
+  const base = {
     stripe_session_id: session.id,
     stripe_payment_intent_id:
       typeof session.payment_intent === "string" ? session.payment_intent : null,
     environment: env,
     customer_email: session.customer_details?.email ?? null,
     customer_name: shipping?.name ?? session.customer_details?.name ?? null,
-    artwork_id: meta.artwork_id || null,
-    print_option_id: meta.print_option_id || null,
-    item_kind: meta.item_kind || "original",
-    item_label: meta.item_label || "Artwork",
-    quantity: Number(meta.quantity ?? 1),
-    amount_cents: session.amount_total ?? 0,
     currency: session.currency ?? "usd",
     shipping_address: shipping ?? session.customer_details ?? null,
-    status: session.payment_status === "unpaid" ? "pending" : "paid",
+    status: paid ? "paid" : "pending",
     updated_at: new Date().toISOString(),
   };
 
-  const { data: saved } = existing
-    ? await supabase.from("orders").update(record).eq("id", existing["id"]).select("id").maybeSingle()
-    : await supabase.from("orders").insert(record).select("id").maybeSingle();
+  for (const li of lineItems.data as any[]) {
+    const key = li.price?.lookup_key as string | undefined;
+    const option = (options ?? []).find((o: any) => o.stripe_price_key === key);
+    const artwork = option
+      ? { id: option.artwork_id }
+      : (artworks ?? []).find((a: any) => a.stripe_price_key === key);
+    if (!artwork) continue;
 
-  if (record.status !== "paid" || !saved) return;
+    const kind = option ? (option.kind === "merchandise" ? "merchandise" : "print") : "original";
+    const quantity = li.quantity ?? 1;
 
-  if (record.item_kind === "original" && record.artwork_id) {
-    await supabase
-      .from("artworks")
-      .update({ original_available: false })
-      .eq("id", record.artwork_id);
-    await supabase
+    const { data: saved } = await supabase
       .from("orders")
-      .update({ fulfillment_status: "awaiting_shipment" })
-      .eq("id", saved["id"]);
-    return;
-  }
-
-  if (record.print_option_id && record.artwork_id) {
-    const { data: option } = await supabase
-      .from("print_options")
-      .select("prodigi_sku")
-      .eq("id", record.print_option_id)
+      .insert({
+        ...base,
+        artwork_id: artwork.id,
+        print_option_id: option?.id ?? null,
+        item_kind: kind,
+        item_label: li.description ?? "Artwork",
+        quantity,
+        amount_cents: li.amount_total ?? 0,
+      })
+      .select("id")
       .maybeSingle();
-    const { data: artwork } = await supabase
+
+    if (!paid || !saved) continue;
+
+    if (kind === "original") {
+      await supabase.from("artworks").update({ original_available: false }).eq("id", artwork.id);
+      await supabase
+        .from("orders")
+        .update({ fulfillment_status: "awaiting_shipment" })
+        .eq("id", saved["id"]);
+      continue;
+    }
+
+    const { data: art } = await supabase
       .from("artworks")
       .select("image_url")
-      .eq("id", record.artwork_id)
+      .eq("id", artwork.id)
       .maybeSingle();
 
     const prodigiOrderId = await submitToProdigi(
       {
         id: saved["id"],
-        prodigi_sku: option?.["prodigi_sku"],
-        quantity: record.quantity,
-        image_url: artwork?.["image_url"],
+        prodigi_sku: option?.prodigi_sku,
+        quantity,
+        image_url: art?.["image_url"],
       },
       session,
     );
