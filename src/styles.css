@@ -817,6 +817,48 @@
   .ct-gallery { grid-template-columns: 1fr; gap: 36px; }
   .ct-where-row { grid-template-columns: 1fr; gap: 10px; padding: 18px 0; }
   .ct-where-kind { text-align: left; }
+  .ct-press-row { grid-template-columns: 1fr; gap: 10px; padding: 18px 0; }
+}
+
+/* Press listing */
+.ct-press-row {
+  display: grid;
+  grid-template-columns: 200px 1fr 200px;
+  gap: 20px;
+  padding: 22px 0;
+  border-bottom: 1px solid #000;
+  animation: ct-rise-in 0.5s ease-out both;
+  animation-delay: calc(var(--i) * 0.08s);
+  transition: background 0.3s ease-out, color 0.3s ease-out;
+}
+.ct-press-row:hover {
+  background: #000;
+  color: #fff;
+}
+.ct-press-main {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.ct-press-main strong {
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  line-height: 1.35;
+}
+.ct-press-excerpt {
+  font-size: 14px;
+  line-height: 23px;
+  letter-spacing: 0.02em;
+  opacity: 0.8;
+}
+.ct-press-link {
+  align-self: flex-start;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
 @media (prefers-reduced-motion: reduce) {
   .ct-work, .ct-where-row { animation: none; }
