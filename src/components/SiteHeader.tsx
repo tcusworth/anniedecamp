@@ -46,15 +46,16 @@ export function SiteHeader() {
         <h1 className="ct-wordmark">
           <a href="/">Annie DeCamp</a>
         </h1>
-        <button
-          type="button"
-          className="ct-cart-toggle"
-          aria-label={`Open cart, ${count} item${count === 1 ? "" : "s"}`}
-          onClick={() => setCartOpen(true)}
-        >
-          Cart{count > 0 ? ` (${count})` : ""}
-        </button>
       </div>
+
+      <button
+        type="button"
+        className="ct-cart-toggle"
+        aria-label={`Open cart, ${count} item${count === 1 ? "" : "s"}`}
+        onClick={() => setCartOpen(true)}
+      >
+        Cart{count > 0 ? ` (${count})` : ""}
+      </button>
 
       <div className={`ct-menu${open ? " is-open" : ""}`} aria-hidden={!open}>
         <div className="ct-menu-wrapper">
