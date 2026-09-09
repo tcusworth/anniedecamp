@@ -726,16 +726,6 @@
   pointer-events: none;
   box-shadow: 0 0 0 1px #000;
 }
-.ct-work-frame::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 4;
-}
-.ct-work:not(:has(.ct-work-sold)) .ct-work-frame::after {
-  display: none;
-}
 .ct-work-frame img {
   display: block;
   width: 100%;
