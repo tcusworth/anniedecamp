@@ -922,7 +922,10 @@
 
 /* ---- Cart ---- */
 .ct-cart-toggle {
-  margin-left: auto;
+  position: fixed;
+  top: 42px;
+  right: 32px;
+  z-index: 301;
   background: transparent;
   border: none;
   font: inherit;
@@ -1044,6 +1047,9 @@
 .ct-cart-checkout:disabled { opacity: 0.35; cursor: default; }
 .ct-buy-row button:disabled { opacity: 0.45; cursor: default; }
 
+@media (max-width: 900px) {
+  .ct-cart-toggle { top: 28px; right: auto; left: 16px; }
+}
 @media (prefers-reduced-motion: reduce) {
   .ct-cart-panel, .ct-cart-scrim { animation: none; }
 }
