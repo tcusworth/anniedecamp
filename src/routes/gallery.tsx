@@ -58,6 +58,11 @@ function GalleryPage() {
                     width={1200}
                     height={900}
                   />
+                  {!w.original_available && (
+                    <span className="ct-work-sold" aria-label="Original sold">
+                      Sold
+                    </span>
+                  )}
                 </div>
                 <figcaption>
                   <span className="ct-work-title">{w.title}</span>
