@@ -984,7 +984,7 @@
 .ct-press-anchor {
   grid-column: 7 / span 6;
   display: flex;
-  align-items: baseline;
+  align-items: flex-start;
   gap: 24px;
 }
 .ct-press-num {
