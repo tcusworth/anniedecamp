@@ -88,31 +88,31 @@ function PressPage() {
           mixed-media practice. Links open the original coverage.
         </p>
 
-        <section className="ct-where" aria-label="Press features">
+        <section className="ct-press-section" aria-label="Press features">
           <h3 className="ct-where-heading">Features & reviews</h3>
-          <ul className="ct-where-list">
+          <ul className="ct-press-grid">
             {PRESS.map((item, i) => (
               <li
                 key={`${item.outlet}-${i}`}
-                className="ct-press-row"
+                className="ct-press-card"
                 style={{ ["--i" as string]: String(i) }}
               >
-                <span className="ct-where-dates">{item.date}</span>
-                <span className="ct-press-main">
-                  <strong>
-                    {item.outlet} — {item.headline}
-                  </strong>
-                  <span className="ct-press-excerpt">{item.excerpt}</span>
-                  <a
-                    className="ct-press-link"
-                    href={item.href}
-                    target={item.href.startsWith("http") ? "_blank" : undefined}
-                    rel={item.href.startsWith("http") ? "noreferrer" : undefined}
-                  >
-                    Read the {item.kind.toLowerCase()}
-                  </a>
-                </span>
-                <span className="ct-where-kind">{item.kind}</span>
+                <div className="ct-press-card-meta">
+                  <span className="ct-where-dates">{item.date}</span>
+                  <span className="ct-where-kind">{item.kind}</span>
+                </div>
+                <strong className="ct-press-card-title">
+                  {item.outlet} — {item.headline}
+                </strong>
+                <span className="ct-press-excerpt">{item.excerpt}</span>
+                <a
+                  className="ct-press-link"
+                  href={item.href}
+                  target={item.href.startsWith("http") ? "_blank" : undefined}
+                  rel={item.href.startsWith("http") ? "noreferrer" : undefined}
+                >
+                  Read the {item.kind.toLowerCase()}
+                </a>
               </li>
             ))}
           </ul>
