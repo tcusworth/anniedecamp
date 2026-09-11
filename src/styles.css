@@ -516,8 +516,38 @@
 }
 
 .ct-bio {
-  max-width: 640px;
+  max-width: 960px;
   margin: 0 0 80px;
+  display: grid;
+  grid-template-columns: minmax(0, 320px) minmax(0, 1fr);
+  gap: 48px;
+  align-items: start;
+}
+.ct-bio-portrait {
+  margin: 0;
+  position: sticky;
+  top: 120px;
+}
+.ct-bio-portrait img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.ct-bio-portrait figcaption {
+  margin-top: 10px;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #666;
+}
+@media (max-width: 900px) {
+  .ct-bio {
+    grid-template-columns: 1fr;
+  }
+  .ct-bio-portrait {
+    position: static;
+    max-width: 420px;
+  }
 }
 .ct-bio-para {
   margin: 0 0 24px;

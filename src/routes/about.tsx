@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
+import portrait from "@/assets/annie-decamp-portrait.webp.asset.json";
 
 const title = "About — Annie DeCamp";
 const description =
@@ -45,11 +46,20 @@ function AboutPage() {
         <h2 className="ct-page-title">About</h2>
 
         <section className="ct-bio" aria-label="Biography">
-          {PARAGRAPHS.map((p, i) => (
-            <p key={i} className="ct-bio-para" style={{ ["--i" as string]: String(i) }}>
-              {p}
-            </p>
-          ))}
+          <figure className="ct-bio-portrait">
+            <img
+              src={portrait.url}
+              alt="Annie DeCamp in her Aspen studio, standing before one of her paintings"
+            />
+            <figcaption>Annie DeCamp in the studio</figcaption>
+          </figure>
+          <div className="ct-bio-text">
+            {PARAGRAPHS.map((p, i) => (
+              <p key={i} className="ct-bio-para" style={{ ["--i" as string]: String(i) }}>
+                {p}
+              </p>
+            ))}
+          </div>
         </section>
 
         <section className="ct-strip" aria-label="Venues">
