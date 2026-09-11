@@ -942,8 +942,11 @@
 }
 .ct-press-wide-cta {
   display: flex;
-  align-items: flex-end;
+  align-items: stretch;
   justify-content: flex-end;
+}
+.ct-press-wide-text .ct-press-btn {
+  margin-top: 28px;
 }
 .ct-press-btn {
   display: inline-block;
