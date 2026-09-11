@@ -17,11 +17,11 @@ export const Route = createFileRoute("/")({
       { name: "twitter:card", content: "summary_large_image" },
       {
         property: "og:image",
-        content: "https://www.clairetabouret.com/files/media_high_953.jpg",
+        content: "/__l5e/assets-v1/538cd2e7-f081-452f-830f-2b4063a35140/Mexico_oil_on_panel_18x24.jpg",
       },
       {
         name: "twitter:image",
-        content: "https://www.clairetabouret.com/files/media_high_953.jpg",
+        content: "/__l5e/assets-v1/538cd2e7-f081-452f-830f-2b4063a35140/Mexico_oil_on_panel_18x24.jpg",
       },
     ],
   }),
