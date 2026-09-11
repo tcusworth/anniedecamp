@@ -540,6 +540,9 @@
   text-transform: uppercase;
   color: #666;
 }
+.ct-bio-portrait-2 {
+  margin-top: 32px;
+}
 @media (max-width: 900px) {
   .ct-bio {
     grid-template-columns: 1fr;
