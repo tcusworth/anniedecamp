@@ -817,7 +817,6 @@
   .ct-gallery { grid-template-columns: 1fr; gap: 36px; }
   .ct-where-row { grid-template-columns: 1fr; gap: 10px; padding: 18px 0; }
   .ct-where-kind { text-align: left; }
-  .ct-press-row { grid-template-columns: 1fr; gap: 10px; padding: 18px 0; }
 }
 
 /* Press listing — 2-column card grid */
