@@ -942,8 +942,11 @@
 }
 .ct-press-wide-cta {
   display: flex;
-  align-items: flex-end;
+  align-items: stretch;
   justify-content: flex-end;
+}
+.ct-press-wide-text .ct-press-btn {
+  margin-top: 28px;
 }
 .ct-press-btn {
   display: inline-block;
@@ -981,7 +984,7 @@
 .ct-press-anchor {
   grid-column: 7 / span 6;
   display: flex;
-  align-items: baseline;
+  align-items: flex-start;
   gap: 24px;
 }
 .ct-press-num {
@@ -1021,6 +1024,45 @@
 }
 .ct-press-read:hover {
   text-decoration-color: #000;
+}
+.ct-press-figure {
+  margin: 0;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.04);
+}
+.ct-press-figure img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(1) contrast(1.05);
+  transition: filter 0.5s ease-out, transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.ct-press-mag > article:hover .ct-press-figure img {
+  filter: grayscale(0);
+  transform: scale(1.03);
+}
+.ct-press-figure-lead {
+  aspect-ratio: 16 / 9;
+  margin-bottom: 8px;
+}
+.ct-press-figure-tall {
+  aspect-ratio: 4 / 5;
+}
+.ct-press-figure-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  width: 100%;
+  background: none;
+}
+.ct-press-figure-pair img {
+  aspect-ratio: 3 / 4;
+}
+.ct-press-figure-thumb {
+  width: 96px;
+  height: 96px;
+  flex: none;
 }
 .ct-press-tail {
   align-self: center;
