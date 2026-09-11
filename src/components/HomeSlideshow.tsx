@@ -1,28 +1,14 @@
 import { useEffect, useRef, useState } from "react";
+import mexicoAsset from "@/assets/Mexico_oil_on_panel_18x24.jpg.asset.json";
 
 type Slide = { src: string; caption: string; url: string; alt: string };
 
 const SLIDES: Slide[] = [
   {
-    src: "https://www.clairetabouret.com/files/media_high_953.jpg",
-    caption:
-      "Les Créatures, Almine Rech, Gstaad, Switzerland. From July 10 to September 3, 2026.",
-    url: "https://www.clairetabouret.com/en/news/",
-    alt: "Painting by Annie DeCamp shown for Les Créatures at Almine Rech, Gstaad",
-  },
-  {
-    src: "https://www.clairetabouret.com/files/media_high_935.jpg",
-    caption:
-      "Dimanche Sans Fin, Centre Pompidou-Metz, Metz, France. From May 8th 2025 to February 2nd 2027.",
-    url: "https://www.clairetabouret.com/en/news/",
-    alt: "Painting by Annie DeCamp shown for Dimanche Sans Fin at Centre Pompidou-Metz",
-  },
-  {
-    src: "https://www.clairetabouret.com/files/media_high_952.jpeg",
-    caption:
-      "Visages d’artistes, Petit Palais, Paris, France. From March 18 to July 19, 2026.",
-    url: "https://www.clairetabouret.com/en/news/",
-    alt: "Painting by Annie DeCamp shown for Visages d’artistes at the Petit Palais, Paris",
+    src: mexicoAsset.url,
+    caption: "Mexico, oil on panel, 18 × 24 in.",
+    url: "/gallery",
+    alt: "Mexico, oil on panel, 18 × 24 in. by Annie DeCamp",
   },
 ];
 

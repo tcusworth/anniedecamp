@@ -15,14 +15,6 @@ export const Route = createFileRoute("/")({
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      {
-        property: "og:image",
-        content: "https://www.clairetabouret.com/files/media_high_953.jpg",
-      },
-      {
-        name: "twitter:image",
-        content: "https://www.clairetabouret.com/files/media_high_953.jpg",
-      },
     ],
   }),
   component: Index,
