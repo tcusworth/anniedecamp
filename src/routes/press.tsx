@@ -113,6 +113,9 @@ function PressPage() {
         <div className="ct-press-mag">
           {/* Item 1: featured large */}
           <article className="ct-press-featured" style={{ ["--i" as string]: "0" }}>
+            <figure className="ct-press-figure ct-press-figure-lead">
+              <img src={franchesca.url} alt="Franchesca at Night, oil on panel, 30 × 30 in." loading="lazy" />
+            </figure>
             <span className="ct-press-date">{FEATURED.date}</span>
             <h3 className="ct-press-featured-title">
               {FEATURED.outlet}: <em>{FEATURED.headline}</em>
@@ -127,6 +130,9 @@ function PressPage() {
             <h3 className="ct-press-side-title">
               {SIDE.outlet}: <em>{SIDE.headline}</em>
             </h3>
+            <figure className="ct-press-figure ct-press-figure-tall">
+              <img src={sideEye.url} alt="17th Century Side Eye, oil on canvas, 24 × 18 in." loading="lazy" />
+            </figure>
             <p className="ct-press-note">{SIDE.excerpt}</p>
           </article>
 
@@ -138,8 +144,6 @@ function PressPage() {
               <p className="ct-press-wide-lede">
                 {WIDE.headline} — {WIDE.excerpt}
               </p>
-            </div>
-            <div className="ct-press-wide-cta">
               <a
                 className="ct-press-btn"
                 href={WIDE.href}
@@ -148,6 +152,12 @@ function PressPage() {
               >
                 Full interview
               </a>
+            </div>
+            <div className="ct-press-wide-cta">
+              <figure className="ct-press-figure ct-press-figure-pair">
+                <img src={meadow.url} alt="In the Meadow, oil on panel, 30 × 24 in." loading="lazy" />
+                <img src={vincent.url} alt="Vincent, oil on paper, 24 × 32 in." loading="lazy" />
+              </figure>
             </div>
           </article>
 
@@ -163,7 +173,9 @@ function PressPage() {
 
           {/* Item 5: offset anchor */}
           <article className="ct-press-anchor" style={{ ["--i" as string]: "4" }}>
-            <span className="ct-press-num" aria-hidden="true">05</span>
+            <figure className="ct-press-figure ct-press-figure-thumb">
+              <img src={pansies.url} alt="Pansies, oil on panel, 14 × 16 in." loading="lazy" />
+            </figure>
             <div className="ct-press-anchor-text">
               <span className="ct-press-date">{ANCHOR.date}</span>
               <h3 className="ct-press-anchor-title">{ANCHOR.outlet}</h3>
