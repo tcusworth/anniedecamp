@@ -15,14 +15,6 @@ export const Route = createFileRoute("/")({
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      {
-        property: "og:image",
-        content: "/__l5e/assets-v1/538cd2e7-f081-452f-830f-2b4063a35140/Mexico_oil_on_panel_18x24.jpg",
-      },
-      {
-        name: "twitter:image",
-        content: "/__l5e/assets-v1/538cd2e7-f081-452f-830f-2b4063a35140/Mexico_oil_on_panel_18x24.jpg",
-      },
     ],
   }),
   component: Index,
