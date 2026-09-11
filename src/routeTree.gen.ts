@@ -16,6 +16,7 @@ import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as NewsRouteImport } from './routes/news'
 import { Route as PressRouteImport } from './routes/press'
 import { Route as ShopRouteImport } from './routes/shop'
+import { Route as StudioRouteImport } from './routes/studio'
 import { Route as CheckoutReturnRouteImport } from './routes/checkout.return'
 import { Route as ApiPublicPaymentsWebhookRouteImport } from './routes/api/public/payments/webhook'
 
@@ -54,6 +55,11 @@ const ShopRoute = ShopRouteImport.update({
   path: '/shop',
   getParentRoute: () => rootRouteImport,
 } as any)
+const StudioRoute = StudioRouteImport.update({
+  id: '/studio',
+  path: '/studio',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CheckoutReturnRoute = CheckoutReturnRouteImport.update({
   id: '/checkout/return',
   path: '/checkout/return',
@@ -74,6 +80,7 @@ export interface FileRoutesByFullPath {
   '/news': typeof NewsRoute
   '/press': typeof PressRoute
   '/shop': typeof ShopRoute
+  '/studio': typeof StudioRoute
   '/checkout/return': typeof CheckoutReturnRoute
   '/api/public/payments/webhook': typeof ApiPublicPaymentsWebhookRoute
 }
@@ -85,6 +92,7 @@ export interface FileRoutesByTo {
   '/news': typeof NewsRoute
   '/press': typeof PressRoute
   '/shop': typeof ShopRoute
+  '/studio': typeof StudioRoute
   '/checkout/return': typeof CheckoutReturnRoute
   '/api/public/payments/webhook': typeof ApiPublicPaymentsWebhookRoute
 }
@@ -97,6 +105,7 @@ export interface FileRoutesById {
   '/news': typeof NewsRoute
   '/press': typeof PressRoute
   '/shop': typeof ShopRoute
+  '/studio': typeof StudioRoute
   '/checkout/return': typeof CheckoutReturnRoute
   '/api/public/payments/webhook': typeof ApiPublicPaymentsWebhookRoute
 }
@@ -110,6 +119,7 @@ export interface FileRouteTypes {
     | '/news'
     | '/press'
     | '/shop'
+    | '/studio'
     | '/checkout/return'
     | '/api/public/payments/webhook'
   fileRoutesByTo: FileRoutesByTo
@@ -121,6 +131,7 @@ export interface FileRouteTypes {
     | '/news'
     | '/press'
     | '/shop'
+    | '/studio'
     | '/checkout/return'
     | '/api/public/payments/webhook'
   id:
@@ -132,6 +143,7 @@ export interface FileRouteTypes {
     | '/news'
     | '/press'
     | '/shop'
+    | '/studio'
     | '/checkout/return'
     | '/api/public/payments/webhook'
   fileRoutesById: FileRoutesById
@@ -144,6 +156,7 @@ export interface RootRouteChildren {
   NewsRoute: typeof NewsRoute
   PressRoute: typeof PressRoute
   ShopRoute: typeof ShopRoute
+  StudioRoute: typeof StudioRoute
   CheckoutReturnRoute: typeof CheckoutReturnRoute
   ApiPublicPaymentsWebhookRoute: typeof ApiPublicPaymentsWebhookRoute
 }
@@ -199,6 +212,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ShopRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/studio': {
+      id: '/studio'
+      path: '/studio'
+      fullPath: '/studio'
+      preLoaderRoute: typeof StudioRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/checkout/return': {
       id: '/checkout/return'
       path: '/checkout/return'
@@ -224,6 +244,7 @@ const rootRouteChildren: RootRouteChildren = {
   NewsRoute: NewsRoute,
   PressRoute: PressRoute,
   ShopRoute: ShopRoute,
+  StudioRoute: StudioRoute,
   CheckoutReturnRoute: CheckoutReturnRoute,
   ApiPublicPaymentsWebhookRoute: ApiPublicPaymentsWebhookRoute,
 }

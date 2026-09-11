@@ -6,6 +6,7 @@ const MENU_ITEMS = [
   { label: "Gallery", href: "/gallery" },
   { label: "Merchandise", href: "/shop" },
   { label: "Where to see", href: "/news" },
+  { label: "Studio", href: "/studio" },
   { label: "Press", href: "/press" },
   { label: "Contact", href: "/contact" },
 ];
