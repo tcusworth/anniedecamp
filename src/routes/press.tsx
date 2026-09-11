@@ -1,6 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
+import franchesca from "@/assets/Franchesca_at_Night_oil_on_panel_framed_30x30.jpg.asset.json";
+import sideEye from "@/assets/17th_Century_Side_Eye_oil_on_canvas_framed_24x18.jpg.asset.json";
+import meadow from "@/assets/In_the_Meadow_oil_on_panel_30x24.jpg.asset.json";
+import vincent from "@/assets/Vincent_oil_on_paper_24x32.jpg.asset.json";
+import pansies from "@/assets/Pansies_oil_on_panel_14x16.jpg.asset.json";
 
 const title = "Press — Annie DeCamp";
 const description =
