@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
+import portrait from "@/assets/annie-decamp-portrait.webp.asset.json";
 
 const title = "About — Annie DeCamp";
 const description =
