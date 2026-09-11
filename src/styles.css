@@ -890,7 +890,7 @@
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  .ct-work, .ct-where-row { animation: none; }
+  .ct-work, .ct-where-row, .ct-press-card { animation: none; }
   .ct-work-frame img { transition: none; }
 }
 
