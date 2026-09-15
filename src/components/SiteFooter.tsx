@@ -53,7 +53,7 @@ export function SiteFooter() {
         </ul>
 
         <p className="ct-sitefooter-copy">
-          © {new Date().getFullYear()} Annie DeCamp. All rights reserved.
+          © {new Date().getFullYear()} Annie Decamp. All rights reserved.
         </p>
       </div>
     </footer>

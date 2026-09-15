@@ -5,8 +5,8 @@ import { SiteFooter } from "@/components/SiteFooter";
 import { getOrderStatus, type OrderSummary } from "@/lib/shop.functions";
 import { getStripeEnvironment } from "@/lib/stripe";
 
-const title = "Order confirmation — Annie DeCamp";
-const description = "Confirmation for your purchase from the studio of Annie DeCamp.";
+const title = "Order confirmation — Annie Decamp";
+const description = "Confirmation for your purchase from the studio of Annie Decamp.";
 
 export const Route = createFileRoute("/checkout/return")({
   head: () => ({

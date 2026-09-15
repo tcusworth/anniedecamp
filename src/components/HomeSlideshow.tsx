@@ -8,7 +8,7 @@ const SLIDES: Slide[] = [
     src: mexicoAsset.url,
     caption: "Mexico, oil on panel, 18 × 24 in.",
     url: "/gallery",
-    alt: "Mexico, oil on panel, 18 × 24 in. by Annie DeCamp",
+    alt: "Mexico, oil on panel, 18 × 24 in. by Annie Decamp",
   },
 ];
 

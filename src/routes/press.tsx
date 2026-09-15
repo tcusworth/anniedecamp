@@ -7,9 +7,9 @@ import meadow from "@/assets/In_the_Meadow_oil_on_panel_30x24.jpg.asset.json";
 import vincent from "@/assets/Vincent_oil_on_paper_24x32.jpg.asset.json";
 import pansies from "@/assets/Pansies_oil_on_panel_14x16.jpg.asset.json";
 
-const title = "Press — Annie DeCamp";
+const title = "Press — Annie Decamp";
 const description =
-  "Selected features, reviews, and interviews on Annie DeCamp and her mixed-media practice.";
+  "Selected features, reviews, and interviews on Annie Decamp and her mixed-media practice.";
 
 export const Route = createFileRoute("/press")({
   head: () => ({
@@ -36,7 +36,7 @@ type PressItem = {
 
 const FEATURED: PressItem = {
   outlet: "Aspen Times",
-  headline: "Annie DeCamp charts the space between history and now",
+  headline: "Annie Decamp charts the space between history and now",
   date: "August 2026",
   kind: "Feature",
   excerpt:
@@ -50,7 +50,7 @@ const SIDE: PressItem = {
   date: "Spring 2026",
   kind: "Review",
   excerpt:
-    "DeCamp's large-scale commission at Denver Union Station honours a pioneering preservationist — a study in public memory and civic portraiture.",
+    "Decamp's large-scale commission at Denver Union Station honours a pioneering preservationist — a study in public memory and civic portraiture.",
   href: "#",
 };
 
@@ -105,7 +105,7 @@ function PressPage() {
         <header className="ct-press-head">
           <h2 className="ct-press-title">Press</h2>
           <p className="ct-press-head-note">
-            Selected features, reviews, and interviews on Annie DeCamp and her
+            Selected features, reviews, and interviews on Annie Decamp and her
             mixed-media practice. Links open the original coverage.
           </p>
         </header>

@@ -2,9 +2,9 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import { HomeSlideshow } from "@/components/HomeSlideshow";
 
-const title = "Annie DeCamp - Home";
+const title = "Annie Decamp - Home";
 const description =
-  "Annie DeCamp — official website of the artist. Works, biography, publications, press and news.";
+  "Annie Decamp — official website of the artist. Works, biography, publications, press and news.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
