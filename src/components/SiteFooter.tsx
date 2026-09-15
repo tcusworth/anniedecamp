@@ -1,7 +1,6 @@
 const LINKS = [
   { label: "About", href: "/about" },
-  { label: "Available Work", href: "/gallery#available-work" },
-  { label: "Purchased Work", href: "/gallery#purchased-work" },
+  { label: "Gallery", href: "/gallery" },
   { label: "Merchandise", href: "/shop" },
   { label: "News", href: "/news" },
   { label: "Where to see", href: "/where-to-see" },
