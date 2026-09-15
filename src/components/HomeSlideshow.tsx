@@ -1,14 +1,42 @@
 import { useEffect, useRef, useState } from "react";
-import mexicoAsset from "@/assets/Mexico_oil_on_panel_18x24.jpg.asset.json";
+import fireplaceAsset from "@/assets/home-living-room-fireplace.jpg.asset.json";
+import blueRoomAsset from "@/assets/home-blue-room-portrait.jpg.asset.json";
+import hallwayAsset from "@/assets/home-hallway-painting.jpg.asset.json";
+import diningAsset from "@/assets/home-dining-room-angel.jpg.asset.json";
+import cabinetAsset from "@/assets/home-cabinet-portrait.jpg.asset.json";
 
 type Slide = { src: string; caption: string; url: string; alt: string };
 
 const SLIDES: Slide[] = [
   {
-    src: mexicoAsset.url,
-    caption: "Mexico, oil on panel, 18 × 24 in.",
+    src: fireplaceAsset.url,
+    caption: "Annie Decamp — works in the home",
     url: "/gallery",
-    alt: "Mexico, oil on panel, 18 × 24 in. by Annie Decamp",
+    alt: "Annie Decamp painting displayed above a fireplace in a living room",
+  },
+  {
+    src: blueRoomAsset.url,
+    caption: "Annie Decamp — works in the home",
+    url: "/gallery",
+    alt: "Annie Decamp portrait painting hung on a deep blue wall above a settee",
+  },
+  {
+    src: hallwayAsset.url,
+    caption: "Annie Decamp — works in the home",
+    url: "/gallery",
+    alt: "Annie Decamp colorful painting of a man in a hat displayed in a hallway",
+  },
+  {
+    src: diningAsset.url,
+    caption: "Annie Decamp — works in the home",
+    url: "/gallery",
+    alt: "Annie Decamp painting of an angelic figure on a dining room wall",
+  },
+  {
+    src: cabinetAsset.url,
+    caption: "Annie Decamp — works in the home",
+    url: "/gallery",
+    alt: "Annie Decamp portrait painting of a woman in a headscarf resting on a cabinet",
   },
 ];
 
@@ -67,7 +95,7 @@ export function HomeSlideshow() {
 
       <div className="ct-description">
         <h3 key={active.caption}>{active.caption}</h3>
-        <a href="/contact" className="ct-read-more">
+        <a href="/gallery" className="ct-read-more">
           More information
         </a>
       </div>
