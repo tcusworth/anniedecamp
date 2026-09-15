@@ -205,6 +205,8 @@ function StudioPage() {
               </a>
             </div>
             <div className="ct-press-wide-cta">
+              <h4 className="ct-form-title">Send an enquiry</h4>
+              <InquiryForm />
               <figure className="ct-press-figure ct-press-figure-thumb">
                 <img src={pansies.url} alt="Pansies, oil on panel, 14 × 16 in." loading="lazy" />
               </figure>
