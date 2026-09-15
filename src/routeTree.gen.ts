@@ -13,10 +13,10 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as GalleryRouteImport } from './routes/gallery'
-import { Route as NewsRouteImport } from './routes/news'
 import { Route as PressRouteImport } from './routes/press'
 import { Route as ShopRouteImport } from './routes/shop'
 import { Route as StudioRouteImport } from './routes/studio'
+import { Route as WhereToSeeRouteImport } from './routes/where-to-see'
 import { Route as CheckoutReturnRouteImport } from './routes/checkout.return'
 import { Route as ApiPublicPaymentsWebhookRouteImport } from './routes/api/public/payments/webhook'
 
@@ -40,11 +40,6 @@ const GalleryRoute = GalleryRouteImport.update({
   path: '/gallery',
   getParentRoute: () => rootRouteImport,
 } as any)
-const NewsRoute = NewsRouteImport.update({
-  id: '/news',
-  path: '/news',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const PressRoute = PressRouteImport.update({
   id: '/press',
   path: '/press',
@@ -58,6 +53,11 @@ const ShopRoute = ShopRouteImport.update({
 const StudioRoute = StudioRouteImport.update({
   id: '/studio',
   path: '/studio',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WhereToSeeRoute = WhereToSeeRouteImport.update({
+  id: '/where-to-see',
+  path: '/where-to-see',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CheckoutReturnRoute = CheckoutReturnRouteImport.update({
@@ -77,10 +77,10 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/gallery': typeof GalleryRoute
-  '/news': typeof NewsRoute
   '/press': typeof PressRoute
   '/shop': typeof ShopRoute
   '/studio': typeof StudioRoute
+  '/where-to-see': typeof WhereToSeeRoute
   '/checkout/return': typeof CheckoutReturnRoute
   '/api/public/payments/webhook': typeof ApiPublicPaymentsWebhookRoute
 }
@@ -89,10 +89,10 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/gallery': typeof GalleryRoute
-  '/news': typeof NewsRoute
   '/press': typeof PressRoute
   '/shop': typeof ShopRoute
   '/studio': typeof StudioRoute
+  '/where-to-see': typeof WhereToSeeRoute
   '/checkout/return': typeof CheckoutReturnRoute
   '/api/public/payments/webhook': typeof ApiPublicPaymentsWebhookRoute
 }
@@ -102,10 +102,10 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/gallery': typeof GalleryRoute
-  '/news': typeof NewsRoute
   '/press': typeof PressRoute
   '/shop': typeof ShopRoute
   '/studio': typeof StudioRoute
+  '/where-to-see': typeof WhereToSeeRoute
   '/checkout/return': typeof CheckoutReturnRoute
   '/api/public/payments/webhook': typeof ApiPublicPaymentsWebhookRoute
 }
@@ -116,10 +116,10 @@ export interface FileRouteTypes {
     | '/about'
     | '/contact'
     | '/gallery'
-    | '/news'
     | '/press'
     | '/shop'
     | '/studio'
+    | '/where-to-see'
     | '/checkout/return'
     | '/api/public/payments/webhook'
   fileRoutesByTo: FileRoutesByTo
@@ -128,10 +128,10 @@ export interface FileRouteTypes {
     | '/about'
     | '/contact'
     | '/gallery'
-    | '/news'
     | '/press'
     | '/shop'
     | '/studio'
+    | '/where-to-see'
     | '/checkout/return'
     | '/api/public/payments/webhook'
   id:
@@ -140,10 +140,10 @@ export interface FileRouteTypes {
     | '/about'
     | '/contact'
     | '/gallery'
-    | '/news'
     | '/press'
     | '/shop'
     | '/studio'
+    | '/where-to-see'
     | '/checkout/return'
     | '/api/public/payments/webhook'
   fileRoutesById: FileRoutesById
@@ -153,10 +153,10 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
   GalleryRoute: typeof GalleryRoute
-  NewsRoute: typeof NewsRoute
   PressRoute: typeof PressRoute
   ShopRoute: typeof ShopRoute
   StudioRoute: typeof StudioRoute
+  WhereToSeeRoute: typeof WhereToSeeRoute
   CheckoutReturnRoute: typeof CheckoutReturnRoute
   ApiPublicPaymentsWebhookRoute: typeof ApiPublicPaymentsWebhookRoute
 }
@@ -191,13 +191,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GalleryRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/news': {
-      id: '/news'
-      path: '/news'
-      fullPath: '/news'
-      preLoaderRoute: typeof NewsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/press': {
       id: '/press'
       path: '/press'
@@ -217,6 +210,13 @@ declare module '@tanstack/react-router' {
       path: '/studio'
       fullPath: '/studio'
       preLoaderRoute: typeof StudioRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/where-to-see': {
+      id: '/where-to-see'
+      path: '/where-to-see'
+      fullPath: '/where-to-see'
+      preLoaderRoute: typeof WhereToSeeRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/checkout/return': {
@@ -241,10 +241,10 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
   GalleryRoute: GalleryRoute,
-  NewsRoute: NewsRoute,
   PressRoute: PressRoute,
   ShopRoute: ShopRoute,
   StudioRoute: StudioRoute,
+  WhereToSeeRoute: WhereToSeeRoute,
   CheckoutReturnRoute: CheckoutReturnRoute,
   ApiPublicPaymentsWebhookRoute: ApiPublicPaymentsWebhookRoute,
 }
