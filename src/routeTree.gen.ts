@@ -19,6 +19,7 @@ import { Route as StudioRouteImport } from './routes/studio'
 import { Route as WhereToSeeRouteImport } from './routes/where-to-see'
 import { Route as CheckoutReturnRouteImport } from './routes/checkout.return'
 import { Route as NewsIndexRouteImport } from './routes/news.index'
+import { Route as NewsSlugRouteImport } from './routes/news.$slug'
 import { Route as ApiPublicPaymentsWebhookRouteImport } from './routes/api/public/payments/webhook'
 
 const IndexRoute = IndexRouteImport.update({
@@ -71,6 +72,11 @@ const NewsIndexRoute = NewsIndexRouteImport.update({
   path: '/news/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const NewsSlugRoute = NewsSlugRouteImport.update({
+  id: '/news/$slug',
+  path: '/news/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiPublicPaymentsWebhookRoute =
   ApiPublicPaymentsWebhookRouteImport.update({
     id: '/api/public/payments/webhook',
@@ -88,6 +94,7 @@ export interface FileRoutesByFullPath {
   '/studio': typeof StudioRoute
   '/where-to-see': typeof WhereToSeeRoute
   '/checkout/return': typeof CheckoutReturnRoute
+  '/news/$slug': typeof NewsSlugRoute
   '/news/': typeof NewsIndexRoute
   '/api/public/payments/webhook': typeof ApiPublicPaymentsWebhookRoute
 }
@@ -101,6 +108,7 @@ export interface FileRoutesByTo {
   '/studio': typeof StudioRoute
   '/where-to-see': typeof WhereToSeeRoute
   '/checkout/return': typeof CheckoutReturnRoute
+  '/news/$slug': typeof NewsSlugRoute
   '/news': typeof NewsIndexRoute
   '/api/public/payments/webhook': typeof ApiPublicPaymentsWebhookRoute
 }
@@ -115,6 +123,7 @@ export interface FileRoutesById {
   '/studio': typeof StudioRoute
   '/where-to-see': typeof WhereToSeeRoute
   '/checkout/return': typeof CheckoutReturnRoute
+  '/news/$slug': typeof NewsSlugRoute
   '/news/': typeof NewsIndexRoute
   '/api/public/payments/webhook': typeof ApiPublicPaymentsWebhookRoute
 }
@@ -130,6 +139,7 @@ export interface FileRouteTypes {
     | '/studio'
     | '/where-to-see'
     | '/checkout/return'
+    | '/news/$slug'
     | '/news/'
     | '/api/public/payments/webhook'
   fileRoutesByTo: FileRoutesByTo
@@ -143,6 +153,7 @@ export interface FileRouteTypes {
     | '/studio'
     | '/where-to-see'
     | '/checkout/return'
+    | '/news/$slug'
     | '/news'
     | '/api/public/payments/webhook'
   id:
@@ -156,6 +167,7 @@ export interface FileRouteTypes {
     | '/studio'
     | '/where-to-see'
     | '/checkout/return'
+    | '/news/$slug'
     | '/news/'
     | '/api/public/payments/webhook'
   fileRoutesById: FileRoutesById
@@ -170,6 +182,7 @@ export interface RootRouteChildren {
   StudioRoute: typeof StudioRoute
   WhereToSeeRoute: typeof WhereToSeeRoute
   CheckoutReturnRoute: typeof CheckoutReturnRoute
+  NewsSlugRoute: typeof NewsSlugRoute
   NewsIndexRoute: typeof NewsIndexRoute
   ApiPublicPaymentsWebhookRoute: typeof ApiPublicPaymentsWebhookRoute
 }
@@ -246,6 +259,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof NewsIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/news/$slug': {
+      id: '/news/$slug'
+      path: '/news/$slug'
+      fullPath: '/news/$slug'
+      preLoaderRoute: typeof NewsSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/public/payments/webhook': {
       id: '/api/public/payments/webhook'
       path: '/api/public/payments/webhook'
@@ -266,6 +286,7 @@ const rootRouteChildren: RootRouteChildren = {
   StudioRoute: StudioRoute,
   WhereToSeeRoute: WhereToSeeRoute,
   CheckoutReturnRoute: CheckoutReturnRoute,
+  NewsSlugRoute: NewsSlugRoute,
   NewsIndexRoute: NewsIndexRoute,
   ApiPublicPaymentsWebhookRoute: ApiPublicPaymentsWebhookRoute,
 }
