@@ -1383,3 +1383,16 @@
 @media (prefers-reduced-motion: reduce) {
   .ct-cart-panel, .ct-cart-scrim { animation: none; }
 }
+
+/* Studio inquiry form */
+.ct-form-title { font-size: 0.78rem; letter-spacing: 0.18em; text-transform: uppercase; margin: 0 0 16px; }
+.ct-form { display: flex; flex-direction: column; gap: 14px; }
+.ct-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.ct-field { display: flex; flex-direction: column; gap: 6px; }
+.ct-field > span { font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase; opacity: 0.7; }
+.ct-field input, .ct-field textarea { font: inherit; font-size: 0.95rem; color: inherit; background: transparent; border: 1px solid rgba(0,0,0,0.25); border-radius: 0; padding: 10px 12px; transition: border-color 220ms ease-out; }
+.ct-field textarea { resize: vertical; min-height: 120px; }
+.ct-field input:focus, .ct-field textarea:focus { outline: none; border-color: currentColor; }
+.ct-form-error { font-size: 0.85rem; color: #c8202a; margin: 0; }
+.ct-form-done { display: flex; flex-direction: column; align-items: flex-start; gap: 16px; }
+@media (max-width: 700px) { .ct-form-row { grid-template-columns: 1fr; } }
