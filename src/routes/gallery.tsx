@@ -6,9 +6,9 @@ import { PaymentTestModeBanner } from "@/components/PaymentTestModeBanner";
 import { listArtworks, type Artwork } from "@/lib/shop.functions";
 import { useCart, money } from "@/lib/cart";
 
-const title = "Gallery — Annie DeCamp";
+const title = "Gallery — Annie Decamp";
 const description =
-  "Selected paintings by Annie DeCamp, available as one-of-a-kind originals and fine art prints.";
+  "Selected paintings by Annie Decamp, available as one-of-a-kind originals and fine art prints.";
 
 export const Route = createFileRoute("/gallery")({
   head: () => ({
@@ -53,7 +53,7 @@ function GalleryPage() {
                 <div className="ct-work-frame">
                   <img
                     src={w.image_url}
-                    alt={`${w.title}, ${w.medium ?? "mixed media"} by Annie DeCamp`}
+                    alt={`${w.title}, ${w.medium ?? "mixed media"} by Annie Decamp`}
                     loading="lazy"
                     width={1200}
                     height={900}

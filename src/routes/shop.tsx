@@ -5,9 +5,9 @@ import { PaymentTestModeBanner } from "@/components/PaymentTestModeBanner";
 import { listArtworks, type Artwork } from "@/lib/shop.functions";
 import { useCart, money } from "@/lib/cart";
 
-const title = "Merchandise — Annie DeCamp";
+const title = "Merchandise — Annie Decamp";
 const description =
-  "Studio merchandise by Annie DeCamp, including canvas tote bags printed with original artwork and shipped worldwide.";
+  "Studio merchandise by Annie Decamp, including canvas tote bags printed with original artwork and shipped worldwide.";
 
 export const Route = createFileRoute("/shop")({
   head: () => ({
@@ -51,7 +51,7 @@ function ShopPage() {
               <div className="ct-work-frame">
                 <img
                   src={artwork.image_url}
-                  alt={`${option.label} featuring ${artwork.title} by Annie DeCamp`}
+                  alt={`${option.label} featuring ${artwork.title} by Annie Decamp`}
                   loading="lazy"
                   width={1200}
                   height={900}

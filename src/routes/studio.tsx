@@ -5,9 +5,9 @@ import franchesca from "@/assets/Franchesca_at_Night_oil_on_panel_framed_30x30.j
 import dreamer from "@/assets/Dreamer_oil_on_canvas_18x22.jpg.asset.json";
 import pansies from "@/assets/Pansies_oil_on_panel_14x16.jpg.asset.json";
 
-const title = "Studio — Annie DeCamp";
+const title = "Studio — Annie Decamp";
 const description =
-  "Inside the studio of Annie DeCamp: biography, working process, and how to contact the studio.";
+  "Inside the studio of Annie Decamp: biography, working process, and how to contact the studio.";
 
 export const Route = createFileRoute("/studio")({
   head: () => ({
@@ -56,7 +56,7 @@ function StudioPage() {
         <header className="ct-press-head">
           <h2 className="ct-press-title">Studio</h2>
           <p className="ct-press-head-note">
-            Biography, working process, and how to reach the studio of Annie DeCamp.
+            Biography, working process, and how to reach the studio of Annie Decamp.
           </p>
         </header>
 
@@ -68,15 +68,15 @@ function StudioPage() {
             </figure>
             <span className="ct-press-date">Biography</span>
             <h3 className="ct-press-featured-title">
-              Annie DeCamp, <em>mixed-media artist</em>
+              Annie Decamp, <em>mixed-media artist</em>
             </h3>
             <span className="ct-press-rule" aria-hidden="true" />
             <p className="ct-press-note">
-              Annie DeCamp is a mixed-media artist whose work draws upon history, human
+              Annie Decamp is a mixed-media artist whose work draws upon history, human
               nature, and the natural world. Grounded in historical research and a deep
               curiosity about the relationship between people, animals, and place, her
               work moves between past and present, the joyful and the somber. An astute
-              observer of human nature, DeCamp is interested in the stories we tell about
+              observer of human nature, Decamp is interested in the stories we tell about
               ourselves — identity, memory, beauty, belonging, and the ways history
               continues to inhabit contemporary life.
             </p>
