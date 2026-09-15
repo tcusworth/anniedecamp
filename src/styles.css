@@ -724,6 +724,16 @@
 }
 
 /* ---- Gallery ---- */
+.ct-gallery-section-title {
+  margin: 72px 0 28px;
+  scroll-margin-top: 120px;
+  font-size: 24px;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  border-bottom: 1px solid #000;
+  padding-bottom: 12px;
+}
 .ct-gallery {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
