@@ -27,8 +27,6 @@ export const Route = createFileRoute("/gallery")({
 
 function GalleryPage() {
   const artworks = Route.useLoaderData();
-  const availableWorks = artworks.filter((work: Artwork) => work.original_available);
-  const purchasedWorks = artworks.filter((work: Artwork) => !work.original_available);
   const [open, setOpen] = useState<string | null>(null);
   const { add, items } = useCart();
 
