@@ -735,6 +735,9 @@
   padding-bottom: 12px;
 }
 .ct-gallery {
+  margin-bottom: 24px;
+}
+.ct-gallery-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 48px 40px;
