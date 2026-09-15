@@ -11,37 +11,37 @@ type Slide = { src: string; caption: string; url: string; alt: string };
 const SLIDES: Slide[] = [
   {
     src: fireplaceAsset.url,
-    caption: "Annie Decamp — works in the home",
+    caption: "Annie Decamp - works on display",
     url: "/gallery",
     alt: "Annie Decamp painting displayed above a fireplace in a living room",
   },
   {
     src: blueRoomAsset.url,
-    caption: "Annie Decamp — works in the home",
+    caption: "Annie Decamp - works on display",
     url: "/gallery",
     alt: "Annie Decamp portrait painting hung on a deep blue wall above a settee",
   },
   {
     src: hallwayAsset.url,
-    caption: "Annie Decamp — works in the home",
+    caption: "Annie Decamp - works on display",
     url: "/gallery",
     alt: "Annie Decamp colorful painting of a man in a hat displayed in a hallway",
   },
   {
     src: diningAsset.url,
-    caption: "Annie Decamp — works in the home",
+    caption: "Annie Decamp - works on display",
     url: "/gallery",
     alt: "Annie Decamp painting of an angelic figure on a dining room wall",
   },
   {
     src: cabinetAsset.url,
-    caption: "Annie Decamp — works in the home",
+    caption: "Annie Decamp - works on display",
     url: "/gallery",
     alt: "Annie Decamp portrait painting of a woman in a headscarf resting on a cabinet",
   },
   {
     src: hotelLobbyAsset.url,
-    caption: "Annie Decamp — works in the home",
+    caption: "Annie Decamp - works on display",
     url: "/gallery",
     alt: "Annie Decamp mixed-media portrait displayed above a wooden cabinet in a hotel lobby",
   },

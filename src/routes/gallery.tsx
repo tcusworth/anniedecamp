@@ -45,8 +45,10 @@ function GalleryPage() {
           <a href="/shop">merchandise page</a>.
         </p>
 
-        <section className="ct-gallery" aria-label="Paintings and prints">
-          {artworks.map((w: Artwork, i: number) => {
+        {(() => {
+          const availableWorks = artworks.filter((w: Artwork) => w.original_available);
+          const purchasedWorks = artworks.filter((w: Artwork) => !w.original_available);
+          const renderWork = (w: Artwork, i: number) => {
             const prints = w.print_options.filter((p) => p.kind !== "merchandise");
             return (
               <figure key={w.id} className="ct-work" style={{ ["--i" as string]: String(i) }}>
@@ -140,8 +142,28 @@ function GalleryPage() {
                 </figcaption>
               </figure>
             );
-          })}
-        </section>
+          };
+          return (
+            <>
+              {availableWorks.length > 0 && (
+                <section className="ct-gallery" aria-label="Available Works">
+                  <h3 className="ct-gallery-section-title">Available Works</h3>
+                  <div className="ct-gallery-grid">
+                    {availableWorks.map((w: Artwork, i: number) => renderWork(w, i))}
+                  </div>
+                </section>
+              )}
+              {purchasedWorks.length > 0 && (
+                <section className="ct-gallery" aria-label="Purchased Works">
+                  <h3 className="ct-gallery-section-title">Purchased Works</h3>
+                  <div className="ct-gallery-grid">
+                    {purchasedWorks.map((w: Artwork, i: number) => renderWork(w, i))}
+                  </div>
+                </section>
+              )}
+            </>
+          );
+        })()}
 
         <p className="ct-page-note">
           Shipping and any applicable sales tax are calculated at checkout. For viewing requests or
