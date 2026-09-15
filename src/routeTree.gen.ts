@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as ContactRouteImport } from './routes/contact'
@@ -18,6 +19,7 @@ import { Route as PressRouteImport } from './routes/press'
 import { Route as ShopRouteImport } from './routes/shop'
 import { Route as StudioRouteImport } from './routes/studio'
 import { Route as WhereToSeeRouteImport } from './routes/where-to-see'
+import { Route as AuthenticatedNewsAdminRouteImport } from './routes/_authenticated/news-admin'
 import { Route as CheckoutReturnRouteImport } from './routes/checkout.return'
 import { Route as NewsIndexRouteImport } from './routes/news.index'
 import { Route as NewsSlugRouteImport } from './routes/news.$slug'
@@ -26,6 +28,10 @@ import { Route as ApiPublicPaymentsWebhookRouteImport } from './routes/api/publi
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthenticatedRouteRoute = AuthenticatedRouteRouteImport.update({
+  id: '/_authenticated',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AboutRoute = AboutRouteImport.update({
@@ -68,6 +74,11 @@ const WhereToSeeRoute = WhereToSeeRouteImport.update({
   path: '/where-to-see',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AuthenticatedNewsAdminRoute = AuthenticatedNewsAdminRouteImport.update({
+  id: '/news-admin',
+  path: '/news-admin',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
 const CheckoutReturnRoute = CheckoutReturnRouteImport.update({
   id: '/checkout/return',
   path: '/checkout/return',
@@ -100,6 +111,7 @@ export interface FileRoutesByFullPath {
   '/shop': typeof ShopRoute
   '/studio': typeof StudioRoute
   '/where-to-see': typeof WhereToSeeRoute
+  '/news-admin': typeof AuthenticatedNewsAdminRoute
   '/checkout/return': typeof CheckoutReturnRoute
   '/news/$slug': typeof NewsSlugRoute
   '/news/': typeof NewsIndexRoute
@@ -115,6 +127,7 @@ export interface FileRoutesByTo {
   '/shop': typeof ShopRoute
   '/studio': typeof StudioRoute
   '/where-to-see': typeof WhereToSeeRoute
+  '/news-admin': typeof AuthenticatedNewsAdminRoute
   '/checkout/return': typeof CheckoutReturnRoute
   '/news/$slug': typeof NewsSlugRoute
   '/news': typeof NewsIndexRoute
@@ -123,6 +136,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
   '/about': typeof AboutRoute
   '/auth': typeof AuthRoute
   '/contact': typeof ContactRoute
@@ -131,6 +145,7 @@ export interface FileRoutesById {
   '/shop': typeof ShopRoute
   '/studio': typeof StudioRoute
   '/where-to-see': typeof WhereToSeeRoute
+  '/_authenticated/news-admin': typeof AuthenticatedNewsAdminRoute
   '/checkout/return': typeof CheckoutReturnRoute
   '/news/$slug': typeof NewsSlugRoute
   '/news/': typeof NewsIndexRoute
@@ -148,6 +163,7 @@ export interface FileRouteTypes {
     | '/shop'
     | '/studio'
     | '/where-to-see'
+    | '/news-admin'
     | '/checkout/return'
     | '/news/$slug'
     | '/news/'
@@ -163,6 +179,7 @@ export interface FileRouteTypes {
     | '/shop'
     | '/studio'
     | '/where-to-see'
+    | '/news-admin'
     | '/checkout/return'
     | '/news/$slug'
     | '/news'
@@ -170,6 +187,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/_authenticated'
     | '/about'
     | '/auth'
     | '/contact'
@@ -178,6 +196,7 @@ export interface FileRouteTypes {
     | '/shop'
     | '/studio'
     | '/where-to-see'
+    | '/_authenticated/news-admin'
     | '/checkout/return'
     | '/news/$slug'
     | '/news/'
@@ -186,6 +205,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AuthenticatedRouteRoute: typeof AuthenticatedRouteRouteWithChildren
   AboutRoute: typeof AboutRoute
   AuthRoute: typeof AuthRoute
   ContactRoute: typeof ContactRoute
@@ -207,6 +227,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_authenticated': {
+      id: '/_authenticated'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof AuthenticatedRouteRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/about': {
@@ -265,6 +292,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof WhereToSeeRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_authenticated/news-admin': {
+      id: '/_authenticated/news-admin'
+      path: '/news-admin'
+      fullPath: '/news-admin'
+      preLoaderRoute: typeof AuthenticatedNewsAdminRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/checkout/return': {
       id: '/checkout/return'
       path: '/checkout/return'
@@ -296,8 +330,20 @@ declare module '@tanstack/react-router' {
   }
 }
 
+interface AuthenticatedRouteRouteChildren {
+  AuthenticatedNewsAdminRoute: typeof AuthenticatedNewsAdminRoute
+}
+
+const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
+  AuthenticatedNewsAdminRoute: AuthenticatedNewsAdminRoute,
+}
+
+const AuthenticatedRouteRouteWithChildren =
+  AuthenticatedRouteRoute._addFileChildren(AuthenticatedRouteRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AuthenticatedRouteRoute: AuthenticatedRouteRouteWithChildren,
   AboutRoute: AboutRoute,
   AuthRoute: AuthRoute,
   ContactRoute: ContactRoute,
