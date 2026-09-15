@@ -4,6 +4,7 @@ import blueRoomAsset from "@/assets/home-blue-room-portrait.jpg.asset.json";
 import hallwayAsset from "@/assets/home-hallway-painting.jpg.asset.json";
 import diningAsset from "@/assets/home-dining-room-angel.jpg.asset.json";
 import cabinetAsset from "@/assets/home-cabinet-portrait.jpg.asset.json";
+import hotelLobbyAsset from "@/assets/home-hotel-lobby-painting.jpg.asset.json";
 
 type Slide = { src: string; caption: string; url: string; alt: string };
 
@@ -37,6 +38,12 @@ const SLIDES: Slide[] = [
     caption: "Annie Decamp — works in the home",
     url: "/gallery",
     alt: "Annie Decamp portrait painting of a woman in a headscarf resting on a cabinet",
+  },
+  {
+    src: hotelLobbyAsset.url,
+    caption: "Annie Decamp — works in the home",
+    url: "/gallery",
+    alt: "Annie Decamp mixed-media portrait displayed above a wooden cabinet in a hotel lobby",
   },
 ];
 
