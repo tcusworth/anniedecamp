@@ -6,7 +6,7 @@ const title = "Where to See the Work — Annie Decamp";
 const description =
   "Current and upcoming exhibitions, museum collections and permanent installations where paintings by Annie Decamp can be seen.";
 
-export const Route = createFileRoute("/news")({
+export const Route = createFileRoute("/where-to-see")({
   head: () => ({
     meta: [
       { title },
