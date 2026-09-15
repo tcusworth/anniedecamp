@@ -45,9 +45,8 @@ function GalleryPage() {
           <a href="/shop">merchandise page</a>.
         </p>
 
-        <h3 id="available-work" className="ct-gallery-section-title">Available Work</h3>
-        <section className="ct-gallery" aria-label="Available paintings and prints">
-          {availableWorks.map((w: Artwork, i: number) => {
+        <section className="ct-gallery" aria-label="Paintings and prints">
+          {artworks.map((w: Artwork, i: number) => {
             const prints = w.print_options.filter((p) => p.kind !== "merchandise");
             return (
               <figure key={w.id} className="ct-work" style={{ ["--i" as string]: String(i) }}>
