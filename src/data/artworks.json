@@ -1,0 +1,1522 @@
+[
+  {
+    "title": "Adeline",
+    "slug": "adeline",
+    "year": 0,
+    "medium": "Oil",
+    "surface": "wood panel",
+    "height": 15,
+    "width": 12,
+    "depth": 1,
+    "dim_unit": "in",
+    "dims_estimated": false,
+    "status": "sold",
+    "price": 0,
+    "price_on_request": false,
+    "published": true,
+    "featured": true,
+    "series": "",
+    "themes": [
+      "florals",
+      "humanity",
+      "figurative"
+    ],
+    "description": "",
+    "print_eligible": true,
+    "images": [
+      "/artworks/img-3689/01-main.jpeg"
+    ]
+  },
+  {
+    "title": "All the Good Things",
+    "slug": "all-the-good-things",
+    "year": 0,
+    "medium": "Oil",
+    "surface": "wood panel",
+    "height": 16,
+    "width": 24,
+    "depth": 1,
+    "dim_unit": "in",
+    "dims_estimated": true,
+    "status": "available",
+    "price": 3000,
+    "price_on_request": false,
+    "published": true,
+    "featured": true,
+    "series": "",
+    "themes": [
+      "still_life"
+    ],
+    "description": "",
+    "print_eligible": true,
+    "images": [
+      "/artworks/img-3689/01-main.jpeg"
+    ]
+  },
+  {
+    "title": "Anna",
+    "slug": "anna",
+    "year": 0,
+    "medium": "oil",
+    "surface": "wood panel",
+    "height": 14,
+    "width": 17,
+    "depth": 1,
+    "dim_unit": "in",
+    "dims_estimated": true,
+    "status": "available",
+    "price": 2400,
+    "price_on_request": false,
+    "published": true,
+    "featured": true,
+    "series": "",
+    "themes": [
+      "storytelling",
+      "humanity",
+      "figurative",
+      "portrait"
+    ],
+    "description": "This piece is part of a series of paintings that integrate figurative work with a quilt, speaking to the threads of our personal history on relationship to others.",
+    "print_eligible": false,
+    "images": [
+      "/artworks/img-3689/01-main.jpeg"
+    ]
+  },
+  {
+    "title": "Blue boots",
+    "slug": "blue-boots",
+    "year": 0,
+    "medium": "Oil",
+    "surface": "Wood panel",
+    "height": 20,
+    "width": 16,
+    "depth": 1,
+    "dim_unit": "in",
+    "dims_estimated": false,
+    "status": "sold",
+    "price": 0,
+    "price_on_request": false,
+    "published": true,
+    "featured": false,
+    "series": "",
+    "themes": [
+      "storytelling",
+      "still_life"
+    ],
+    "description": "",
+    "print_eligible": true,
+    "images": [
+      "/artworks/img-3689/01-main.jpeg"
+    ]
+  },
+  {
+    "title": "Brown boots",
+    "slug": "brown-boots",
+    "year": 0,
+    "medium": "",
+    "surface": "",
+    "height": 0,
+    "width": 0,
+    "depth": 0,
+    "dim_unit": "",
+    "dims_estimated": false,
+    "status": "available",
+    "price": 0,
+    "price_on_request": false,
+    "published": false,
+    "featured": false,
+    "series": "",
+    "themes": [
+      "still_life",
+      "storytelling"
+    ],
+    "description": "",
+    "print_eligible": false,
+    "images": [
+      "/artworks/img-3689/01-main.jpeg"
+    ]
+  },
+  {
+    "title": "Celebration",
+    "slug": "celebration",
+    "year": 0,
+    "medium": "Digital, oil and embroidery",
+    "surface": "Canvas",
+    "height": 24,
+    "width": 18,
+    "depth": 2,
+    "dim_unit": "in",
+    "dims_estimated": false,
+    "status": "commission",
+    "price": 0,
+    "price_on_request": false,
+    "published": true,
+    "featured": false,
+    "series": "",
+    "themes": [
+      "storytelling",
+      "humanity",
+      "figurative",
+      "portrait"
+    ],
+    "description": "",
+    "print_eligible": false,
+    "images": [
+      "/artworks/img-3689/01-main.jpeg"
+    ]
+  },
+  {
+    "title": "Chair studies (three panels)",
+    "slug": "chair-studies-three-panels",
+    "year": 0,
+    "medium": "",
+    "surface": "",
+    "height": 0,
+    "width": 0,
+    "depth": 0,
+    "dim_unit": "",
+    "dims_estimated": false,
+    "status": "available",
+    "price": 0,
+    "price_on_request": false,
+    "published": false,
+    "featured": false,
+    "series": "",
+    "themes": [
+      "still_life"
+    ],
+    "description": "",
+    "print_eligible": false,
+    "images": [
+      "/artworks/seated-woman-in-pink-and-grey-installed-view/01-main.jpg"
+    ]
+  },
+  {
+    "title": "Charcoal figure study, dancer",
+    "slug": "charcoal-figure-study",
+    "year": 0,
+    "medium": "Charcoal",
+    "surface": "paper",
+    "height": 15,
+    "width": 11,
+    "depth": 0,
+    "dim_unit": "in",
+    "dims_estimated": false,
+    "status": "sold",
+    "price": 0,
+    "price_on_request": false,
+    "published": true,
+    "featured": false,
+    "series": "",
+    "themes": [
+      "figurative"
+    ],
+    "description": "",
+    "print_eligible": false,
+    "images": [
+      "/artworks/img-3689/01-main.jpeg"
+    ]
+  },
+  {
+    "title": "Dana Crawford, Commission for the Crawford Hotel Lobby",
+    "slug": "seated-woman-in-pink-and-grey-installed-view",
+    "year": 0,
+    "medium": "Digital and oil",
+    "surface": "canvas",
+    "height": 52,
+    "width": 48,
+    "depth": 2,
+    "dim_unit": "in",
+    "dims_estimated": false,
+    "status": "sold",
+    "price": 0,
+    "price_on_request": false,
+    "published": true,
+    "featured": false,
+    "series": "",
+    "themes": [
+      "storytelling",
+      "humanity",
+      "figurative",
+      "portrait",
+      "commission"
+    ],
+    "description": "",
+    "print_eligible": false,
+    "images": [
+      "/artworks/seated-woman-in-pink-and-grey-installed-view/01-main.jpg",
+      "/artworks/seated-woman-in-pink-and-grey-installed-view/02.jpeg",
+      "/artworks/seated-woman-in-pink-and-grey-installed-view/03.jpg"
+    ]
+  },
+  {
+    "title": "Dark floral still life with a silhouette",
+    "slug": "dark-floral-still-life-with-a-silhouette",
+    "year": 0,
+    "medium": "Oil",
+    "surface": "Paper",
+    "height": 30,
+    "width": 24,
+    "depth": 1,
+    "dim_unit": "in",
+    "dims_estimated": false,
+    "status": "sold",
+    "price": 0,
+    "price_on_request": false,
+    "published": true,
+    "featured": true,
+    "series": "",
+    "themes": [
+      "florals",
+      "still_life"
+    ],
+    "description": "",
+    "print_eligible": true,
+    "images": [
+      "/artworks/img-3689/01-main.jpeg"
+    ]
+  },
+  {
+    "title": "Day with Basquiat",
+    "slug": "day-with-basquiat",
+    "year": 0,
+    "medium": "Oil",
+    "surface": "wood panel",
+    "height": 18,
+    "width": 12,
+    "depth": 1,
+    "dim_unit": "in",
+    "dims_estimated": false,
+    "status": "sold",
+    "price": 0,
+    "price_on_request": false,
+    "published": true,
+    "featured": false,
+    "series": "",
+    "themes": [
+      "florals",
+      "still_life"
+    ],
+    "description": "",
+    "print_eligible": true,
+    "images": [
+      "/artworks/img-3689/01-main.jpeg"
+    ]
+  },
+  {
+    "title": "Dear Vincent, Nothing is Ever Finished",
+    "slug": "img-3689",
+    "year": 2026,
+    "medium": "Embroidery",
+    "surface": "silk and antique fabric",
+    "height": 12,
+    "width": 9,
+    "depth": 1,
+    "dim_unit": "in",
+    "dims_estimated": true,
+    "status": "available",
+    "price": 2400,
+    "price_on_request": false,
+    "published": true,
+    "featured": true,
+    "series": "",
+    "themes": [],
+    "description": "",
+    "print_eligible": false,
+    "images": [
+      "/artworks/img-3689/01-main.jpeg"
+    ]
+  },
+  {
+    "title": "Digital Flowers",
+    "slug": "peony-and-poppies-in-a-grey-vase",
+    "year": 0,
+    "medium": "Oil",
+    "surface": "wood panel",
+    "height": 14,
+    "width": 11,
+    "depth": 1,
+    "dim_unit": "in",
+    "dims_estimated": false,
+    "status": "sold",
+    "price": 0,
+    "price_on_request": false,
+    "published": true,
+    "featured": false,
+    "series": "",
+    "themes": [
+      "florals",
+      "still_life"
+    ],
+    "description": "",
+    "print_eligible": true,
+    "images": [
+      "/artworks/img-3689/01-main.jpeg"
+    ]
+  },
+  {
+    "title": "Digital Rider",
+    "slug": "digital-rider",
+    "year": 0,
+    "medium": "Oil",
+    "surface": "wood panel",
+    "height": 28,
+    "width": 28,
+    "depth": 1,
+    "dim_unit": "in",
+    "dims_estimated": false,
+    "status": "sold",
+    "price": 0,
+    "price_on_request": false,
+    "published": true,
+    "featured": true,
+    "series": "",
+    "themes": [
+      "animals",
+      "figurative"
+    ],
+    "description": "",
+    "print_eligible": true,
+    "images": [
+      "/artworks/img-3689/01-main.jpeg"
+    ]
+  },
+  {
+    "title": "Eidleweiss",
+    "slug": "lilies-in-an-urn-on-a-wooden-panel",
+    "year": 0,
+    "medium": "Oil",
+    "surface": "Found wooden panel",
+    "height": 18,
+    "width": 12,
+    "depth": 1,
+    "dim_unit": "in",
+    "dims_estimated": false,
+    "status": "sold",
+    "price": 0,
+    "price_on_request": false,
+    "published": true,
+    "featured": false,
+    "series": "",
+    "themes": [
+      "florals",
+      "still_life"
+    ],
+    "description": "",
+    "print_eligible": false,
+    "images": [
+      "/artworks/img-3689/01-main.jpeg"
+    ]
+  },
+  {
+    "title": "Even in the Daylight",
+    "slug": "woman-with-a-horse-on-brown-paper",
+    "year": 0,
+    "medium": "oil",
+    "surface": "melamine panel",
+    "height": 28,
+    "width": 20,
+    "depth": 1,
+    "dim_unit": "in",
+    "dims_estimated": false,
+    "status": "available",
+    "price": 950,
+    "price_on_request": false,
+    "published": true,
+    "featured": false,
+    "series": "",
+    "themes": [
+      "animals",
+      "storytelling",
+      "humanity",
+      "figurative"
+    ],
+    "description": "This piece is part of a series around vulnerability.  After a home invasion in 2022, I dove into work about survival and recovery featuring a number of women archers.",
+    "print_eligible": true,
+    "images": [
+      "/artworks/img-3689/01-main.jpeg"
+    ]
+  },
+  {
+    "title": "Figures on orange plates (pair)",
+    "slug": "figures-on-orange-plates-pair",
+    "year": 0,
+    "medium": "",
+    "surface": "",
+    "height": 0,
+    "width": 0,
+    "depth": 0,
+    "dim_unit": "",
+    "dims_estimated": false,
+    "status": "available",
+    "price": 0,
+    "price_on_request": false,
+    "published": false,
+    "featured": false,
+    "series": "",
+    "themes": [
+      "figurative"
+    ],
+    "description": "",
+    "print_eligible": false,
+    "images": [
+      "/artworks/seated-woman-in-pink-and-grey-installed-view/01-main.jpg"
+    ]
+  },
+  {
+    "title": "Floating Roses",
+    "slug": "floating-roses",
+    "year": 0,
+    "medium": "oil",
+    "surface": "wood panel",
+    "height": 20,
+    "width": 16,
+    "depth": 0,
+    "dim_unit": "in",
+    "dims_estimated": true,
+    "status": "available",
+    "price": 950,
+    "price_on_request": false,
+    "published": true,
+    "featured": false,
+    "series": "",
+    "themes": [
+      "florals",
+      "still_life"
+    ],
+    "description": "",
+    "print_eligible": true,
+    "images": [
+      "/artworks/img-3689/01-main.jpeg"
+    ]
+  },
+  {
+    "title": "Flower Study in Light",
+    "slug": "img-3688",
+    "year": 2026,
+    "medium": "Oil",
+    "surface": "Wood panel",
+    "height": 36,
+    "width": 24,
+    "depth": 1,
+    "dim_unit": "in",
+    "dims_estimated": true,
+    "status": "available",
+    "price": 2400,
+    "price_on_request": false,
+    "published": true,
+    "featured": true,
+    "series": "",
+    "themes": [
+      "florals",
+      "still_life"
+    ],
+    "description": "",
+    "print_eligible": true,
+    "images": [
+      "/artworks/img-3689/01-main.jpeg"
+    ]
+  },
+  {
+    "title": "Flowers in a footed urn with cherries",
+    "slug": "flowers-in-a-footed-urn-with-cherries",
+    "year": 0,
+    "medium": "",
+    "surface": "",
+    "height": 0,
+    "width": 0,
+    "depth": 0,
+    "dim_unit": "",
+    "dims_estimated": false,
+    "status": "available",
+    "price": 0,
+    "price_on_request": false,
+    "published": false,
+    "featured": false,
+    "series": "",
+    "themes": [
+      "florals",
+      "still_life"
+    ],
+    "description": "",
+    "print_eligible": false,
+    "images": [
+      "/artworks/seated-woman-in-pink-and-grey-installed-view/01-main.jpeg",
+      "/artworks/seated-woman-in-pink-and-grey-installed-view/02.jpeg"
+    ]
+  },
+  {
+    "title": "Flowers in a glass jar on red",
+    "slug": "flowers-in-a-glass-jar-on-red",
+    "year": 0,
+    "medium": "",
+    "surface": "",
+    "height": 0,
+    "width": 0,
+    "depth": 0,
+    "dim_unit": "",
+    "dims_estimated": false,
+    "status": "available",
+    "price": 0,
+    "price_on_request": false,
+    "published": false,
+    "featured": false,
+    "series": "",
+    "themes": [
+      "florals",
+      "still_life"
+    ],
+    "description": "",
+    "print_eligible": false,
+    "images": [
+      "/artworks/seated-woman-in-pink-and-grey-installed-view/01-main.jpg"
+    ]
+  },
+  {
+    "title": "Flowers in a green bowl",
+    "slug": "flowers-in-a-green-bowl",
+    "year": 0,
+    "medium": "",
+    "surface": "",
+    "height": 0,
+    "width": 0,
+    "depth": 0,
+    "dim_unit": "",
+    "dims_estimated": false,
+    "status": "available",
+    "price": 0,
+    "price_on_request": false,
+    "published": false,
+    "featured": false,
+    "series": "",
+    "themes": [
+      "florals",
+      "still_life"
+    ],
+    "description": "",
+    "print_eligible": false,
+    "images": [
+      "/artworks/img-3689/01-main.jpeg"
+    ]
+  },
+  {
+    "title": "Flowers in a white jug",
+    "slug": "flowers-in-a-white-jug",
+    "year": 0,
+    "medium": "Oil",
+    "surface": "wood panel",
+    "height": 15,
+    "width": 12,
+    "depth": 0,
+    "dim_unit": "in",
+    "dims_estimated": false,
+    "status": "sold",
+    "price": 0,
+    "price_on_request": false,
+    "published": false,
+    "featured": false,
+    "series": "",
+    "themes": [
+      "florals",
+      "still_life"
+    ],
+    "description": "",
+    "print_eligible": true,
+    "images": [
+      "/artworks/img-3689/01-main.jpeg"
+    ]
+  },
+  {
+    "title": "Flowers with colour blocks",
+    "slug": "flowers-with-colour-blocks",
+    "year": 0,
+    "medium": "",
+    "surface": "",
+    "height": 0,
+    "width": 0,
+    "depth": 0,
+    "dim_unit": "",
+    "dims_estimated": false,
+    "status": "available",
+    "price": 0,
+    "price_on_request": false,
+    "published": false,
+    "featured": false,
+    "series": "",
+    "themes": [
+      "florals",
+      "abstract"
+    ],
+    "description": "",
+    "print_eligible": false,
+    "images": [
+      "/artworks/img-3689/01-main.jpeg"
+    ]
+  },
+  {
+    "title": "Francesca at Night",
+    "slug": "francesca-at-night",
+    "year": 2026,
+    "medium": "Oil",
+    "surface": "Wood panel",
+    "height": 36,
+    "width": 36,
+    "depth": 2,
+    "dim_unit": "in",
+    "dims_estimated": true,
+    "status": "available",
+    "price": 3200,
+    "price_on_request": false,
+    "published": true,
+    "featured": false,
+    "series": "",
+    "themes": [],
+    "description": "",
+    "print_eligible": true,
+    "images": [
+      "/artworks/seated-woman-in-pink-and-grey-installed-view/01-main.jpeg",
+      "/artworks/seated-woman-in-pink-and-grey-installed-view/02.jpeg",
+      "/artworks/seated-woman-in-pink-and-grey-installed-view/03.jpeg"
+    ]
+  },
+  {
+    "title": "Galavanting in Gucci's",
+    "slug": "galavanting-in-guccis",
+    "year": 0,
+    "medium": "Oil",
+    "surface": "wood panel",
+    "height": 30,
+    "width": 24,
+    "depth": 1,
+    "dim_unit": "in",
+    "dims_estimated": true,
+    "status": "available",
+    "price": 3200,
+    "price_on_request": false,
+    "published": true,
+    "featured": true,
+    "series": "",
+    "themes": [
+      "still_life"
+    ],
+    "description": "",
+    "print_eligible": true,
+    "images": [
+      "/artworks/img-3689/01-main.jpeg"
+    ]
+  },
+  {
+    "title": "Girl in a yellow dress with a dog",
+    "slug": "girl-in-a-yellow-dress-with-a-dog",
+    "year": 0,
+    "medium": "",
+    "surface": "",
+    "height": 0,
+    "width": 0,
+    "depth": 0,
+    "dim_unit": "",
+    "dims_estimated": false,
+    "status": "available",
+    "price": 0,
+    "price_on_request": false,
+    "published": false,
+    "featured": false,
+    "series": "",
+    "themes": [
+      "figurative",
+      "portrait"
+    ],
+    "description": "",
+    "print_eligible": false,
+    "images": [
+      "/artworks/img-3689/01-main.jpeg"
+    ]
+  },
+  {
+    "title": "Green figure study",
+    "slug": "green-figure-study",
+    "year": 0,
+    "medium": "",
+    "surface": "",
+    "height": 0,
+    "width": 0,
+    "depth": 0,
+    "dim_unit": "",
+    "dims_estimated": false,
+    "status": "available",
+    "price": 0,
+    "price_on_request": false,
+    "published": false,
+    "featured": false,
+    "series": "",
+    "themes": [
+      "figurative",
+      "abstract"
+    ],
+    "description": "",
+    "print_eligible": false,
+    "images": [
+      "/artworks/img-3689/01-main.jpeg"
+    ]
+  },
+  {
+    "title": "Green vase on a red wall",
+    "slug": "green-vase-on-a-red-wall",
+    "year": 0,
+    "medium": "",
+    "surface": "",
+    "height": 0,
+    "width": 0,
+    "depth": 0,
+    "dim_unit": "",
+    "dims_estimated": false,
+    "status": "available",
+    "price": 0,
+    "price_on_request": false,
+    "published": false,
+    "featured": false,
+    "series": "",
+    "themes": [
+      "florals",
+      "still_life"
+    ],
+    "description": "",
+    "print_eligible": false,
+    "images": [
+      "/artworks/img-3689/01-main.jpeg"
+    ]
+  },
+  {
+    "title": "Head study with a ruff",
+    "slug": "head-study-with-a-ruff",
+    "year": 0,
+    "medium": "",
+    "surface": "",
+    "height": 0,
+    "width": 0,
+    "depth": 0,
+    "dim_unit": "",
+    "dims_estimated": false,
+    "status": "available",
+    "price": 0,
+    "price_on_request": false,
+    "published": false,
+    "featured": false,
+    "series": "",
+    "themes": [
+      "portrait",
+      "figurative"
+    ],
+    "description": "",
+    "print_eligible": false,
+    "images": [
+      "/artworks/img-3689/01-main.jpeg"
+    ]
+  },
+  {
+    "title": "Holding Stars",
+    "slug": "figure-on-blue",
+    "year": 0,
+    "medium": "oil",
+    "surface": "panel",
+    "height": 24,
+    "width": 18,
+    "depth": 0,
+    "dim_unit": "in",
+    "dims_estimated": false,
+    "status": "sold",
+    "price": 0,
+    "price_on_request": false,
+    "published": false,
+    "featured": false,
+    "series": "",
+    "themes": [
+      "storytelling",
+      "humanity",
+      "figurative"
+    ],
+    "description": "",
+    "print_eligible": false,
+    "images": [
+      "/artworks/img-3689/01-main.jpeg"
+    ]
+  },
+  {
+    "title": "Man in a red jacket with a horse",
+    "slug": "man-in-a-red-jacket-with-a-horse",
+    "year": 0,
+    "medium": "",
+    "surface": "",
+    "height": 0,
+    "width": 0,
+    "depth": 0,
+    "dim_unit": "",
+    "dims_estimated": false,
+    "status": "available",
+    "price": 0,
+    "price_on_request": false,
+    "published": false,
+    "featured": false,
+    "series": "",
+    "themes": [
+      "figurative",
+      "animals"
+    ],
+    "description": "",
+    "print_eligible": false,
+    "images": [
+      "/artworks/img-3689/01-main.jpeg"
+    ]
+  },
+  {
+    "title": "Modern Cowgirl",
+    "slug": "modern-cowgirl",
+    "year": 2026,
+    "medium": "Oil",
+    "surface": "Wood panel",
+    "height": 18,
+    "width": 14,
+    "depth": 1,
+    "dim_unit": "in",
+    "dims_estimated": false,
+    "status": "sold",
+    "price": 0,
+    "price_on_request": false,
+    "published": true,
+    "featured": false,
+    "series": "",
+    "themes": [
+      "figurative",
+      "portrait"
+    ],
+    "description": "",
+    "print_eligible": true,
+    "images": [
+      "/artworks/img-3689/01-main.jpeg"
+    ]
+  },
+  {
+    "title": "Mother",
+    "slug": "mother",
+    "year": 0,
+    "medium": "",
+    "surface": "",
+    "height": 24,
+    "width": 18,
+    "depth": 0,
+    "dim_unit": "in",
+    "dims_estimated": false,
+    "status": "available",
+    "price": 975,
+    "price_on_request": false,
+    "published": true,
+    "featured": false,
+    "series": "",
+    "themes": [
+      "storytelling",
+      "humanity",
+      "figurative",
+      "portrait"
+    ],
+    "description": "",
+    "print_eligible": false,
+    "images": [
+      "/artworks/img-3689/01-main.jpeg"
+    ]
+  },
+  {
+    "title": "Ms. Silvia Rouland",
+    "slug": "rider-on-a-horse-green-ground",
+    "year": 0,
+    "medium": "Digital, oil and encaustic",
+    "surface": "wood panel",
+    "height": 30,
+    "width": 30,
+    "depth": 2,
+    "dim_unit": "in",
+    "dims_estimated": false,
+    "status": "sold",
+    "price": 0,
+    "price_on_request": false,
+    "published": false,
+    "featured": false,
+    "series": "",
+    "themes": [
+      "animals",
+      "storytelling",
+      "humanity",
+      "figurative",
+      "portrait"
+    ],
+    "description": "",
+    "print_eligible": true,
+    "images": [
+      "/artworks/img-3689/01-main.jpeg"
+    ]
+  },
+  {
+    "title": "Odd Friends",
+    "slug": "odd-friends",
+    "year": 0,
+    "medium": "Oil and encaustic",
+    "surface": "wood panel",
+    "height": 11,
+    "width": 15,
+    "depth": 1,
+    "dim_unit": "in",
+    "dims_estimated": false,
+    "status": "sold",
+    "price": 0,
+    "price_on_request": false,
+    "published": true,
+    "featured": false,
+    "series": "",
+    "themes": [
+      "storytelling",
+      "figurative"
+    ],
+    "description": "",
+    "print_eligible": true,
+    "images": [
+      "/artworks/img-3689/01-main.jpeg"
+    ]
+  },
+  {
+    "title": "Pansies on plaid",
+    "slug": "pink-flowers-on-a-chequered-cloth",
+    "year": 0,
+    "medium": "Digital",
+    "surface": "paper",
+    "height": 24,
+    "width": 18,
+    "depth": 0,
+    "dim_unit": "in",
+    "dims_estimated": false,
+    "status": "sold",
+    "price": 0,
+    "price_on_request": false,
+    "published": true,
+    "featured": false,
+    "series": "",
+    "themes": [
+      "florals",
+      "still_life"
+    ],
+    "description": "",
+    "print_eligible": true,
+    "images": [
+      "/artworks/img-3689/01-main.jpeg"
+    ]
+  },
+  {
+    "title": "Piquant Poppies",
+    "slug": "piquant-poppies",
+    "year": 0,
+    "medium": "oil",
+    "surface": "wood panel",
+    "height": 16,
+    "width": 20,
+    "depth": 1,
+    "dim_unit": "in",
+    "dims_estimated": false,
+    "status": "sold",
+    "price": 0,
+    "price_on_request": false,
+    "published": true,
+    "featured": false,
+    "series": "",
+    "themes": [
+      "florals",
+      "still_life"
+    ],
+    "description": "",
+    "print_eligible": true,
+    "images": [
+      "/artworks/img-3689/01-main.jpeg"
+    ]
+  },
+  {
+    "title": "Poppies in a blue vase with keys",
+    "slug": "poppies-in-a-blue-vase-with-keys",
+    "year": 0,
+    "medium": "",
+    "surface": "",
+    "height": 0,
+    "width": 0,
+    "depth": 0,
+    "dim_unit": "",
+    "dims_estimated": false,
+    "status": "available",
+    "price": 0,
+    "price_on_request": false,
+    "published": false,
+    "featured": false,
+    "series": "",
+    "themes": [
+      "florals",
+      "still_life"
+    ],
+    "description": "",
+    "print_eligible": false,
+    "images": [
+      "/artworks/img-3689/01-main.jpeg"
+    ]
+  },
+  {
+    "title": "Poppies with Ginori Plate",
+    "slug": "poppies-with-ginori-plate",
+    "year": 2026,
+    "medium": "Oil",
+    "surface": "wood panel",
+    "height": 15,
+    "width": 12,
+    "depth": 1,
+    "dim_unit": "in",
+    "dims_estimated": true,
+    "status": "available",
+    "price": 1200,
+    "price_on_request": false,
+    "published": true,
+    "featured": false,
+    "series": "",
+    "themes": [],
+    "description": "",
+    "print_eligible": true,
+    "images": [
+      "/artworks/seated-woman-in-pink-and-grey-installed-view/01-main.jpeg",
+      "/artworks/seated-woman-in-pink-and-grey-installed-view/02.jpeg"
+    ]
+  },
+  {
+    "title": "Powerful Pansies",
+    "slug": "powerful-pansies",
+    "year": 0,
+    "medium": "Oil",
+    "surface": "wood panel",
+    "height": 15,
+    "width": 11,
+    "depth": 1,
+    "dim_unit": "in",
+    "dims_estimated": false,
+    "status": "sold",
+    "price": 0,
+    "price_on_request": false,
+    "published": true,
+    "featured": false,
+    "series": "",
+    "themes": [
+      "florals",
+      "still_life"
+    ],
+    "description": "",
+    "print_eligible": true,
+    "images": [
+      "/artworks/img-3689/01-main.jpeg"
+    ]
+  },
+  {
+    "title": "Same Mood, diptych",
+    "slug": "img-3697",
+    "year": 0,
+    "medium": "Oil",
+    "surface": "Wood panel",
+    "height": 16,
+    "width": 13,
+    "depth": 1,
+    "dim_unit": "in",
+    "dims_estimated": true,
+    "status": "sold",
+    "price": 0,
+    "price_on_request": false,
+    "published": true,
+    "featured": false,
+    "series": "",
+    "themes": [],
+    "description": "",
+    "print_eligible": false,
+    "images": [
+      "/artworks/img-3689/01-main.jpeg"
+    ]
+  },
+  {
+    "title": "Self Portrait",
+    "slug": "self-portrait",
+    "year": 0,
+    "medium": "Oil",
+    "surface": "Wood panel",
+    "height": 20,
+    "width": 14,
+    "depth": 1,
+    "dim_unit": "in",
+    "dims_estimated": false,
+    "status": "sold",
+    "price": 0,
+    "price_on_request": false,
+    "published": true,
+    "featured": false,
+    "series": "",
+    "themes": [
+      "figurative",
+      "portrait"
+    ],
+    "description": "",
+    "print_eligible": false,
+    "images": [
+      "/artworks/img-3689/01-main.jpeg"
+    ]
+  },
+  {
+    "title": "Sunflowers in a yellow jug",
+    "slug": "sunflowers-in-a-yellow-jug",
+    "year": 0,
+    "medium": "Oil",
+    "surface": "wood panel",
+    "height": 18,
+    "width": 14,
+    "depth": 1,
+    "dim_unit": "in",
+    "dims_estimated": false,
+    "status": "available",
+    "price": 1400,
+    "price_on_request": false,
+    "published": true,
+    "featured": false,
+    "series": "",
+    "themes": [
+      "florals",
+      "still_life"
+    ],
+    "description": "",
+    "print_eligible": true,
+    "images": [
+      "/artworks/img-3689/01-main.jpeg"
+    ]
+  },
+  {
+    "title": "Test",
+    "slug": "test",
+    "year": 0,
+    "medium": "",
+    "surface": "",
+    "height": 0,
+    "width": 0,
+    "depth": 0,
+    "dim_unit": "in",
+    "dims_estimated": true,
+    "status": "available",
+    "price": 0,
+    "price_on_request": false,
+    "published": false,
+    "featured": false,
+    "series": "",
+    "themes": [],
+    "description": "",
+    "print_eligible": false,
+    "images": [
+      "/artworks/test/01-main.png"
+    ]
+  },
+  {
+    "title": "Three boys (photograph and colour blocks)",
+    "slug": "three-boys-photograph-and-colour-blocks",
+    "year": 0,
+    "medium": "",
+    "surface": "",
+    "height": 0,
+    "width": 0,
+    "depth": 0,
+    "dim_unit": "",
+    "dims_estimated": false,
+    "status": "available",
+    "price": 0,
+    "price_on_request": false,
+    "published": false,
+    "featured": false,
+    "series": "",
+    "themes": [
+      "storytelling",
+      "humanity",
+      "figurative"
+    ],
+    "description": "",
+    "print_eligible": false,
+    "images": [
+      "/artworks/seated-woman-in-pink-and-grey-installed-view/01-main.jpg"
+    ]
+  },
+  {
+    "title": "Time with Clemente",
+    "slug": "time-with-clemente",
+    "year": 0,
+    "medium": "Oil",
+    "surface": "wood panel",
+    "height": 22,
+    "width": 18,
+    "depth": 1,
+    "dim_unit": "in",
+    "dims_estimated": false,
+    "status": "sold",
+    "price": 0,
+    "price_on_request": false,
+    "published": true,
+    "featured": false,
+    "series": "",
+    "themes": [
+      "florals",
+      "still_life"
+    ],
+    "description": "",
+    "print_eligible": true,
+    "images": [
+      "/artworks/img-3689/01-main.jpeg"
+    ]
+  },
+  {
+    "title": "Two men embracing",
+    "slug": "two-men-embracing",
+    "year": 0,
+    "medium": "",
+    "surface": "",
+    "height": 0,
+    "width": 0,
+    "depth": 0,
+    "dim_unit": "",
+    "dims_estimated": false,
+    "status": "available",
+    "price": 0,
+    "price_on_request": false,
+    "published": false,
+    "featured": false,
+    "series": "",
+    "themes": [
+      "storytelling",
+      "humanity"
+    ],
+    "description": "",
+    "print_eligible": false,
+    "images": [
+      "/artworks/img-3689/01-main.jpeg"
+    ]
+  },
+  {
+    "title": "Vincent",
+    "slug": "vincent",
+    "year": 0,
+    "medium": "Oil",
+    "surface": "Paper",
+    "height": 24,
+    "width": 32,
+    "depth": 1,
+    "dim_unit": "in",
+    "dims_estimated": false,
+    "status": "available",
+    "price": 2600,
+    "price_on_request": false,
+    "published": true,
+    "featured": true,
+    "series": "",
+    "themes": [
+      "florals",
+      "still_life"
+    ],
+    "description": "",
+    "print_eligible": true,
+    "images": [
+      "/artworks/img-3689/01-main.jpeg"
+    ]
+  },
+  {
+    "title": "Waiting for Arlo",
+    "slug": "woman-on-a-bench-with-crows",
+    "year": 0,
+    "medium": "oil",
+    "surface": "wood panel",
+    "height": 48,
+    "width": 48,
+    "depth": 2,
+    "dim_unit": "in",
+    "dims_estimated": false,
+    "status": "available",
+    "price": 5000,
+    "price_on_request": false,
+    "published": true,
+    "featured": false,
+    "series": "",
+    "themes": [
+      "animals",
+      "storytelling",
+      "figurative"
+    ],
+    "description": "",
+    "print_eligible": false,
+    "images": [
+      "/artworks/img-3689/01-main.jpeg"
+    ]
+  },
+  {
+    "title": "Waiting for Starman",
+    "slug": "waitinf-for-starman",
+    "year": 2025,
+    "medium": "Oil",
+    "surface": "Found object",
+    "height": 11,
+    "width": 15,
+    "depth": 1,
+    "dim_unit": "in",
+    "dims_estimated": false,
+    "status": "sold",
+    "price": 0,
+    "price_on_request": false,
+    "published": true,
+    "featured": true,
+    "series": "",
+    "themes": [
+      "animals",
+      "storytelling",
+      "humanity",
+      "nature_aspen",
+      "figurative",
+      "still_life"
+    ],
+    "description": "",
+    "print_eligible": false,
+    "images": [
+      "/artworks/img-3689/01-main.jpeg"
+    ]
+  },
+  {
+    "title": "Woman in a blue dress with blossom",
+    "slug": "woman-in-a-blue-dress-with-blossom",
+    "year": 0,
+    "medium": "",
+    "surface": "",
+    "height": 0,
+    "width": 0,
+    "depth": 0,
+    "dim_unit": "",
+    "dims_estimated": false,
+    "status": "available",
+    "price": 0,
+    "price_on_request": false,
+    "published": false,
+    "featured": false,
+    "series": "",
+    "themes": [
+      "figurative",
+      "portrait"
+    ],
+    "description": "",
+    "print_eligible": false,
+    "images": [
+      "/artworks/img-3689/01-main.jpeg"
+    ]
+  },
+  {
+    "title": "Woman in a blue hat with magnolias (painted tray)",
+    "slug": "woman-in-a-blue-hat-with-magnolias-painted-tray",
+    "year": 0,
+    "medium": "",
+    "surface": "",
+    "height": 0,
+    "width": 0,
+    "depth": 0,
+    "dim_unit": "",
+    "dims_estimated": false,
+    "status": "available",
+    "price": 0,
+    "price_on_request": false,
+    "published": false,
+    "featured": false,
+    "series": "",
+    "themes": [
+      "figurative",
+      "florals"
+    ],
+    "description": "",
+    "print_eligible": false,
+    "images": [
+      "/artworks/seated-woman-in-pink-and-grey-installed-view/01-main.jpg"
+    ]
+  },
+  {
+    "title": "Woman in a tall black hat",
+    "slug": "woman-in-a-tall-black-hat",
+    "year": 0,
+    "medium": "",
+    "surface": "",
+    "height": 0,
+    "width": 0,
+    "depth": 0,
+    "dim_unit": "",
+    "dims_estimated": false,
+    "status": "available",
+    "price": 0,
+    "price_on_request": false,
+    "published": false,
+    "featured": false,
+    "series": "",
+    "themes": [
+      "figurative",
+      "portrait"
+    ],
+    "description": "",
+    "print_eligible": false,
+    "images": [
+      "/artworks/img-3689/01-main.jpeg"
+    ]
+  },
+  {
+    "title": "Woman in a yellow coat with a dog",
+    "slug": "woman-in-a-yellow-coat-with-a-dog",
+    "year": 0,
+    "medium": "",
+    "surface": "",
+    "height": 0,
+    "width": 0,
+    "depth": 0,
+    "dim_unit": "",
+    "dims_estimated": false,
+    "status": "available",
+    "price": 0,
+    "price_on_request": false,
+    "published": false,
+    "featured": false,
+    "series": "",
+    "themes": [
+      "figurative",
+      "animals"
+    ],
+    "description": "",
+    "print_eligible": false,
+    "images": [
+      "/artworks/seated-woman-in-pink-and-grey-installed-view/01-main.jpg"
+    ]
+  },
+  {
+    "title": "Woman in grass with wildflowers",
+    "slug": "woman-in-grass-with-wildflowers",
+    "year": 0,
+    "medium": "",
+    "surface": "",
+    "height": 0,
+    "width": 0,
+    "depth": 0,
+    "dim_unit": "",
+    "dims_estimated": false,
+    "status": "available",
+    "price": 0,
+    "price_on_request": false,
+    "published": false,
+    "featured": false,
+    "series": "",
+    "themes": [
+      "figurative",
+      "florals"
+    ],
+    "description": "",
+    "print_eligible": false,
+    "images": [
+      "/artworks/seated-woman-in-pink-and-grey-installed-view/01-main.jpg"
+    ]
+  }
+]
