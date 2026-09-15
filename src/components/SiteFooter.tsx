@@ -2,7 +2,8 @@ import { Link } from "@tanstack/react-router";
 
 const LINKS = [
   { label: "About", to: "/about" as const },
-  { label: "Gallery", to: "/gallery" as const },
+  { label: "Available Work", to: "/gallery" as const, hash: "available-work" },
+  { label: "Purchased Work", to: "/gallery" as const, hash: "purchased-work" },
   { label: "Merchandise", to: "/shop" as const },
   { label: "News", to: "/news" as const },
   { label: "Where to see", to: "/where-to-see" as const },
@@ -35,7 +36,7 @@ export function SiteFooter() {
       <div className="ct-sitefooter-inner">
         <nav className="ct-sitefooter-links" aria-label="Footer">
           {LINKS.map((l) => (
-            <Link key={l.label} to={l.to}>
+            <Link key={l.label} to={l.to} hash={"hash" in l ? l.hash : undefined}>
               {l.label}
             </Link>
           ))}

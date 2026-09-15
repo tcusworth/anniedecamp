@@ -1,8 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
-import portrait from "@/assets/annie-decamp-portrait.webp.asset.json";
-import doorwayPortrait from "@/assets/annie-decamp-doorway.jpg.asset.json";
+import portrait from "@/assets/annie-decamp-studio-hat.jpg.asset.json";
+import childhoodPortrait from "@/assets/annie-decamp-childhood-cat.jpg.asset.json";
 
 const title = "About — Annie Decamp";
 const description =
@@ -50,15 +50,15 @@ function AboutPage() {
           <figure className="ct-bio-portrait">
             <img
               src={portrait.url}
-              alt="Annie Decamp in her Aspen studio, standing before one of her paintings"
+              alt="Annie Decamp seated in her studio surrounded by paintings"
             />
             <figcaption>Annie Decamp in the studio</figcaption>
             <img
               className="ct-bio-portrait-2"
-              src={doorwayPortrait.url}
-              alt="Annie Decamp leaning in a doorway with her dog, beside a pot of yellow flowers"
+              src={childhoodPortrait.url}
+              alt="A childhood photograph of Annie Decamp holding a cat in a garden"
             />
-            <figcaption>Annie Decamp at home</figcaption>
+            <figcaption>Annie Decamp as a child</figcaption>
           </figure>
           <div className="ct-bio-text">
             {PARAGRAPHS.map((p, i) => (

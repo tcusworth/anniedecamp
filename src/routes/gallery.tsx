@@ -27,6 +27,8 @@ export const Route = createFileRoute("/gallery")({
 
 function GalleryPage() {
   const artworks = Route.useLoaderData();
+  const availableWorks = artworks.filter((work: Artwork) => work.original_available);
+  const purchasedWorks = artworks.filter((work: Artwork) => !work.original_available);
   const [open, setOpen] = useState<string | null>(null);
   const { add, items } = useCart();
 
@@ -45,8 +47,9 @@ function GalleryPage() {
           <a href="/shop">merchandise page</a>.
         </p>
 
-        <section className="ct-gallery" aria-label="Paintings and prints for sale">
-          {artworks.map((w: Artwork, i: number) => {
+        <h3 id="available-work" className="ct-gallery-section-title">Available Work</h3>
+        <section className="ct-gallery" aria-label="Available paintings and prints">
+          {availableWorks.map((w: Artwork, i: number) => {
             const prints = w.print_options.filter((p) => p.kind !== "merchandise");
             return (
               <figure key={w.id} className="ct-work" style={{ ["--i" as string]: String(i) }}>
@@ -130,6 +133,59 @@ function GalleryPage() {
                                 quantity: 1,
                               })
                             }
+                          >
+                            {money(p.price_cents)} · Add
+                          </button>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </figcaption>
+              </figure>
+            );
+          })}
+        </section>
+
+        <h3 id="purchased-work" className="ct-gallery-section-title">Purchased Work</h3>
+        <section className="ct-gallery" aria-label="Purchased paintings">
+          {purchasedWorks.map((w: Artwork, i: number) => {
+            const prints = w.print_options.filter((p) => p.kind !== "merchandise");
+            return (
+              <figure key={w.id} className="ct-work" style={{ ["--i" as string]: String(i) }}>
+                <div className="ct-work-frame">
+                  <img
+                    src={w.image_url}
+                    alt={`${w.title}, ${w.medium ?? "mixed media"} by Annie Decamp`}
+                    loading="lazy"
+                    width={1200}
+                    height={900}
+                  />
+                  <span className="ct-work-sold" aria-label="Original sold">Sold</span>
+                </div>
+                <figcaption>
+                  <span className="ct-work-title">{w.title}</span>
+                  <span className="ct-work-meta">
+                    {[w.year, w.medium, w.dimensions].filter(Boolean).join(" — ")}
+                  </span>
+                  <span className="ct-work-price">Original sold</span>
+                  {prints.length > 0 && (
+                    <button
+                      type="button"
+                      className="ct-buy-toggle"
+                      aria-expanded={open === w.id}
+                      onClick={() => setOpen(open === w.id ? null : w.id)}
+                    >
+                      {open === w.id ? "Hide print options" : "Purchase a print"}
+                    </button>
+                  )}
+                  {open === w.id && prints.length > 0 && (
+                    <div className="ct-buy-panel">
+                      {prints.map((p) => (
+                        <div key={p.id} className="ct-buy-row">
+                          <span className="ct-buy-label">{p.label}</span>
+                          <button
+                            type="button"
+                            onClick={() => add({ artworkId: w.id, printOptionId: p.id, kind: "print", label: `${w.title} — ${p.label}`, priceCents: p.price_cents, imageUrl: w.image_url, quantity: 1 })}
                           >
                             {money(p.price_cents)} · Add
                           </button>
