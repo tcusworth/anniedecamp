@@ -51,6 +51,85 @@ const CONTACTS = [
   { label: "Instagram", value: "@annedecamp", href: "https://www.instagram.com/annedecamp/" },
 ];
 
+function InquiryForm() {
+  const send = useServerFn(submitStudioInquiry);
+  const [status, setStatus] = useState<"idle" | "sending" | "sent">("idle");
+  const [error, setError] = useState<string | null>(null);
+
+  async function onSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    const form = event.currentTarget;
+    const fd = new FormData(form);
+    setStatus("sending");
+    setError(null);
+    try {
+      const result = await send({
+        data: {
+          name: String(fd.get("name") ?? ""),
+          email: String(fd.get("email") ?? ""),
+          subject: String(fd.get("subject") ?? ""),
+          message: String(fd.get("message") ?? ""),
+        },
+      });
+      if (result.ok) {
+        setStatus("sent");
+        form.reset();
+      } else {
+        setStatus("idle");
+        setError(result.error);
+      }
+    } catch {
+      setStatus("idle");
+      setError("Please check the form and try again.");
+    }
+  }
+
+  if (status === "sent") {
+    return (
+      <div className="ct-form-done" role="status">
+        <p className="ct-press-wide-lede">
+          Thank you — your message has reached the studio. You will receive a reply at the
+          address you provided.
+        </p>
+        <button className="ct-press-btn" type="button" onClick={() => setStatus("idle")}>
+          Send another message
+        </button>
+      </div>
+    );
+  }
+
+  return (
+    <form className="ct-form" onSubmit={onSubmit} noValidate>
+      <div className="ct-form-row">
+        <label className="ct-field">
+          <span>Name</span>
+          <input name="name" type="text" required maxLength={100} autoComplete="name" />
+        </label>
+        <label className="ct-field">
+          <span>Email</span>
+          <input name="email" type="email" required maxLength={255} autoComplete="email" />
+        </label>
+      </div>
+      <label className="ct-field">
+        <span>Subject</span>
+        <input name="subject" type="text" maxLength={150} />
+      </label>
+      <label className="ct-field">
+        <span>Message</span>
+        <textarea name="message" required rows={6} maxLength={2000} />
+      </label>
+      {error ? (
+        <p className="ct-form-error" role="alert">
+          {error}
+        </p>
+      ) : null}
+      <button className="ct-press-btn" type="submit" disabled={status === "sending"}>
+        {status === "sending" ? "Sending…" : "Send message"}
+      </button>
+    </form>
+  );
+}
+
 function StudioPage() {
   return (
     <div className="ct-page">
