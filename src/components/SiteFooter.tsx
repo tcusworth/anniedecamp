@@ -1,14 +1,13 @@
-import { Link } from "@tanstack/react-router";
-
 const LINKS = [
-  { label: "About", to: "/about" as const },
-  { label: "Gallery", to: "/gallery" as const },
-  { label: "Merchandise", to: "/shop" as const },
-  { label: "News", to: "/news" as const },
-  { label: "Where to see", to: "/where-to-see" as const },
-  { label: "Studio", to: "/studio" as const },
-  { label: "Press", to: "/press" as const },
-  { label: "Contact", to: "/contact" as const },
+  { label: "About", href: "/about" },
+  { label: "Available Work", href: "/gallery#available-work" },
+  { label: "Purchased Work", href: "/gallery#purchased-work" },
+  { label: "Merchandise", href: "/shop" },
+  { label: "News", href: "/news" },
+  { label: "Where to see", href: "/where-to-see" },
+  { label: "Studio", href: "/studio" },
+  { label: "Press", href: "/press" },
+  { label: "Contact", href: "/contact" },
 ];
 
 const SOCIALS = [
@@ -35,9 +34,9 @@ export function SiteFooter() {
       <div className="ct-sitefooter-inner">
         <nav className="ct-sitefooter-links" aria-label="Footer">
           {LINKS.map((l) => (
-            <Link key={l.label} to={l.to}>
+            <a key={l.label} href={l.href}>
               {l.label}
-            </Link>
+            </a>
           ))}
         </nav>
 

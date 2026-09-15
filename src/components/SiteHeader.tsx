@@ -3,7 +3,8 @@ import { useCart } from "@/lib/cart";
 
 const MENU_ITEMS = [
   { label: "About", href: "/about" },
-  { label: "Gallery", href: "/gallery" },
+  { label: "Available Work", href: "/gallery#available-work" },
+  { label: "Purchased Work", href: "/gallery#purchased-work" },
   { label: "Merchandise", href: "/shop" },
   { label: "News", href: "/news" },
   { label: "Where to see", href: "/where-to-see" },
