@@ -1132,16 +1132,19 @@
   animation-delay: calc(var(--i) * 0.1s);
 }
 .ct-press-lead-figure {
-  margin: 0;
+  margin: 0 auto;
   overflow: hidden;
   background: rgba(0, 0, 0, 0.04);
+  max-width: 380px;
+  width: 100%;
   aspect-ratio: 4 / 3;
+  justify-self: center;
 }
 .ct-press-lead-figure img {
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center;
   transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
 }
