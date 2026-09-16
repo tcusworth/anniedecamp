@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 
-const title = "Where to See the Work — Annie Decamp";
+const title = "Events & Exhibitions — Annie Decamp";
 const description =
   "Current and upcoming exhibitions, museum collections and permanent installations where paintings by Annie Decamp can be seen.";
 
@@ -101,7 +101,7 @@ function NewsPage() {
     <div className="ct-page">
       <SiteHeader />
       <main className="ct-page-main">
-        <h2 className="ct-page-title">Where to see the work</h2>
+        <h2 className="ct-page-title">Events & Exhibitions</h2>
         <p className="ct-page-lead">
           Exhibitions currently open, shows opening soon, and the institutions holding
           paintings by Annie Decamp in their permanent collections.
