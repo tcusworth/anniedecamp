@@ -10,9 +10,9 @@ import urbanLife from "@/assets/press-urban-life-wash-park.jpg.asset.json";
 import vailDaily from "@/assets/press-vail-daily.png.asset.json";
 import voyageDenver from "@/assets/press-voyage-denver.jpg.asset.json";
 
-const title = "Press — Annie Decamp";
+const title = "Publications — Annie Decamp";
 const description =
-  "Selected features, reviews, and interviews on Annie Decamp and her mixed-media practice, with links to the original coverage.";
+  "Selected publications, features, reviews, and interviews on Annie Decamp and her mixed-media practice, with links to the original coverage.";
 
 export const Route = createFileRoute("/press")({
   head: () => ({
@@ -156,7 +156,7 @@ function PressPage() {
       <SiteHeader />
       <main className="ct-page-main ct-press-spread">
         <header className="ct-press-head">
-          <h2 className="ct-press-title">Press</h2>
+          <h2 className="ct-press-title">Publications</h2>
           <p className="ct-press-head-note">
             Selected features, reviews, and interviews on Annie Decamp and her
             mixed-media practice. Links open the original coverage.
