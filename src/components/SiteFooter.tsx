@@ -5,7 +5,8 @@ const LINKS = [
   { label: "News", href: "/news" },
   { label: "Where to see", href: "/where-to-see" },
   { label: "Studio", href: "/studio" },
-  { label: "Press", href: "/press" },
+  { label: "Publications", href: "/press" },
+  { label: "Commissions", href: "/commissions" },
   { label: "Contact", href: "/contact" },
 ];
 

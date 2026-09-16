@@ -47,7 +47,7 @@ const SLIDES: Slide[] = [
   },
 ];
 
-const INTERVAL = 2000;
+const INTERVAL = 5000;
 
 export function HomeSlideshow() {
   const [index, setIndex] = useState(0);
