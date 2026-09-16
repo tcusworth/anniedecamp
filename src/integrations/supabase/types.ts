@@ -62,6 +62,51 @@ export type Database = {
         }
         Relationships: []
       }
+      commission_requests: {
+        Row: {
+          budget_range: string | null
+          created_at: string
+          deadline: string | null
+          details: string
+          email: string
+          handled: boolean
+          id: string
+          name: string
+          phone: string | null
+          preferred_medium: string | null
+          preferred_size: string | null
+          subject_matter: string
+        }
+        Insert: {
+          budget_range?: string | null
+          created_at?: string
+          deadline?: string | null
+          details: string
+          email: string
+          handled?: boolean
+          id?: string
+          name: string
+          phone?: string | null
+          preferred_medium?: string | null
+          preferred_size?: string | null
+          subject_matter: string
+        }
+        Update: {
+          budget_range?: string | null
+          created_at?: string
+          deadline?: string | null
+          details?: string
+          email?: string
+          handled?: boolean
+          id?: string
+          name?: string
+          phone?: string | null
+          preferred_medium?: string | null
+          preferred_size?: string | null
+          subject_matter?: string
+        }
+        Relationships: []
+      }
       news_articles: {
         Row: {
           body: string
