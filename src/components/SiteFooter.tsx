@@ -2,10 +2,9 @@ const LINKS = [
   { label: "About", href: "/about" },
   { label: "Gallery", href: "/gallery" },
   { label: "Merchandise", href: "/shop" },
-  { label: "News", href: "/news" },
-  { label: "Where to see", href: "/where-to-see" },
+  { label: "Events & Exhibitions", href: "/where-to-see" },
   { label: "Studio", href: "/studio" },
-  { label: "Publications", href: "/press" },
+  { label: "Press", href: "/press" },
   { label: "Commissions", href: "/commissions" },
   { label: "Contact", href: "/contact" },
 ];
