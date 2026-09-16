@@ -1539,3 +1539,15 @@
 .ct-auth-form { max-width: 420px; }
 @media (max-width: 900px) { .ct-news-layout { grid-template-columns: 1fr; gap: 40px; } .ct-news-sidebar { position: static; border-left: 0; border-top: 1px solid rgba(0,0,0,0.12); padding: 24px 0 0; } }
 @media (prefers-reduced-motion: reduce) { .ct-news-item { animation: none; } }
+
+.ct-field select {
+  font: inherit;
+  font-size: 0.95rem;
+  color: inherit;
+  background: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  border-radius: 0;
+  padding: 10px 12px;
+  transition: border-color 220ms ease-out;
+}
+.ct-field select:focus { outline: none; border-color: currentColor; }

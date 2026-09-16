@@ -222,7 +222,7 @@ function CommissionsPage() {
         <article className="ct-press-wide" style={{ ["--i" as string]: "1" }}>
           <span className="ct-press-date">Commission enquiry</span>
           <h3 className="ct-press-wide-title">Start a commission</h3>
-          <div className="ct-press-wide-body">
+          <div className="ct-press-wide-lede">
             <CommissionForm />
           </div>
         </article>
