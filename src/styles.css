@@ -1240,7 +1240,7 @@
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  .ct-work, .ct-where-row, .ct-press-mag > article { animation: none; }
+  .ct-work, .ct-where-row, .ct-press-mag > article, .ct-press-lead, .ct-press-card { animation: none; }
   .ct-work-frame img { transition: none; }
 }
 
