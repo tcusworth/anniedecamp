@@ -148,7 +148,7 @@ function ReadLink({ item }: { item: PressItem }) {
 }
 
 function PressPage() {
-  const lead = PRESS_ITEMS[LEAD_INDEX];
+  const lead = PRESS_ITEMS[LEAD_INDEX]!;
   const rest = PRESS_ITEMS.filter((_, i) => i !== LEAD_INDEX);
 
   return (
