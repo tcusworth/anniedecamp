@@ -83,6 +83,34 @@
     ]
   },
   {
+    "title": "Being in Blossoms",
+    "slug": "img-7870",
+    "year": 2025,
+    "medium": "Oil",
+    "surface": "Wood panel",
+    "height": 14,
+    "width": 11,
+    "depth": 1,
+    "dim_unit": "in",
+    "dims_estimated": true,
+    "status": "sold",
+    "price": 0,
+    "price_on_request": false,
+    "published": true,
+    "featured": false,
+    "series": "",
+    "themes": [
+      "florals",
+      "figurative",
+      "portrait"
+    ],
+    "description": "",
+    "print_eligible": true,
+    "images": [
+      "/artworks/img-3689/01-main.jpeg"
+    ]
+  },
+  {
     "title": "Blue boots",
     "slug": "blue-boots",
     "year": 0,
@@ -328,6 +356,33 @@
     ]
   },
   {
+    "title": "Delilah",
+    "slug": "img-7692",
+    "year": 0,
+    "medium": "Oil",
+    "surface": "wood panel",
+    "height": 24,
+    "width": 16,
+    "depth": 1,
+    "dim_unit": "in",
+    "dims_estimated": true,
+    "status": "sold",
+    "price": 0,
+    "price_on_request": false,
+    "published": false,
+    "featured": false,
+    "series": "",
+    "themes": [
+      "humanity",
+      "figurative"
+    ],
+    "description": "",
+    "print_eligible": true,
+    "images": [
+      "/artworks/img-3689/01-main.jpeg"
+    ]
+  },
+  {
     "title": "Digital Flowers",
     "slug": "peony-and-poppies-in-a-grey-vase",
     "year": 0,
@@ -409,6 +464,60 @@
     ]
   },
   {
+    "title": "Eidleweiss #1",
+    "slug": "img-7892-2",
+    "year": 0,
+    "medium": "Oil",
+    "surface": "wood panel",
+    "height": 14,
+    "width": 12,
+    "depth": 1,
+    "dim_unit": "in",
+    "dims_estimated": true,
+    "status": "archived",
+    "price": 0,
+    "price_on_request": false,
+    "published": false,
+    "featured": false,
+    "series": "",
+    "themes": [
+      "florals",
+      "still_life"
+    ],
+    "description": "",
+    "print_eligible": true,
+    "images": [
+      "/artworks/img-3689/01-main.jpeg"
+    ]
+  },
+  {
+    "title": "Eidleweiss #2",
+    "slug": "img-7891-2",
+    "year": 0,
+    "medium": "Oil",
+    "surface": "wood panel",
+    "height": 14,
+    "width": 12,
+    "depth": 1,
+    "dim_unit": "in",
+    "dims_estimated": true,
+    "status": "sold",
+    "price": 0,
+    "price_on_request": false,
+    "published": true,
+    "featured": false,
+    "series": "",
+    "themes": [
+      "florals",
+      "still_life"
+    ],
+    "description": "",
+    "print_eligible": true,
+    "images": [
+      "/artworks/img-3689/01-main.jpeg"
+    ]
+  },
+  {
     "title": "Even in the Daylight",
     "slug": "woman-with-a-horse-on-brown-paper",
     "year": 0,
@@ -464,6 +573,33 @@
     ]
   },
   {
+    "title": "Floating Dutch Girl #2",
+    "slug": "img-7496-2",
+    "year": 0,
+    "medium": "Digital and oil",
+    "surface": "wood panel",
+    "height": 24,
+    "width": 18,
+    "depth": 1,
+    "dim_unit": "in",
+    "dims_estimated": true,
+    "status": "sold",
+    "price": 0,
+    "price_on_request": false,
+    "published": true,
+    "featured": false,
+    "series": "",
+    "themes": [
+      "storytelling",
+      "figurative"
+    ],
+    "description": "",
+    "print_eligible": true,
+    "images": [
+      "/artworks/img-3689/01-main.jpeg"
+    ]
+  },
+  {
     "title": "Floating Roses",
     "slug": "floating-roses",
     "year": 0,
@@ -491,6 +627,34 @@
     ]
   },
   {
+    "title": "Florals with Fu Dog",
+    "slug": "img-3781",
+    "year": 0,
+    "medium": "Oil",
+    "surface": "Vintage wallpaper",
+    "height": 30,
+    "width": 24,
+    "depth": 1,
+    "dim_unit": "in",
+    "dims_estimated": true,
+    "status": "sold",
+    "price": 0,
+    "price_on_request": false,
+    "published": true,
+    "featured": false,
+    "series": "",
+    "themes": [
+      "florals",
+      "animals",
+      "still_life"
+    ],
+    "description": "",
+    "print_eligible": true,
+    "images": [
+      "/artworks/img-3689/01-main.jpeg"
+    ]
+  },
+  {
     "title": "Flower Study in Light",
     "slug": "img-3688",
     "year": 2026,
@@ -506,6 +670,57 @@
     "price_on_request": false,
     "published": true,
     "featured": true,
+    "series": "",
+    "themes": [
+      "florals",
+      "still_life"
+    ],
+    "description": "",
+    "print_eligible": true,
+    "images": [
+      "/artworks/img-3689/01-main.jpeg"
+    ]
+  },
+  {
+    "title": "Flower Tiger",
+    "slug": "img-7681",
+    "year": 0,
+    "medium": "Oil",
+    "surface": "wood panel",
+    "height": 30,
+    "width": 24,
+    "depth": 1,
+    "dim_unit": "in",
+    "dims_estimated": true,
+    "status": "commission",
+    "price": 0,
+    "price_on_request": false,
+    "published": true,
+    "featured": false,
+    "series": "",
+    "themes": [],
+    "description": "",
+    "print_eligible": false,
+    "images": [
+      "/artworks/img-3689/01-main.jpeg"
+    ]
+  },
+  {
+    "title": "Flowers Wide Open",
+    "slug": "img-8131-2",
+    "year": 0,
+    "medium": "Oil",
+    "surface": "Paper",
+    "height": 18,
+    "width": 28,
+    "depth": 1,
+    "dim_unit": "in",
+    "dims_estimated": true,
+    "status": "sold",
+    "price": 0,
+    "price_on_request": false,
+    "published": true,
+    "featured": false,
     "series": "",
     "themes": [
       "florals",
@@ -570,33 +785,6 @@
     "print_eligible": false,
     "images": [
       "/artworks/seated-woman-in-pink-and-grey-installed-view/01-main.jpg"
-    ]
-  },
-  {
-    "title": "Flowers in a green bowl",
-    "slug": "flowers-in-a-green-bowl",
-    "year": 0,
-    "medium": "",
-    "surface": "",
-    "height": 0,
-    "width": 0,
-    "depth": 0,
-    "dim_unit": "",
-    "dims_estimated": false,
-    "status": "available",
-    "price": 0,
-    "price_on_request": false,
-    "published": false,
-    "featured": false,
-    "series": "",
-    "themes": [
-      "florals",
-      "still_life"
-    ],
-    "description": "",
-    "print_eligible": false,
-    "images": [
-      "/artworks/img-3689/01-main.jpeg"
     ]
   },
   {
@@ -842,6 +1030,815 @@
     ]
   },
   {
+    "title": "Homesteader",
+    "slug": "img-7267-2",
+    "year": 0,
+    "medium": "Oil",
+    "surface": "melamine panel",
+    "height": 24,
+    "width": 24,
+    "depth": 1,
+    "dim_unit": "in",
+    "dims_estimated": true,
+    "status": "sold",
+    "price": 0,
+    "price_on_request": false,
+    "published": true,
+    "featured": false,
+    "series": "",
+    "themes": [
+      "humanity",
+      "figurative",
+      "portrait"
+    ],
+    "description": "",
+    "print_eligible": false,
+    "images": [
+      "/artworks/img-3689/01-main.jpeg"
+    ]
+  },
+  {
+    "title": "IMG 0067",
+    "slug": "img-0067",
+    "year": 0,
+    "medium": "",
+    "surface": "",
+    "height": 0,
+    "width": 0,
+    "depth": 0,
+    "dim_unit": "in",
+    "dims_estimated": true,
+    "status": "available",
+    "price": 0,
+    "price_on_request": false,
+    "published": false,
+    "featured": false,
+    "series": "",
+    "themes": [],
+    "description": "",
+    "print_eligible": false,
+    "images": [
+      "/artworks/img-3689/01-main.jpeg"
+    ]
+  },
+  {
+    "title": "IMG 0067",
+    "slug": "img-0067-2",
+    "year": 0,
+    "medium": "",
+    "surface": "",
+    "height": 0,
+    "width": 0,
+    "depth": 0,
+    "dim_unit": "in",
+    "dims_estimated": true,
+    "status": "available",
+    "price": 0,
+    "price_on_request": false,
+    "published": false,
+    "featured": false,
+    "series": "",
+    "themes": [],
+    "description": "",
+    "print_eligible": false,
+    "images": [
+      "/artworks/img-3689/01-main.jpeg"
+    ]
+  },
+  {
+    "title": "IMG 3598",
+    "slug": "img-3598",
+    "year": 0,
+    "medium": "",
+    "surface": "",
+    "height": 0,
+    "width": 0,
+    "depth": 0,
+    "dim_unit": "in",
+    "dims_estimated": true,
+    "status": "available",
+    "price": 0,
+    "price_on_request": false,
+    "published": false,
+    "featured": false,
+    "series": "",
+    "themes": [],
+    "description": "",
+    "print_eligible": false,
+    "images": [
+      "/artworks/img-3689/01-main.jpeg"
+    ]
+  },
+  {
+    "title": "IMG 3598",
+    "slug": "img-3598-2",
+    "year": 0,
+    "medium": "",
+    "surface": "",
+    "height": 0,
+    "width": 0,
+    "depth": 0,
+    "dim_unit": "in",
+    "dims_estimated": true,
+    "status": "available",
+    "price": 0,
+    "price_on_request": false,
+    "published": false,
+    "featured": false,
+    "series": "",
+    "themes": [],
+    "description": "",
+    "print_eligible": false,
+    "images": [
+      "/artworks/img-3689/01-main.jpeg"
+    ]
+  },
+  {
+    "title": "IMG 3607",
+    "slug": "img-3607",
+    "year": 0,
+    "medium": "",
+    "surface": "",
+    "height": 0,
+    "width": 0,
+    "depth": 0,
+    "dim_unit": "in",
+    "dims_estimated": true,
+    "status": "available",
+    "price": 0,
+    "price_on_request": false,
+    "published": false,
+    "featured": false,
+    "series": "",
+    "themes": [],
+    "description": "",
+    "print_eligible": false,
+    "images": [
+      "/artworks/img-3689/01-main.jpeg"
+    ]
+  },
+  {
+    "title": "IMG 3607",
+    "slug": "img-3607-2",
+    "year": 0,
+    "medium": "",
+    "surface": "",
+    "height": 0,
+    "width": 0,
+    "depth": 0,
+    "dim_unit": "in",
+    "dims_estimated": true,
+    "status": "available",
+    "price": 0,
+    "price_on_request": false,
+    "published": false,
+    "featured": false,
+    "series": "",
+    "themes": [],
+    "description": "",
+    "print_eligible": false,
+    "images": [
+      "/artworks/img-3689/01-main.jpeg"
+    ]
+  },
+  {
+    "title": "IMG 3614",
+    "slug": "img-3614",
+    "year": 0,
+    "medium": "",
+    "surface": "",
+    "height": 0,
+    "width": 0,
+    "depth": 0,
+    "dim_unit": "in",
+    "dims_estimated": true,
+    "status": "available",
+    "price": 0,
+    "price_on_request": false,
+    "published": false,
+    "featured": false,
+    "series": "",
+    "themes": [],
+    "description": "",
+    "print_eligible": false,
+    "images": [
+      "/artworks/img-3689/01-main.jpeg"
+    ]
+  },
+  {
+    "title": "IMG 3614",
+    "slug": "img-3614-2",
+    "year": 0,
+    "medium": "",
+    "surface": "",
+    "height": 0,
+    "width": 0,
+    "depth": 0,
+    "dim_unit": "in",
+    "dims_estimated": true,
+    "status": "available",
+    "price": 0,
+    "price_on_request": false,
+    "published": false,
+    "featured": false,
+    "series": "",
+    "themes": [],
+    "description": "",
+    "print_eligible": false,
+    "images": [
+      "/artworks/img-3689/01-main.jpeg"
+    ]
+  },
+  {
+    "title": "IMG 3615",
+    "slug": "img-3615",
+    "year": 0,
+    "medium": "",
+    "surface": "",
+    "height": 0,
+    "width": 0,
+    "depth": 0,
+    "dim_unit": "in",
+    "dims_estimated": true,
+    "status": "available",
+    "price": 0,
+    "price_on_request": false,
+    "published": false,
+    "featured": false,
+    "series": "",
+    "themes": [],
+    "description": "",
+    "print_eligible": false,
+    "images": [
+      "/artworks/img-3689/01-main.jpeg"
+    ]
+  },
+  {
+    "title": "IMG 3615",
+    "slug": "img-3615-2",
+    "year": 0,
+    "medium": "",
+    "surface": "",
+    "height": 0,
+    "width": 0,
+    "depth": 0,
+    "dim_unit": "in",
+    "dims_estimated": true,
+    "status": "available",
+    "price": 0,
+    "price_on_request": false,
+    "published": false,
+    "featured": false,
+    "series": "",
+    "themes": [],
+    "description": "",
+    "print_eligible": false,
+    "images": [
+      "/artworks/img-3689/01-main.jpeg"
+    ]
+  },
+  {
+    "title": "IMG 3617",
+    "slug": "img-3617",
+    "year": 0,
+    "medium": "",
+    "surface": "",
+    "height": 0,
+    "width": 0,
+    "depth": 0,
+    "dim_unit": "in",
+    "dims_estimated": true,
+    "status": "available",
+    "price": 0,
+    "price_on_request": false,
+    "published": false,
+    "featured": false,
+    "series": "",
+    "themes": [],
+    "description": "",
+    "print_eligible": false,
+    "images": [
+      "/artworks/img-3689/01-main.jpeg"
+    ]
+  },
+  {
+    "title": "IMG 3617",
+    "slug": "img-3617-2",
+    "year": 0,
+    "medium": "",
+    "surface": "",
+    "height": 0,
+    "width": 0,
+    "depth": 0,
+    "dim_unit": "in",
+    "dims_estimated": true,
+    "status": "available",
+    "price": 0,
+    "price_on_request": false,
+    "published": false,
+    "featured": false,
+    "series": "",
+    "themes": [],
+    "description": "",
+    "print_eligible": false,
+    "images": [
+      "/artworks/img-3689/01-main.jpeg"
+    ]
+  },
+  {
+    "title": "IMG 3619",
+    "slug": "img-3619",
+    "year": 0,
+    "medium": "",
+    "surface": "",
+    "height": 0,
+    "width": 0,
+    "depth": 0,
+    "dim_unit": "in",
+    "dims_estimated": true,
+    "status": "available",
+    "price": 0,
+    "price_on_request": false,
+    "published": false,
+    "featured": false,
+    "series": "",
+    "themes": [],
+    "description": "",
+    "print_eligible": false,
+    "images": [
+      "/artworks/img-3689/01-main.jpeg"
+    ]
+  },
+  {
+    "title": "IMG 3619",
+    "slug": "img-3619-2",
+    "year": 0,
+    "medium": "",
+    "surface": "",
+    "height": 0,
+    "width": 0,
+    "depth": 0,
+    "dim_unit": "in",
+    "dims_estimated": true,
+    "status": "available",
+    "price": 0,
+    "price_on_request": false,
+    "published": false,
+    "featured": false,
+    "series": "",
+    "themes": [],
+    "description": "",
+    "print_eligible": false,
+    "images": [
+      "/artworks/img-3689/01-main.jpeg"
+    ]
+  },
+  {
+    "title": "IMG 3620",
+    "slug": "img-3620",
+    "year": 0,
+    "medium": "",
+    "surface": "",
+    "height": 0,
+    "width": 0,
+    "depth": 0,
+    "dim_unit": "in",
+    "dims_estimated": true,
+    "status": "available",
+    "price": 0,
+    "price_on_request": false,
+    "published": false,
+    "featured": false,
+    "series": "",
+    "themes": [],
+    "description": "",
+    "print_eligible": false,
+    "images": [
+      "/artworks/img-3689/01-main.jpeg"
+    ]
+  },
+  {
+    "title": "IMG 3620",
+    "slug": "img-3620-2",
+    "year": 0,
+    "medium": "",
+    "surface": "",
+    "height": 0,
+    "width": 0,
+    "depth": 0,
+    "dim_unit": "in",
+    "dims_estimated": true,
+    "status": "available",
+    "price": 0,
+    "price_on_request": false,
+    "published": false,
+    "featured": false,
+    "series": "",
+    "themes": [],
+    "description": "",
+    "print_eligible": false,
+    "images": [
+      "/artworks/img-3689/01-main.jpeg"
+    ]
+  },
+  {
+    "title": "IMG 3626",
+    "slug": "img-3626",
+    "year": 0,
+    "medium": "",
+    "surface": "",
+    "height": 0,
+    "width": 0,
+    "depth": 0,
+    "dim_unit": "in",
+    "dims_estimated": true,
+    "status": "available",
+    "price": 0,
+    "price_on_request": false,
+    "published": false,
+    "featured": false,
+    "series": "",
+    "themes": [],
+    "description": "",
+    "print_eligible": false,
+    "images": [
+      "/artworks/img-3689/01-main.jpeg"
+    ]
+  },
+  {
+    "title": "IMG 3626",
+    "slug": "img-3626-2",
+    "year": 0,
+    "medium": "",
+    "surface": "",
+    "height": 0,
+    "width": 0,
+    "depth": 0,
+    "dim_unit": "in",
+    "dims_estimated": true,
+    "status": "available",
+    "price": 0,
+    "price_on_request": false,
+    "published": false,
+    "featured": false,
+    "series": "",
+    "themes": [],
+    "description": "",
+    "print_eligible": false,
+    "images": [
+      "/artworks/img-3689/01-main.jpeg"
+    ]
+  },
+  {
+    "title": "IMG 3627",
+    "slug": "img-3627",
+    "year": 0,
+    "medium": "",
+    "surface": "",
+    "height": 0,
+    "width": 0,
+    "depth": 0,
+    "dim_unit": "in",
+    "dims_estimated": true,
+    "status": "available",
+    "price": 0,
+    "price_on_request": false,
+    "published": false,
+    "featured": false,
+    "series": "",
+    "themes": [],
+    "description": "",
+    "print_eligible": false,
+    "images": [
+      "/artworks/img-3689/01-main.jpeg"
+    ]
+  },
+  {
+    "title": "IMG 3627",
+    "slug": "img-3627-2",
+    "year": 0,
+    "medium": "",
+    "surface": "",
+    "height": 0,
+    "width": 0,
+    "depth": 0,
+    "dim_unit": "in",
+    "dims_estimated": true,
+    "status": "available",
+    "price": 0,
+    "price_on_request": false,
+    "published": false,
+    "featured": false,
+    "series": "",
+    "themes": [],
+    "description": "",
+    "print_eligible": false,
+    "images": [
+      "/artworks/img-3689/01-main.jpeg"
+    ]
+  },
+  {
+    "title": "IMG 3629",
+    "slug": "img-3629",
+    "year": 0,
+    "medium": "",
+    "surface": "",
+    "height": 0,
+    "width": 0,
+    "depth": 0,
+    "dim_unit": "in",
+    "dims_estimated": true,
+    "status": "available",
+    "price": 0,
+    "price_on_request": false,
+    "published": false,
+    "featured": false,
+    "series": "",
+    "themes": [],
+    "description": "",
+    "print_eligible": false,
+    "images": [
+      "/artworks/img-3689/01-main.jpeg"
+    ]
+  },
+  {
+    "title": "IMG 3629",
+    "slug": "img-3629-2",
+    "year": 0,
+    "medium": "",
+    "surface": "",
+    "height": 0,
+    "width": 0,
+    "depth": 0,
+    "dim_unit": "in",
+    "dims_estimated": true,
+    "status": "available",
+    "price": 0,
+    "price_on_request": false,
+    "published": false,
+    "featured": false,
+    "series": "",
+    "themes": [],
+    "description": "",
+    "print_eligible": false,
+    "images": [
+      "/artworks/img-3689/01-main.jpeg"
+    ]
+  },
+  {
+    "title": "IMG 5942",
+    "slug": "img-5942",
+    "year": 0,
+    "medium": "",
+    "surface": "",
+    "height": 0,
+    "width": 0,
+    "depth": 0,
+    "dim_unit": "in",
+    "dims_estimated": true,
+    "status": "available",
+    "price": 0,
+    "price_on_request": false,
+    "published": false,
+    "featured": false,
+    "series": "",
+    "themes": [],
+    "description": "",
+    "print_eligible": false,
+    "images": [
+      "/artworks/img-3689/01-main.jpeg"
+    ]
+  },
+  {
+    "title": "IMG 5942",
+    "slug": "img-5942-2",
+    "year": 0,
+    "medium": "",
+    "surface": "",
+    "height": 0,
+    "width": 0,
+    "depth": 0,
+    "dim_unit": "in",
+    "dims_estimated": true,
+    "status": "available",
+    "price": 0,
+    "price_on_request": false,
+    "published": false,
+    "featured": false,
+    "series": "",
+    "themes": [],
+    "description": "",
+    "print_eligible": false,
+    "images": [
+      "/artworks/img-3689/01-main.jpeg"
+    ]
+  },
+  {
+    "title": "IMG 6006",
+    "slug": "img-6006",
+    "year": 0,
+    "medium": "",
+    "surface": "",
+    "height": 0,
+    "width": 0,
+    "depth": 0,
+    "dim_unit": "in",
+    "dims_estimated": true,
+    "status": "available",
+    "price": 0,
+    "price_on_request": false,
+    "published": false,
+    "featured": false,
+    "series": "",
+    "themes": [],
+    "description": "",
+    "print_eligible": false,
+    "images": [
+      "/artworks/img-3689/01-main.jpeg"
+    ]
+  },
+  {
+    "title": "IMG 6006",
+    "slug": "img-6006-2",
+    "year": 0,
+    "medium": "",
+    "surface": "",
+    "height": 0,
+    "width": 0,
+    "depth": 0,
+    "dim_unit": "in",
+    "dims_estimated": true,
+    "status": "available",
+    "price": 0,
+    "price_on_request": false,
+    "published": false,
+    "featured": false,
+    "series": "",
+    "themes": [],
+    "description": "",
+    "print_eligible": false,
+    "images": [
+      "/artworks/img-3689/01-main.jpeg"
+    ]
+  },
+  {
+    "title": "IMG 6843",
+    "slug": "img-6843",
+    "year": 0,
+    "medium": "",
+    "surface": "",
+    "height": 0,
+    "width": 0,
+    "depth": 0,
+    "dim_unit": "in",
+    "dims_estimated": true,
+    "status": "available",
+    "price": 0,
+    "price_on_request": false,
+    "published": false,
+    "featured": false,
+    "series": "",
+    "themes": [],
+    "description": "",
+    "print_eligible": false,
+    "images": [
+      "/artworks/img-3689/01-main.jpeg"
+    ]
+  },
+  {
+    "title": "IMG 6921",
+    "slug": "img-6921",
+    "year": 0,
+    "medium": "",
+    "surface": "",
+    "height": 0,
+    "width": 0,
+    "depth": 0,
+    "dim_unit": "in",
+    "dims_estimated": true,
+    "status": "available",
+    "price": 0,
+    "price_on_request": false,
+    "published": false,
+    "featured": false,
+    "series": "",
+    "themes": [],
+    "description": "",
+    "print_eligible": false,
+    "images": [
+      "/artworks/img-3689/01-main.jpeg"
+    ]
+  },
+  {
+    "title": "IMG 7446",
+    "slug": "img-7446",
+    "year": 0,
+    "medium": "",
+    "surface": "",
+    "height": 0,
+    "width": 0,
+    "depth": 0,
+    "dim_unit": "in",
+    "dims_estimated": true,
+    "status": "available",
+    "price": 0,
+    "price_on_request": false,
+    "published": false,
+    "featured": false,
+    "series": "",
+    "themes": [],
+    "description": "",
+    "print_eligible": false,
+    "images": [
+      "/artworks/img-3689/01-main.jpeg"
+    ]
+  },
+  {
+    "title": "Juliet",
+    "slug": "img-6332-2",
+    "year": 0,
+    "medium": "Oil",
+    "surface": "Wood panel",
+    "height": 24,
+    "width": 18,
+    "depth": 1,
+    "dim_unit": "in",
+    "dims_estimated": true,
+    "status": "sold",
+    "price": 0,
+    "price_on_request": false,
+    "published": true,
+    "featured": false,
+    "series": "",
+    "themes": [
+      "figurative",
+      "portrait"
+    ],
+    "description": "",
+    "print_eligible": true,
+    "images": [
+      "/artworks/img-3689/01-main.jpeg"
+    ]
+  },
+  {
+    "title": "Love on the Farm",
+    "slug": "img-7679-2",
+    "year": 0,
+    "medium": "Oil",
+    "surface": "wood panel",
+    "height": 18,
+    "width": 12,
+    "depth": 1,
+    "dim_unit": "in",
+    "dims_estimated": true,
+    "status": "sold",
+    "price": 0,
+    "price_on_request": false,
+    "published": true,
+    "featured": false,
+    "series": "",
+    "themes": [
+      "storytelling",
+      "humanity",
+      "figurative",
+      "portrait"
+    ],
+    "description": "",
+    "print_eligible": true,
+    "images": [
+      "/artworks/img-3689/01-main.jpeg"
+    ]
+  },
+  {
+    "title": "Man by Window",
+    "slug": "img-7695",
+    "year": 0,
+    "medium": "Oil",
+    "surface": "wood panel",
+    "height": 24,
+    "width": 20,
+    "depth": 1,
+    "dim_unit": "in",
+    "dims_estimated": true,
+    "status": "sold",
+    "price": 0,
+    "price_on_request": false,
+    "published": true,
+    "featured": false,
+    "series": "",
+    "themes": [
+      "storytelling",
+      "humanity",
+      "figurative",
+      "portrait"
+    ],
+    "description": "",
+    "print_eligible": true,
+    "images": [
+      "/artworks/img-3689/01-main.jpeg"
+    ]
+  },
+  {
     "title": "Man in a red jacket with a horse",
     "slug": "man-in-a-red-jacket-with-a-horse",
     "year": 0,
@@ -869,6 +1866,34 @@
     ]
   },
   {
+    "title": "Mignon",
+    "slug": "img-6804",
+    "year": 2025,
+    "medium": "Oil",
+    "surface": "Wood panel",
+    "height": 24,
+    "width": 18,
+    "depth": 1,
+    "dim_unit": "in",
+    "dims_estimated": true,
+    "status": "sold",
+    "price": 0,
+    "price_on_request": false,
+    "published": true,
+    "featured": false,
+    "series": "",
+    "themes": [
+      "florals",
+      "figurative",
+      "portrait"
+    ],
+    "description": "",
+    "print_eligible": true,
+    "images": [
+      "/artworks/img-3689/01-main.jpeg"
+    ]
+  },
+  {
     "title": "Modern Cowgirl",
     "slug": "modern-cowgirl",
     "year": 2026,
@@ -891,6 +1916,33 @@
     ],
     "description": "",
     "print_eligible": true,
+    "images": [
+      "/artworks/img-3689/01-main.jpeg"
+    ]
+  },
+  {
+    "title": "Moroccan Bouquet",
+    "slug": "img-7148-2",
+    "year": 0,
+    "medium": "",
+    "surface": "",
+    "height": 24,
+    "width": 24,
+    "depth": 1,
+    "dim_unit": "in",
+    "dims_estimated": true,
+    "status": "commission",
+    "price": 0,
+    "price_on_request": false,
+    "published": true,
+    "featured": false,
+    "series": "",
+    "themes": [
+      "florals",
+      "still_life"
+    ],
+    "description": "",
+    "print_eligible": false,
     "images": [
       "/artworks/img-3689/01-main.jpeg"
     ]
@@ -945,6 +1997,33 @@
       "animals",
       "storytelling",
       "humanity",
+      "figurative",
+      "portrait"
+    ],
+    "description": "",
+    "print_eligible": true,
+    "images": [
+      "/artworks/img-3689/01-main.jpeg"
+    ]
+  },
+  {
+    "title": "Night Swim",
+    "slug": "img-9489",
+    "year": 0,
+    "medium": "Oil",
+    "surface": "Wood panel",
+    "height": 36,
+    "width": 28,
+    "depth": 1,
+    "dim_unit": "in",
+    "dims_estimated": true,
+    "status": "sold",
+    "price": 0,
+    "price_on_request": false,
+    "published": true,
+    "featured": false,
+    "series": "",
+    "themes": [
       "figurative",
       "portrait"
     ],
@@ -1115,6 +2194,33 @@
     ]
   },
   {
+    "title": "Roses in Glass Vase",
+    "slug": "img-3782",
+    "year": 0,
+    "medium": "Oil",
+    "surface": "W",
+    "height": 24,
+    "width": 24,
+    "depth": 1,
+    "dim_unit": "in",
+    "dims_estimated": true,
+    "status": "sold",
+    "price": 0,
+    "price_on_request": false,
+    "published": true,
+    "featured": false,
+    "series": "",
+    "themes": [
+      "florals",
+      "still_life"
+    ],
+    "description": "",
+    "print_eligible": true,
+    "images": [
+      "/artworks/img-3689/01-main.jpeg"
+    ]
+  },
+  {
     "title": "Same Mood, diptych",
     "slug": "img-3697",
     "year": 0,
@@ -1217,6 +2323,64 @@
     ]
   },
   {
+    "title": "The Long Day",
+    "slug": "img-2922",
+    "year": 0,
+    "medium": "Oil",
+    "surface": "Wood panel",
+    "height": 14,
+    "width": 14,
+    "depth": 1,
+    "dim_unit": "in",
+    "dims_estimated": true,
+    "status": "sold",
+    "price": 0,
+    "price_on_request": false,
+    "published": false,
+    "featured": false,
+    "series": "",
+    "themes": [
+      "animals",
+      "storytelling",
+      "humanity",
+      "figurative",
+      "portrait"
+    ],
+    "description": "",
+    "print_eligible": true,
+    "images": [
+      "/artworks/img-3689/01-main.jpeg"
+    ]
+  },
+  {
+    "title": "Theodora",
+    "slug": "img-6801",
+    "year": 2025,
+    "medium": "Oil",
+    "surface": "Wood panel",
+    "height": 24,
+    "width": 18,
+    "depth": 1,
+    "dim_unit": "in",
+    "dims_estimated": true,
+    "status": "sold",
+    "price": 0,
+    "price_on_request": false,
+    "published": true,
+    "featured": false,
+    "series": "",
+    "themes": [
+      "florals",
+      "figurative",
+      "portrait"
+    ],
+    "description": "",
+    "print_eligible": true,
+    "images": [
+      "/artworks/img-3689/01-main.jpeg"
+    ]
+  },
+  {
     "title": "Three boys (photograph and colour blocks)",
     "slug": "three-boys-photograph-and-colour-blocks",
     "year": 0,
@@ -1272,6 +2436,35 @@
     ]
   },
   {
+    "title": "Turtles Down",
+    "slug": "img-5451",
+    "year": 0,
+    "medium": "Oil",
+    "surface": "Wood panel",
+    "height": 15,
+    "width": 12,
+    "depth": 1,
+    "dim_unit": "in",
+    "dims_estimated": true,
+    "status": "sold",
+    "price": 0,
+    "price_on_request": false,
+    "published": false,
+    "featured": false,
+    "series": "",
+    "themes": [
+      "animals",
+      "storytelling",
+      "humanity",
+      "figurative"
+    ],
+    "description": "",
+    "print_eligible": true,
+    "images": [
+      "/artworks/img-3689/01-main.jpeg"
+    ]
+  },
+  {
     "title": "Two men embracing",
     "slug": "two-men-embracing",
     "year": 0,
@@ -1294,6 +2487,33 @@
     ],
     "description": "",
     "print_eligible": false,
+    "images": [
+      "/artworks/img-3689/01-main.jpeg"
+    ]
+  },
+  {
+    "title": "Van Gogh's flowers",
+    "slug": "img-5872-2",
+    "year": 0,
+    "medium": "Oil",
+    "surface": "Wood panel",
+    "height": 40,
+    "width": 40,
+    "depth": 1,
+    "dim_unit": "in",
+    "dims_estimated": true,
+    "status": "commission",
+    "price": 0,
+    "price_on_request": false,
+    "published": true,
+    "featured": false,
+    "series": "",
+    "themes": [
+      "florals",
+      "still_life"
+    ],
+    "description": "",
+    "print_eligible": true,
     "images": [
       "/artworks/img-3689/01-main.jpeg"
     ]
@@ -1337,7 +2557,7 @@
     "dim_unit": "in",
     "dims_estimated": false,
     "status": "available",
-    "price": 5000,
+    "price": 4000,
     "price_on_request": false,
     "published": true,
     "featured": false,
@@ -1382,6 +2602,34 @@
     "print_eligible": false,
     "images": [
       "/artworks/img-3689/01-main.jpeg"
+    ]
+  },
+  {
+    "title": "Windy Day",
+    "slug": "woman-in-a-yellow-coat-with-a-dog",
+    "year": 0,
+    "medium": "",
+    "surface": "",
+    "height": 40,
+    "width": 36,
+    "depth": 1,
+    "dim_unit": "in",
+    "dims_estimated": false,
+    "status": "sold",
+    "price": 0,
+    "price_on_request": false,
+    "published": true,
+    "featured": false,
+    "series": "",
+    "themes": [
+      "animals",
+      "humanity",
+      "figurative"
+    ],
+    "description": "",
+    "print_eligible": false,
+    "images": [
+      "/artworks/seated-woman-in-pink-and-grey-installed-view/01-main.jpg"
     ]
   },
   {
@@ -1463,33 +2711,6 @@
     "print_eligible": false,
     "images": [
       "/artworks/img-3689/01-main.jpeg"
-    ]
-  },
-  {
-    "title": "Woman in a yellow coat with a dog",
-    "slug": "woman-in-a-yellow-coat-with-a-dog",
-    "year": 0,
-    "medium": "",
-    "surface": "",
-    "height": 0,
-    "width": 0,
-    "depth": 0,
-    "dim_unit": "",
-    "dims_estimated": false,
-    "status": "available",
-    "price": 0,
-    "price_on_request": false,
-    "published": false,
-    "featured": false,
-    "series": "",
-    "themes": [
-      "figurative",
-      "animals"
-    ],
-    "description": "",
-    "print_eligible": false,
-    "images": [
-      "/artworks/seated-woman-in-pink-and-grey-installed-view/01-main.jpg"
     ]
   },
   {
