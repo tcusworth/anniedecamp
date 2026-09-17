@@ -47,7 +47,10 @@ export function SiteHeader() {
           <MenuIcon />
         </button>
         <h1 className="ct-wordmark">
-          <a href="/">Annie Decamp</a>
+          <a href="/">
+            <img className="ct-wordmark-logo" src={logoAsset.url} alt="" aria-hidden="true" />
+            <span>Annie Decamp</span>
+          </a>
         </h1>
       </div>
 
