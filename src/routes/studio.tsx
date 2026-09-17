@@ -4,9 +4,8 @@ import { useServerFn } from "@tanstack/react-start";
 import { submitStudioInquiry } from "@/lib/inquiries.functions";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
-import franchesca from "@/assets/Franchesca_at_Night_oil_on_panel_framed_30x30.jpg.asset.json";
-import dreamer from "@/assets/Dreamer_oil_on_canvas_18x22.jpg.asset.json";
-import pansies from "@/assets/Pansies_oil_on_panel_14x16.jpg.asset.json";
+import studioCorner from "@/assets/studio-corner.jpeg.asset.json";
+import studioWide from "@/assets/studio-wide.jpeg.asset.json";
 
 const title = "Studio — Annie Decamp Art";
 const description =
@@ -146,7 +145,7 @@ function StudioPage() {
           {/* Bio: featured large */}
           <article className="ct-press-featured" style={{ ["--i" as string]: "0" }}>
             <figure className="ct-press-figure ct-press-figure-lead">
-              <img src={franchesca.url} alt="Franchesca at Night, oil on panel, 30 × 30 in." loading="lazy" />
+              <img src={studioCorner.url} alt="Annie Decamp's studio, paintings and easel in a corner of the workspace." loading="lazy" />
             </figure>
             <span className="ct-press-date">Biography</span>
             <h3 className="ct-press-featured-title">
@@ -177,7 +176,7 @@ function StudioPage() {
               In the studio: <em>three movements</em>
             </h3>
             <figure className="ct-press-figure ct-press-figure-tall">
-              <img src={dreamer.url} alt="Dreamer, oil on canvas, 18 × 22 in." loading="lazy" />
+              <img src={studioWide.url} alt="Annie Decamp's studio, wide view with canvases leaning against the wall and work on the easel." loading="lazy" />
             </figure>
             {PROCESS.map((p) => (
               <p key={p.step} className="ct-press-note">
@@ -207,9 +206,6 @@ function StudioPage() {
             <div className="ct-press-wide-cta">
               <h4 className="ct-form-title">Send an enquiry</h4>
               <InquiryForm />
-              <figure className="ct-press-figure ct-press-figure-thumb">
-                <img src={pansies.url} alt="Pansies, oil on panel, 14 × 16 in." loading="lazy" />
-              </figure>
             </div>
           </article>
         </div>
