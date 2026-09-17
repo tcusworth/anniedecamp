@@ -9,6 +9,14 @@ import bedroomAsset from "@/assets/home-bedroom-portrait.jpg.asset.json";
 import shopRosesAsset from "@/assets/home-shop-red-roses.jpg.asset.json";
 import fooDogAsset from "@/assets/home-portrait-foo-dog.jpg.asset.json";
 import artistDisplayAsset from "@/assets/home-artist-display.jpg.asset.json";
+import img3868Asset from "@/assets/home-IMG_3868.jpg.asset.json";
+import img3862Asset from "@/assets/home-IMG_3862.jpg.asset.json";
+import img3839Asset from "@/assets/home-IMG_3839.jpg.asset.json";
+import img3838Asset from "@/assets/home-IMG_3838.jpg.asset.json";
+import img3837Asset from "@/assets/home-IMG_3837.jpg.asset.json";
+import img3836Asset from "@/assets/home-IMG_3836.jpg.asset.json";
+import img3834Asset from "@/assets/home-IMG_3834.jpg.asset.json";
+import img3823Asset from "@/assets/home-IMG_3823.jpg.asset.json";
 
 type Slide = { src: string; caption: string; url: string; alt: string };
 
@@ -72,6 +80,54 @@ const SLIDES: Slide[] = [
     caption: "Annie Decamp - works on display",
     url: "/gallery",
     alt: "Annie Decamp seated among a display of her paintings",
+  },
+  {
+    src: img3868Asset.url,
+    caption: "Annie Decamp - works on display",
+    url: "/gallery",
+    alt: "Annie Decamp portrait of an Indigenous man in a fur hat displayed on a pale yellow wall above rustic decor",
+  },
+  {
+    src: img3862Asset.url,
+    caption: "Annie Decamp - works on display",
+    url: "/gallery",
+    alt: "Annie Decamp portrait of a man in a red cap on a light gray wall in a modern blue kitchen",
+  },
+  {
+    src: img3839Asset.url,
+    caption: "Annie Decamp - works on display",
+    url: "/gallery",
+    alt: "Annie Decamp framed abstract painting of figures in polka-dotted costumes above a home office desk",
+  },
+  {
+    src: img3838Asset.url,
+    caption: "Annie Decamp - works on display",
+    url: "/gallery",
+    alt: "Annie Decamp painting of a man seated in a chair in a minimalist gallery room with arched windows",
+  },
+  {
+    src: img3837Asset.url,
+    caption: "Annie Decamp - works on display",
+    url: "/gallery",
+    alt: "Annie Decamp stylized portrait of a woman with a yellow cross over her eyes in a minimalist attic bedroom",
+  },
+  {
+    src: img3836Asset.url,
+    caption: "Annie Decamp - works on display",
+    url: "/gallery",
+    alt: "Annie Decamp painting of people dancing in a circle on a pink wall next to a green door",
+  },
+  {
+    src: img3834Asset.url,
+    caption: "Annie Decamp - works on display",
+    url: "/gallery",
+    alt: "Two dark figurative Annie Decamp paintings on a white wall above a wooden bench",
+  },
+  {
+    src: img3823Asset.url,
+    caption: "Annie Decamp - works on display",
+    url: "/gallery",
+    alt: "Annie Decamp vibrant portrait of a woman with a yellow cross over her face on a textured green wall above a sofa",
   },
 ];
 

@@ -25,7 +25,7 @@ const ITEMS = [
   "Scarves",
   "Tees",
   "Calendars",
-  "Notebook",
+  "Notebooks",
   "And other cool stuff",
 ];
 
