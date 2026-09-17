@@ -17,6 +17,7 @@ import { Route as CommissionsRouteImport } from './routes/commissions'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as PressRouteImport } from './routes/press'
+import { Route as RsvpRouteImport } from './routes/rsvp'
 import { Route as ShopRouteImport } from './routes/shop'
 import { Route as StudioRouteImport } from './routes/studio'
 import { Route as WhereToSeeRouteImport } from './routes/where-to-see'
@@ -65,6 +66,11 @@ const GalleryRoute = GalleryRouteImport.update({
 const PressRoute = PressRouteImport.update({
   id: '/press',
   path: '/press',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RsvpRoute = RsvpRouteImport.update({
+  id: '/rsvp',
+  path: '/rsvp',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ShopRoute = ShopRouteImport.update({
@@ -128,6 +134,7 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/gallery': typeof GalleryRoute
   '/press': typeof PressRoute
+  '/rsvp': typeof RsvpRoute
   '/shop': typeof ShopRoute
   '/studio': typeof StudioRoute
   '/where-to-see': typeof WhereToSeeRoute
@@ -147,6 +154,7 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/gallery': typeof GalleryRoute
   '/press': typeof PressRoute
+  '/rsvp': typeof RsvpRoute
   '/shop': typeof ShopRoute
   '/studio': typeof StudioRoute
   '/where-to-see': typeof WhereToSeeRoute
@@ -168,6 +176,7 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/gallery': typeof GalleryRoute
   '/press': typeof PressRoute
+  '/rsvp': typeof RsvpRoute
   '/shop': typeof ShopRoute
   '/studio': typeof StudioRoute
   '/where-to-see': typeof WhereToSeeRoute
@@ -189,6 +198,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/gallery'
     | '/press'
+    | '/rsvp'
     | '/shop'
     | '/studio'
     | '/where-to-see'
@@ -208,6 +218,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/gallery'
     | '/press'
+    | '/rsvp'
     | '/shop'
     | '/studio'
     | '/where-to-see'
@@ -228,6 +239,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/gallery'
     | '/press'
+    | '/rsvp'
     | '/shop'
     | '/studio'
     | '/where-to-see'
@@ -249,6 +261,7 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   GalleryRoute: typeof GalleryRoute
   PressRoute: typeof PressRoute
+  RsvpRoute: typeof RsvpRoute
   ShopRoute: typeof ShopRoute
   StudioRoute: typeof StudioRoute
   WhereToSeeRoute: typeof WhereToSeeRoute
@@ -315,6 +328,13 @@ declare module '@tanstack/react-router' {
       path: '/press'
       fullPath: '/press'
       preLoaderRoute: typeof PressRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/rsvp': {
+      id: '/rsvp'
+      path: '/rsvp'
+      fullPath: '/rsvp'
+      preLoaderRoute: typeof RsvpRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/shop': {
@@ -412,6 +432,7 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   GalleryRoute: GalleryRoute,
   PressRoute: PressRoute,
+  RsvpRoute: RsvpRoute,
   ShopRoute: ShopRoute,
   StudioRoute: StudioRoute,
   WhereToSeeRoute: WhereToSeeRoute,

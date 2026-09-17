@@ -50,6 +50,11 @@ function NewsPage() {
                   <strong>{it.show}</strong>
                   {it.venue ? <span>{it.venue}</span> : null}
                 </span>
+                {i === 0 ? (
+                  <a className="ct-where-rsvp" href="/rsvp">
+                    RSVP →
+                  </a>
+                ) : null}
               </li>
             ))}
           </ul>

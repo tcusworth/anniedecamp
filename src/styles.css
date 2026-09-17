@@ -1681,3 +1681,70 @@
   font-size: 18px;
   letter-spacing: 0.04em;
 }
+
+/* ===== RSVP / Event sign-up page ===== */
+.ct-rsvp {
+  max-width: 1100px;
+}
+.ct-rsvp-head {
+  margin-bottom: 32px;
+}
+.ct-rsvp-subtitle {
+  margin-top: 8px;
+  font-size: 15px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.65;
+}
+.ct-rsvp-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+.ct-rsvp-brochure {
+  margin: 0;
+}
+.ct-rsvp-brochure img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 2px;
+}
+.ct-rsvp-form-block {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.ct-rsvp-form-head {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.ct-rsvp-details {
+  font-size: 16px;
+  line-height: 1.65;
+  max-width: 48ch;
+}
+.ct-rsvp-where {
+  font-size: 14px;
+  line-height: 1.8;
+  margin-top: 4px;
+}
+@media (max-width: 860px) {
+  .ct-rsvp-body {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .ct-rsvp-brochure {
+    max-width: 480px;
+  }
+}
+
+.ct-where-rsvp {
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  align-self: center;
+}
