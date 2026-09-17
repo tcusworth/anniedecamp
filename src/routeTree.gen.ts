@@ -24,6 +24,7 @@ import { Route as AuthenticatedNewsAdminRouteImport } from './routes/_authentica
 import { Route as CheckoutReturnRouteImport } from './routes/checkout.return'
 import { Route as NewsIndexRouteImport } from './routes/news.index'
 import { Route as NewsSlugRouteImport } from './routes/news.$slug'
+import { Route as ApiPublicArtworkImageRouteImport } from './routes/api/public/artwork-image'
 import { Route as ApiPublicPaymentsWebhookRouteImport } from './routes/api/public/payments/webhook'
 
 const IndexRoute = IndexRouteImport.update({
@@ -100,6 +101,11 @@ const NewsSlugRoute = NewsSlugRouteImport.update({
   path: '/news/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiPublicArtworkImageRoute = ApiPublicArtworkImageRouteImport.update({
+  id: '/api/public/artwork-image',
+  path: '/api/public/artwork-image',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiPublicPaymentsWebhookRoute =
   ApiPublicPaymentsWebhookRouteImport.update({
     id: '/api/public/payments/webhook',
@@ -122,6 +128,7 @@ export interface FileRoutesByFullPath {
   '/checkout/return': typeof CheckoutReturnRoute
   '/news/$slug': typeof NewsSlugRoute
   '/news/': typeof NewsIndexRoute
+  '/api/public/artwork-image': typeof ApiPublicArtworkImageRoute
   '/api/public/payments/webhook': typeof ApiPublicPaymentsWebhookRoute
 }
 export interface FileRoutesByTo {
@@ -139,6 +146,7 @@ export interface FileRoutesByTo {
   '/checkout/return': typeof CheckoutReturnRoute
   '/news/$slug': typeof NewsSlugRoute
   '/news': typeof NewsIndexRoute
+  '/api/public/artwork-image': typeof ApiPublicArtworkImageRoute
   '/api/public/payments/webhook': typeof ApiPublicPaymentsWebhookRoute
 }
 export interface FileRoutesById {
@@ -158,6 +166,7 @@ export interface FileRoutesById {
   '/checkout/return': typeof CheckoutReturnRoute
   '/news/$slug': typeof NewsSlugRoute
   '/news/': typeof NewsIndexRoute
+  '/api/public/artwork-image': typeof ApiPublicArtworkImageRoute
   '/api/public/payments/webhook': typeof ApiPublicPaymentsWebhookRoute
 }
 export interface FileRouteTypes {
@@ -177,6 +186,7 @@ export interface FileRouteTypes {
     | '/checkout/return'
     | '/news/$slug'
     | '/news/'
+    | '/api/public/artwork-image'
     | '/api/public/payments/webhook'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -194,6 +204,7 @@ export interface FileRouteTypes {
     | '/checkout/return'
     | '/news/$slug'
     | '/news'
+    | '/api/public/artwork-image'
     | '/api/public/payments/webhook'
   id:
     | '__root__'
@@ -212,6 +223,7 @@ export interface FileRouteTypes {
     | '/checkout/return'
     | '/news/$slug'
     | '/news/'
+    | '/api/public/artwork-image'
     | '/api/public/payments/webhook'
   fileRoutesById: FileRoutesById
 }
@@ -230,6 +242,7 @@ export interface RootRouteChildren {
   CheckoutReturnRoute: typeof CheckoutReturnRoute
   NewsSlugRoute: typeof NewsSlugRoute
   NewsIndexRoute: typeof NewsIndexRoute
+  ApiPublicArtworkImageRoute: typeof ApiPublicArtworkImageRoute
   ApiPublicPaymentsWebhookRoute: typeof ApiPublicPaymentsWebhookRoute
 }
 
@@ -340,6 +353,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof NewsSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/public/artwork-image': {
+      id: '/api/public/artwork-image'
+      path: '/api/public/artwork-image'
+      fullPath: '/api/public/artwork-image'
+      preLoaderRoute: typeof ApiPublicArtworkImageRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/public/payments/webhook': {
       id: '/api/public/payments/webhook'
       path: '/api/public/payments/webhook'
@@ -376,6 +396,7 @@ const rootRouteChildren: RootRouteChildren = {
   CheckoutReturnRoute: CheckoutReturnRoute,
   NewsSlugRoute: NewsSlugRoute,
   NewsIndexRoute: NewsIndexRoute,
+  ApiPublicArtworkImageRoute: ApiPublicArtworkImageRoute,
   ApiPublicPaymentsWebhookRoute: ApiPublicPaymentsWebhookRoute,
 }
 export const routeTree = rootRouteImport
