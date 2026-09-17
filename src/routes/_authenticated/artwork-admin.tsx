@@ -17,9 +17,9 @@ import {
 export const Route = createFileRoute("/_authenticated/artwork-admin")({
   head: () => ({
     meta: [
-      { title: "Artwork admin — Annie Decamp" },
+      { title: "Artwork admin — Annie Decamp Art" },
       { name: "description", content: "Upload and edit paintings for the Annie Decamp gallery." },
-      { property: "og:title", content: "Artwork admin — Annie Decamp" },
+      { property: "og:title", content: "Artwork admin — Annie Decamp Art" },
       { property: "og:description", content: "Upload and edit paintings." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },

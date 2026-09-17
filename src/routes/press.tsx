@@ -10,7 +10,7 @@ import urbanLife from "@/assets/press-urban-life-wash-park.jpg.asset.json";
 import vailDaily from "@/assets/press-vail-daily.png.asset.json";
 import voyageDenver from "@/assets/press-voyage-denver.jpg.asset.json";
 
-const title = "Press — Annie Decamp";
+const title = "Press — Annie Decamp Art";
 const description =
   "Selected publications, features, reviews, and interviews on Annie Decamp and her mixed-media practice, with links to the original coverage.";
 

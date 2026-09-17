@@ -8,7 +8,7 @@ import franchesca from "@/assets/Franchesca_at_Night_oil_on_panel_framed_30x30.j
 import dreamer from "@/assets/Dreamer_oil_on_canvas_18x22.jpg.asset.json";
 import pansies from "@/assets/Pansies_oil_on_panel_14x16.jpg.asset.json";
 
-const title = "Studio — Annie Decamp";
+const title = "Studio — Annie Decamp Art";
 const description =
   "Inside the studio of Annie Decamp: biography, working process, and how to contact the studio.";
 

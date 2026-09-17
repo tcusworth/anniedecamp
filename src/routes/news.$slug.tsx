@@ -16,10 +16,10 @@ export const Route = createFileRoute("/news/$slug")({
   head: ({ loaderData }) => {
     if (!loaderData) {
       return {
-        meta: [{ title: "Unavailable — Annie Decamp" }, { name: "robots", content: "noindex" }],
+        meta: [{ title: "Unavailable — Annie Decamp Art" }, { name: "robots", content: "noindex" }],
       };
     }
-    const t = `${loaderData.article.title} — Annie Decamp`;
+    const t = `${loaderData.article.title} — Annie Decamp Art`;
     const d = loaderData.article.excerpt ?? "News from the studio of Annie Decamp.";
     return {
       meta: [

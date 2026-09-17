@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 
-const title = "Merchandise — Annie Decamp";
+const title = "Merchandise — Annie Decamp Art";
 const description =
   "Studio merchandise by Annie Decamp — tote bags, scarves, tees, calendars, notebooks and more. Coming soon.";
 

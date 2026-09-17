@@ -3,7 +3,7 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { listPublishedArticles, type ArticleSummary } from "@/lib/news.functions";
 
-const title = "News — Annie Decamp";
+const title = "News — Annie Decamp Art";
 const description =
   "Studio news, exhibition announcements and writing from the studio of Annie Decamp in Aspen, Colorado.";
 

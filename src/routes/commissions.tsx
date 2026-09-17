@@ -6,7 +6,7 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import franchesca from "@/assets/Franchesca_at_Night_oil_on_panel_framed_30x30.jpg.asset.json";
 
-const title = "Commissions — Annie Decamp";
+const title = "Commissions — Annie Decamp Art";
 const description =
   "Commission an original painting from Annie Decamp. Share the subject, size, medium, budget and timing, and the studio will be in touch.";
 

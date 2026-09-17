@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 
-const title = "Events & Exhibitions — Annie Decamp";
+const title = "Events & Exhibitions — Annie Decamp Art";
 const description =
   "Current and upcoming exhibitions, museum collections and permanent installations where paintings by Annie Decamp can be seen.";
 

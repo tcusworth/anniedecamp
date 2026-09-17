@@ -6,7 +6,7 @@ import { PaymentTestModeBanner } from "@/components/PaymentTestModeBanner";
 import { listArtworks, type Artwork } from "@/lib/shop.functions";
 import { useCart, money } from "@/lib/cart";
 
-const title = "Gallery — Annie Decamp";
+const title = "Gallery — Annie Decamp Art";
 const description =
   "Selected paintings by Annie Decamp, available as one-of-a-kind originals and fine art prints.";
 
