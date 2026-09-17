@@ -52,13 +52,13 @@ function AboutPage() {
               src={portrait.url}
               alt="Annie Decamp seated in her studio surrounded by paintings"
             />
-            <figcaption>Annie Decamp in the studio</figcaption>
+            <figcaption>Annie in the studio</figcaption>
             <img
               className="ct-bio-portrait-2"
               src={childhoodPortrait.url}
               alt="A childhood photograph of Annie Decamp holding a cat in a garden"
             />
-            <figcaption>Annie Decamp as a child</figcaption>
+            <figcaption>Annie age 5</figcaption>
           </figure>
           <div className="ct-bio-text">
             {PARAGRAPHS.map((p, i) => (
