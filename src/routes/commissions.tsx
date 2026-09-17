@@ -239,18 +239,18 @@ function CommissionsPage() {
           </p>
           <p>
             Perhaps that is what I enjoy most. The finished painting belongs to the client, but the
-            experience of making it becomes part of my story, too. A thread connects us, and I
-            find that deeply meaningful.
+            experience of making it becomes part of my story, too. A thread connects us, and I find
+            that deeply meaningful.
           </p>
         </blockquote>
 
-        <article className="ct-press-wide" style={{ ["--i" as string]: "2" }}>
-          <span className="ct-press-date">Commission enquiry</span>
-          <h3 className="ct-press-wide-title">Start a commission</h3>
-          <div className="ct-press-wide-lede">
-            <CommissionForm />
+        <section className="ct-commission-form-block" style={{ ["--i" as string]: "2" }}>
+          <div className="ct-commission-form-head">
+            <span className="ct-press-date">Commission enquiry</span>
+            <h3 className="ct-press-wide-title">Start a commission</h3>
           </div>
-        </article>
+          <CommissionForm />
+        </section>
 
         <div className="ct-press-tail" aria-hidden="true" />
       </main>
