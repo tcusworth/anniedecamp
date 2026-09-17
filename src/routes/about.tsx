@@ -76,6 +76,22 @@ function AboutPage() {
             ))}
           </div>
         </section>
+
+        <section className="ct-podcasts" aria-label="Podcasts">
+          <h3 className="ct-podcasts-title">Podcasts</h3>
+          <div className="ct-podcasts-list">
+            <div className="ct-podcast-card">
+              <iframe
+                title="Ep. 075 — Annie Decamp, Mixed-Media Encaustic Painting"
+                src="https://embed.podcasts.apple.com/au/podcast/ep-075-annie-decamp-mixed-media-encaustic-painting/id1488280246?i=1000517232856"
+                loading="lazy"
+                allow="autoplay *; encrypted-media *; clipboard-write"
+                frameBorder="0"
+                className="ct-podcast-iframe"
+              />
+            </div>
+          </div>
+        </section>
       </main>
       <SiteFooter />
     </div>
