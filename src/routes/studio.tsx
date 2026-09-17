@@ -4,9 +4,8 @@ import { useServerFn } from "@tanstack/react-start";
 import { submitStudioInquiry } from "@/lib/inquiries.functions";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
-import franchesca from "@/assets/Franchesca_at_Night_oil_on_panel_framed_30x30.jpg.asset.json";
-import dreamer from "@/assets/Dreamer_oil_on_canvas_18x22.jpg.asset.json";
-import pansies from "@/assets/Pansies_oil_on_panel_14x16.jpg.asset.json";
+import studioCorner from "@/assets/studio-corner.jpeg.asset.json";
+import studioWide from "@/assets/studio-wide.jpeg.asset.json";
 
 const title = "Studio — Annie Decamp Art";
 const description =
