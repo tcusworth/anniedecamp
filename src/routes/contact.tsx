@@ -47,10 +47,6 @@ function ContactPage() {
             </div>
           ))}
         </dl>
-        <p className="ct-page-note">
-          Studio address and telephone above are placeholders — send me the real details and I will
-          put them in.
-        </p>
       </main>
       <SiteFooter />
     </div>
