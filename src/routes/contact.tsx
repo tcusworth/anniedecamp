@@ -22,9 +22,9 @@ export const Route = createFileRoute("/contact")({
 
 const ROWS = [
   { label: "Studio", value: "studio@annedecamp.com", href: "mailto:studio@annedecamp.com" },
-  { label: "Press", value: "press@annedecamp.com", href: "mailto:press@annedecamp.com" },
-  { label: "Telephone", value: "+1 (323) 555 0142", href: "tel:+13235550142" },
-  { label: "Instagram", value: "@annedecamp", href: "https://www.instagram.com/annedecamp/" },
+  { label: "Press inquiries", value: "lu@staskoagency.com", href: "mailto:lu@staskoagency.com" },
+  { label: "Telephone", value: "650-391-8405", href: "tel:+16503918405" },
+  { label: "Instagram", value: "@anniedecampart", href: "https://www.instagram.com/anniedecampart/" },
 ];
 
 function ContactPage() {
@@ -47,10 +47,6 @@ function ContactPage() {
             </div>
           ))}
         </dl>
-        <p className="ct-page-note">
-          Studio address and telephone above are placeholders — send me the real details and I will
-          put them in.
-        </p>
       </main>
       <SiteFooter />
     </div>
