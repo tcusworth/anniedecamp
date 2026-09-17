@@ -8,6 +8,7 @@ const signupSchema = z.object({
   phone: z.string().trim().max(40).optional().default(""),
   guests: z.number().int().min(1, "At least one guest").max(20, "Max 20 guests").optional().default(1),
   message: z.string().trim().max(2000).optional().default(""),
+  preferred_day: z.string().trim().max(200).optional().default(""),
 });
 
 export const submitEventSignup = createServerFn({ method: "POST" })
@@ -22,6 +23,7 @@ export const submitEventSignup = createServerFn({ method: "POST" })
       phone: data.phone || null,
       guests: data.guests,
       message: data.message || null,
+      preferred_day: data.preferred_day || null,
     });
 
     if (error) {
