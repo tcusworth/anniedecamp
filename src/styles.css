@@ -590,6 +590,35 @@
   to { transform: translateX(-50%); }
 }
 
+.ct-podcasts {
+  margin: 0 0 80px;
+  animation: ct-rise-in 0.6s ease-out both;
+}
+.ct-podcasts-title {
+  font-size: 13px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 400;
+  margin: 0 0 24px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #000;
+}
+.ct-podcasts-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 24px;
+}
+.ct-podcast-card {
+  border: 1px solid #000;
+  padding: 16px;
+}
+.ct-podcast-iframe {
+  width: 100%;
+  height: 175px;
+  border: 0;
+  display: block;
+}
+
 .ct-stats {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
