@@ -219,36 +219,30 @@ function CommissionsPage() {
           </div>
         </article>
 
-        <article className="ct-press-wide" style={{ ["--i" as string]: "1" }}>
-          <span className="ct-press-date">On commissions</span>
-          <h3 className="ct-press-wide-title">
-            A relationship develops alongside the <em>artwork</em>
-          </h3>
-          <div className="ct-press-wide-lede">
-            <p>
-              I love working on commissions because they invite me into someone else's world for a
-              while.
-            </p>
-            <p>
-              Creating a piece for another person begins with conversation — learning what they are
-              drawn to, remember, love, and sometimes want a painting to hold for them.
-            </p>
-            <p>
-              That process reflects something at the heart of my work: my enduring curiosity about
-              people and the human experience. I have always been an observer of humanity — our
-              histories, relationships, contradictions, tenderness, and humor.
-            </p>
-            <p>
-              By the time a commission is finished, I often feel I have come to know the person in a
-              way I might not have otherwise. A relationship develops alongside the artwork.
-            </p>
-            <p>
-              Perhaps that is what I enjoy most. The finished painting belongs to the client, but
-              the experience of making it becomes part of my story, too. A thread connects us, and I
-              find that deeply meaningful.
-            </p>
-          </div>
-        </article>
+        <blockquote className="ct-commission-quote" style={{ ["--i" as string]: "1" }}>
+          <p>
+            I love working on commissions because they invite me into someone else's world for a
+            while.
+          </p>
+          <p>
+            Creating a piece for another person begins with conversation — learning what they are
+            drawn to, remember, love, and sometimes want a painting to hold for them.
+          </p>
+          <p>
+            That process reflects something at the heart of my work: my enduring curiosity about
+            people and the human experience. I have always been an observer of humanity — our
+            histories, relationships, contradictions, tenderness, and humor.
+          </p>
+          <p>
+            By the time a commission is finished, I often feel I have come to know the person in a
+            way I might not have otherwise. A relationship develops alongside the artwork.
+          </p>
+          <p>
+            Perhaps that is what I enjoy most. The finished painting belongs to the client, but the
+            experience of making it becomes part of my story, too. A thread connects us, and I
+            find that deeply meaningful.
+          </p>
+        </blockquote>
 
         <article className="ct-press-wide" style={{ ["--i" as string]: "2" }}>
           <span className="ct-press-date">Commission enquiry</span>
