@@ -96,7 +96,7 @@ async function uploadFile(file: File, slug: string) {
   const path = `${slug}-${Date.now()}-${Math.random().toString(36).slice(2, 7)}.${ext}`;
   const { error } = await supabase.storage
     .from("artwork-images")
-    .upload(path, file, { contentType: file.type || undefined, upsert: false });
+    .upload(path, file, { contentType: file.type || "image/jpeg", upsert: false });
   if (error) throw new Error(error.message);
   return `/api/public/artwork-image?path=${encodeURIComponent(path)}`;
 }
