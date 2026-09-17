@@ -189,7 +189,7 @@ function CommissionsPage() {
       <SiteHeader />
       <main className="ct-page-main ct-press-spread">
         <header className="ct-press-head">
-          <h2 className="ct-press-title">Commissions</h2>
+          <h2 className="ct-page-title">Commissions</h2>
           <p className="ct-press-head-note">
             Annie Decamp accepts a limited number of commissioned paintings each year — portraits,
             florals, and works made for a particular room. Share the details below and the studio
