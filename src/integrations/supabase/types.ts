@@ -107,6 +107,42 @@ export type Database = {
         }
         Relationships: []
       }
+      event_signups: {
+        Row: {
+          created_at: string
+          email: string
+          event_slug: string
+          guests: number
+          handled: boolean
+          id: string
+          message: string | null
+          name: string
+          phone: string | null
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          event_slug: string
+          guests?: number
+          handled?: boolean
+          id?: string
+          message?: string | null
+          name: string
+          phone?: string | null
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          event_slug?: string
+          guests?: number
+          handled?: boolean
+          id?: string
+          message?: string | null
+          name?: string
+          phone?: string | null
+        }
+        Relationships: []
+      }
       news_articles: {
         Row: {
           body: string
