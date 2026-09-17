@@ -1030,7 +1030,7 @@
 .ct-commission-quote {
   grid-column: 1 / span 12;
   margin: 0;
-  padding: 80px clamp(24px, 6vw, 120px);
+  padding: 80px clamp(24px, 4vw, 64px);
   border-top: 1px solid rgba(0, 0, 0, 0.06);
   border-bottom: 1px solid rgba(0, 0, 0, 0.06);
   position: relative;
@@ -1043,7 +1043,7 @@
   content: "\201C";
   position: absolute;
   top: 28px;
-  left: clamp(12px, 4vw, 64px);
+  left: clamp(8px, 2vw, 32px);
   font-size: clamp(80px, 10vw, 160px);
   line-height: 1;
   font-weight: 300;
@@ -1051,7 +1051,6 @@
 }
 .ct-commission-quote p {
   margin: 0 0 1.25em;
-  max-width: 64ch;
 }
 .ct-commission-quote p:last-child {
   margin-bottom: 0;
