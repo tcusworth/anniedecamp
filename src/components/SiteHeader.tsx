@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useCart } from "@/lib/cart";
+import logoAsset from "@/assets/annie-decamp-logo.png.asset.json";
 
 const MENU_ITEMS = [
   { label: "About", href: "/about" },
@@ -47,7 +48,10 @@ export function SiteHeader() {
           <MenuIcon />
         </button>
         <h1 className="ct-wordmark">
-          <a href="/">Annie Decamp</a>
+          <a href="/">
+            <img className="ct-wordmark-logo" src={logoAsset.url} alt="" aria-hidden="true" />
+            <span>Annie Decamp</span>
+          </a>
         </h1>
       </div>
 

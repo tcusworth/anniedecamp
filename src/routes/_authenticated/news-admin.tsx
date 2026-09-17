@@ -15,9 +15,9 @@ import {
 export const Route = createFileRoute("/_authenticated/news-admin")({
   head: () => ({
     meta: [
-      { title: "Write news — Annie Decamp" },
+      { title: "Write news — Annie Decamp Art" },
       { name: "description", content: "Write and publish news articles for the studio site." },
-      { property: "og:title", content: "Write news — Annie Decamp" },
+      { property: "og:title", content: "Write news — Annie Decamp Art" },
       { property: "og:description", content: "Write and publish news articles." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },

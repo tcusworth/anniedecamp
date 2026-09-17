@@ -6,6 +6,9 @@ import diningAsset from "@/assets/home-dining-room-angel.jpg.asset.json";
 import cabinetAsset from "@/assets/home-cabinet-portrait.jpg.asset.json";
 import hotelLobbyAsset from "@/assets/home-hotel-lobby-painting.jpg.asset.json";
 import bedroomAsset from "@/assets/home-bedroom-portrait.jpg.asset.json";
+import shopRosesAsset from "@/assets/home-shop-red-roses.jpg.asset.json";
+import fooDogAsset from "@/assets/home-portrait-foo-dog.jpg.asset.json";
+import artistDisplayAsset from "@/assets/home-artist-display.jpg.asset.json";
 
 type Slide = { src: string; caption: string; url: string; alt: string };
 
@@ -51,6 +54,24 @@ const SLIDES: Slide[] = [
     caption: "Annie Decamp - works on display",
     url: "/gallery",
     alt: "Annie Decamp portrait painting displayed above a bed with a pink coverlet",
+  },
+  {
+    src: shopRosesAsset.url,
+    caption: "Annie Decamp - works on display",
+    url: "/gallery",
+    alt: "Annie Decamp red floral painting in an ornate frame above a vase of roses",
+  },
+  {
+    src: fooDogAsset.url,
+    caption: "Annie Decamp - works on display",
+    url: "/gallery",
+    alt: "Annie Decamp portrait and floral still life paintings displayed with a blue foo dog",
+  },
+  {
+    src: artistDisplayAsset.url,
+    caption: "Annie Decamp - works on display",
+    url: "/gallery",
+    alt: "Annie Decamp seated among a display of her paintings",
   },
 ];
 

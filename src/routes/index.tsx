@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import { HomeSlideshow } from "@/components/HomeSlideshow";
 
-const title = "Annie Decamp - Home";
+const title = "Annie Decamp Art";
 const description =
   "Annie Decamp — official website of the artist. Works, biography, publications, press and news.";
 

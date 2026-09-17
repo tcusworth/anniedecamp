@@ -4,7 +4,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 
-const title = "Studio sign in — Annie Decamp";
+const title = "Studio sign in — Annie Decamp Art";
 const description = "Sign in to write and publish news articles for the Annie Decamp studio site.";
 
 export const Route = createFileRoute("/auth")({

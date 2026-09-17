@@ -4,7 +4,7 @@ import { SiteFooter } from "@/components/SiteFooter";
 import portrait from "@/assets/annie-decamp-studio-hat.jpg.asset.json";
 import childhoodPortrait from "@/assets/annie-decamp-childhood-cat.jpg.asset.json";
 
-const title = "About — Annie Decamp";
+const title = "About — Annie Decamp Art";
 const description =
   "Annie Decamp is a mixed-media artist based in Aspen, Colorado, whose work draws upon history, human nature, and the natural world.";
 

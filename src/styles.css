@@ -222,6 +222,14 @@
 .ct-wordmark a {
   color: #000;
   text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+.ct-wordmark-logo {
+  height: 46px;
+  width: auto;
+  display: block;
 }
 
 /* Menu overlay */
