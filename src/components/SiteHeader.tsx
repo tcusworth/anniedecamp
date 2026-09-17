@@ -50,7 +50,7 @@ export function SiteHeader() {
         <h1 className="ct-wordmark">
           <a href="/">
             <img className="ct-wordmark-logo" src={logoAsset.url} alt="" aria-hidden="true" />
-            <span>Annie Decamp</span>
+            <span>Annie Decamp Art</span>
           </a>
         </h1>
       </div>
