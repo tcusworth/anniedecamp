@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useCart } from "@/lib/cart";
+import logoAsset from "@/assets/annie-decamp-logo.png.asset.json";
 
 const MENU_ITEMS = [
   { label: "About", href: "/about" },
