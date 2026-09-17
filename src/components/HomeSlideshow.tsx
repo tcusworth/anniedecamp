@@ -9,6 +9,14 @@ import bedroomAsset from "@/assets/home-bedroom-portrait.jpg.asset.json";
 import shopRosesAsset from "@/assets/home-shop-red-roses.jpg.asset.json";
 import fooDogAsset from "@/assets/home-portrait-foo-dog.jpg.asset.json";
 import artistDisplayAsset from "@/assets/home-artist-display.jpg.asset.json";
+import img3868Asset from "@/assets/home-IMG_3868.jpg.asset.json";
+import img3862Asset from "@/assets/home-IMG_3862.jpg.asset.json";
+import img3839Asset from "@/assets/home-IMG_3839.jpg.asset.json";
+import img3838Asset from "@/assets/home-IMG_3838.jpg.asset.json";
+import img3837Asset from "@/assets/home-IMG_3837.jpg.asset.json";
+import img3836Asset from "@/assets/home-IMG_3836.jpg.asset.json";
+import img3834Asset from "@/assets/home-IMG_3834.jpg.asset.json";
+import img3823Asset from "@/assets/home-IMG_3823.jpg.asset.json";
 
 type Slide = { src: string; caption: string; url: string; alt: string };
 
