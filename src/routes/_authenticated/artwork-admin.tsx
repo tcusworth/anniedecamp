@@ -11,6 +11,7 @@ import {
   saveArtwork,
   saveArtworksBulk,
   type AdminArtwork,
+  type ArtworkInput,
 } from "@/lib/artworks-admin.functions";
 
 export const Route = createFileRoute("/_authenticated/artwork-admin")({
@@ -165,7 +166,7 @@ function ArtworkAdmin() {
     setError(null);
     setNotice(null);
     const existing = new Set(artworks.map((a) => a.slug));
-    const items: Parameters<typeof saveBulk>[0]["data"]["items"] = [];
+    const items: ArtworkInput[] = [];
     let base = Math.max(0, ...artworks.map((a) => a.sort_order)) + 1;
     try {
       for (let i = 0; i < files.length; i++) {
