@@ -1740,3 +1740,11 @@
     max-width: 480px;
   }
 }
+
+.ct-where-rsvp {
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  align-self: center;
+}
