@@ -20,81 +20,18 @@ export const Route = createFileRoute("/where-to-see")({
   component: NewsPage,
 });
 
-const ON_VIEW = [
+const EVENTS = [
   {
-    show: "Les Créatures",
-    venue: "Almine Rech",
-    place: "Gstaad, Switzerland",
-    dates: "10 July – 3 September 2026",
-    kind: "Solo exhibition",
+    dates: "Sept 24th",
+    show: "Annie Decamp Art Show",
+    venue: "Rogala Design, 395 S. Broadway, Denver, Suite # 118w",
   },
   {
-    show: "Visages d’artistes",
-    venue: "Petit Palais",
-    place: "Paris, France",
-    dates: "18 March – 19 July 2026",
-    kind: "Group exhibition",
-  },
-  {
-    show: "Dimanche Sans Fin",
-    venue: "Centre Pompidou-Metz",
-    place: "Metz, France",
-    dates: "8 May 2025 – 2 February 2027",
-    kind: "Group exhibition",
+    dates: "November 13–15",
+    show: "Holiday Art Salon with Benjamin Stanford",
+    venue: "",
   },
 ];
-
-const UPCOMING = [
-  {
-    show: "Ground First",
-    venue: "Kunsthalle Bielefeld",
-    place: "Bielefeld, Germany",
-    dates: "Opening 14 November 2026",
-    kind: "Solo exhibition",
-  },
-  {
-    show: "Figures of Water",
-    venue: "Museum of Contemporary Art",
-    place: "Long Beach, California",
-    dates: "Opening 6 February 2027",
-    kind: "Group exhibition",
-  },
-];
-
-const PERMANENT = [
-  { venue: "Notre-Dame de Paris", place: "Paris, France", note: "Stained glass, permanent installation" },
-  { venue: "Colby College Museum of Art", place: "Waterville, Maine", note: "Permanent collection" },
-  { venue: "Yuz Museum", place: "Shanghai, China", note: "Permanent collection" },
-  { venue: "Collection Lambert", place: "Avignon, France", note: "Permanent collection" },
-];
-
-function Listing({
-  heading,
-  items,
-}: {
-  heading: string;
-  items: { show: string; venue: string; place: string; dates: string; kind: string }[];
-}) {
-  return (
-    <section className="ct-where" aria-label={heading}>
-      <h3 className="ct-where-heading">{heading}</h3>
-      <ul className="ct-where-list">
-        {items.map((it, i) => (
-          <li key={it.show} className="ct-where-row" style={{ ["--i" as string]: String(i) }}>
-            <span className="ct-where-dates">{it.dates}</span>
-            <span className="ct-where-main">
-              <strong>{it.show}</strong>
-              <span>
-                {it.venue}, {it.place}
-              </span>
-            </span>
-            <span className="ct-where-kind">{it.kind}</span>
-          </li>
-        ))}
-      </ul>
-    </section>
-  );
-}
 
 function NewsPage() {
   return (
@@ -102,33 +39,21 @@ function NewsPage() {
       <SiteHeader />
       <main className="ct-page-main">
         <h2 className="ct-page-title">Events & Exhibitions</h2>
-        <p className="ct-page-lead">
-          Exhibitions currently open, shows opening soon, and the institutions holding
-          paintings by Annie Decamp in their permanent collections.
-        </p>
 
-        <Listing heading="On view now" items={ON_VIEW} />
-        <Listing heading="Upcoming" items={UPCOMING} />
-
-        <section className="ct-where" aria-label="In collections">
-          <h3 className="ct-where-heading">In collections</h3>
+        <section className="ct-where" aria-label="Coming up">
+          <h3 className="ct-where-heading">Coming up</h3>
           <ul className="ct-where-list">
-            {PERMANENT.map((p, i) => (
-              <li key={p.venue} className="ct-where-row" style={{ ["--i" as string]: String(i) }}>
-                <span className="ct-where-dates">Ongoing</span>
+            {EVENTS.map((it, i) => (
+              <li key={it.show} className="ct-where-row" style={{ ["--i" as string]: String(i) }}>
+                <span className="ct-where-dates">{it.dates}</span>
                 <span className="ct-where-main">
-                  <strong>{p.venue}</strong>
-                  <span>{p.place}</span>
+                  <strong>{it.show}</strong>
+                  {it.venue ? <span>{it.venue}</span> : null}
                 </span>
-                <span className="ct-where-kind">{p.note}</span>
               </li>
             ))}
           </ul>
         </section>
-
-        <p className="ct-page-note">
-          Exhibition dates are placeholders — send me the real schedule and I’ll set it here.
-        </p>
       </main>
       <SiteFooter />
     </div>
