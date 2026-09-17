@@ -910,7 +910,7 @@
 .ct-press-spread {
   display: flex;
   flex-direction: column;
-  gap: 96px;
+  gap: 64px;
 }
 .ct-press-head {
   display: flex;
