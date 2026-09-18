@@ -15,7 +15,6 @@ import { Route as AboutRouteImport } from './routes/about'
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as CommissionsRouteImport } from './routes/commissions'
 import { Route as ContactRouteImport } from './routes/contact'
-import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as PressRouteImport } from './routes/press'
 import { Route as RsvpRouteImport } from './routes/rsvp'
 import { Route as RsvpSalonRouteImport } from './routes/rsvp-salon'
@@ -25,6 +24,7 @@ import { Route as WhereToSeeRouteImport } from './routes/where-to-see'
 import { Route as AuthenticatedArtworkAdminRouteImport } from './routes/_authenticated/artwork-admin'
 import { Route as AuthenticatedNewsAdminRouteImport } from './routes/_authenticated/news-admin'
 import { Route as CheckoutReturnRouteImport } from './routes/checkout.return'
+import { Route as GalleryIndexRouteImport } from './routes/gallery.index'
 import { Route as NewsIndexRouteImport } from './routes/news.index'
 import { Route as NewsSlugRouteImport } from './routes/news.$slug'
 import { Route as ApiPublicArtworkImageRouteImport } from './routes/api/public/artwork-image'
@@ -57,11 +57,6 @@ const CommissionsRoute = CommissionsRouteImport.update({
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const GalleryRoute = GalleryRouteImport.update({
-  id: '/gallery',
-  path: '/gallery',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PressRoute = PressRouteImport.update({
@@ -110,6 +105,11 @@ const CheckoutReturnRoute = CheckoutReturnRouteImport.update({
   path: '/checkout/return',
   getParentRoute: () => rootRouteImport,
 } as any)
+const GalleryIndexRoute = GalleryIndexRouteImport.update({
+  id: '/gallery/',
+  path: '/gallery/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const NewsIndexRoute = NewsIndexRouteImport.update({
   id: '/news/',
   path: '/news/',
@@ -138,7 +138,6 @@ export interface FileRoutesByFullPath {
   '/auth': typeof AuthRoute
   '/commissions': typeof CommissionsRoute
   '/contact': typeof ContactRoute
-  '/gallery': typeof GalleryRoute
   '/press': typeof PressRoute
   '/rsvp': typeof RsvpRoute
   '/rsvp-salon': typeof RsvpSalonRoute
@@ -149,6 +148,7 @@ export interface FileRoutesByFullPath {
   '/news-admin': typeof AuthenticatedNewsAdminRoute
   '/checkout/return': typeof CheckoutReturnRoute
   '/news/$slug': typeof NewsSlugRoute
+  '/gallery/': typeof GalleryIndexRoute
   '/news/': typeof NewsIndexRoute
   '/api/public/artwork-image': typeof ApiPublicArtworkImageRoute
   '/api/public/payments/webhook': typeof ApiPublicPaymentsWebhookRoute
@@ -159,7 +159,6 @@ export interface FileRoutesByTo {
   '/auth': typeof AuthRoute
   '/commissions': typeof CommissionsRoute
   '/contact': typeof ContactRoute
-  '/gallery': typeof GalleryRoute
   '/press': typeof PressRoute
   '/rsvp': typeof RsvpRoute
   '/rsvp-salon': typeof RsvpSalonRoute
@@ -170,6 +169,7 @@ export interface FileRoutesByTo {
   '/news-admin': typeof AuthenticatedNewsAdminRoute
   '/checkout/return': typeof CheckoutReturnRoute
   '/news/$slug': typeof NewsSlugRoute
+  '/gallery': typeof GalleryIndexRoute
   '/news': typeof NewsIndexRoute
   '/api/public/artwork-image': typeof ApiPublicArtworkImageRoute
   '/api/public/payments/webhook': typeof ApiPublicPaymentsWebhookRoute
@@ -182,7 +182,6 @@ export interface FileRoutesById {
   '/auth': typeof AuthRoute
   '/commissions': typeof CommissionsRoute
   '/contact': typeof ContactRoute
-  '/gallery': typeof GalleryRoute
   '/press': typeof PressRoute
   '/rsvp': typeof RsvpRoute
   '/rsvp-salon': typeof RsvpSalonRoute
@@ -193,6 +192,7 @@ export interface FileRoutesById {
   '/_authenticated/news-admin': typeof AuthenticatedNewsAdminRoute
   '/checkout/return': typeof CheckoutReturnRoute
   '/news/$slug': typeof NewsSlugRoute
+  '/gallery/': typeof GalleryIndexRoute
   '/news/': typeof NewsIndexRoute
   '/api/public/artwork-image': typeof ApiPublicArtworkImageRoute
   '/api/public/payments/webhook': typeof ApiPublicPaymentsWebhookRoute
@@ -205,7 +205,6 @@ export interface FileRouteTypes {
     | '/auth'
     | '/commissions'
     | '/contact'
-    | '/gallery'
     | '/press'
     | '/rsvp'
     | '/rsvp-salon'
@@ -216,6 +215,7 @@ export interface FileRouteTypes {
     | '/news-admin'
     | '/checkout/return'
     | '/news/$slug'
+    | '/gallery/'
     | '/news/'
     | '/api/public/artwork-image'
     | '/api/public/payments/webhook'
@@ -226,7 +226,6 @@ export interface FileRouteTypes {
     | '/auth'
     | '/commissions'
     | '/contact'
-    | '/gallery'
     | '/press'
     | '/rsvp'
     | '/rsvp-salon'
@@ -237,6 +236,7 @@ export interface FileRouteTypes {
     | '/news-admin'
     | '/checkout/return'
     | '/news/$slug'
+    | '/gallery'
     | '/news'
     | '/api/public/artwork-image'
     | '/api/public/payments/webhook'
@@ -248,7 +248,6 @@ export interface FileRouteTypes {
     | '/auth'
     | '/commissions'
     | '/contact'
-    | '/gallery'
     | '/press'
     | '/rsvp'
     | '/rsvp-salon'
@@ -259,6 +258,7 @@ export interface FileRouteTypes {
     | '/_authenticated/news-admin'
     | '/checkout/return'
     | '/news/$slug'
+    | '/gallery/'
     | '/news/'
     | '/api/public/artwork-image'
     | '/api/public/payments/webhook'
@@ -271,7 +271,6 @@ export interface RootRouteChildren {
   AuthRoute: typeof AuthRoute
   CommissionsRoute: typeof CommissionsRoute
   ContactRoute: typeof ContactRoute
-  GalleryRoute: typeof GalleryRoute
   PressRoute: typeof PressRoute
   RsvpRoute: typeof RsvpRoute
   RsvpSalonRoute: typeof RsvpSalonRoute
@@ -280,6 +279,7 @@ export interface RootRouteChildren {
   WhereToSeeRoute: typeof WhereToSeeRoute
   CheckoutReturnRoute: typeof CheckoutReturnRoute
   NewsSlugRoute: typeof NewsSlugRoute
+  GalleryIndexRoute: typeof GalleryIndexRoute
   NewsIndexRoute: typeof NewsIndexRoute
   ApiPublicArtworkImageRoute: typeof ApiPublicArtworkImageRoute
   ApiPublicPaymentsWebhookRoute: typeof ApiPublicPaymentsWebhookRoute
@@ -327,13 +327,6 @@ declare module '@tanstack/react-router' {
       path: '/contact'
       fullPath: '/contact'
       preLoaderRoute: typeof ContactRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/gallery': {
-      id: '/gallery'
-      path: '/gallery'
-      fullPath: '/gallery'
-      preLoaderRoute: typeof GalleryRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/press': {
@@ -399,6 +392,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CheckoutReturnRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/gallery/': {
+      id: '/gallery/'
+      path: '/gallery'
+      fullPath: '/gallery/'
+      preLoaderRoute: typeof GalleryIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/news/': {
       id: '/news/'
       path: '/news'
@@ -450,7 +450,6 @@ const rootRouteChildren: RootRouteChildren = {
   AuthRoute: AuthRoute,
   CommissionsRoute: CommissionsRoute,
   ContactRoute: ContactRoute,
-  GalleryRoute: GalleryRoute,
   PressRoute: PressRoute,
   RsvpRoute: RsvpRoute,
   RsvpSalonRoute: RsvpSalonRoute,
@@ -459,6 +458,7 @@ const rootRouteChildren: RootRouteChildren = {
   WhereToSeeRoute: WhereToSeeRoute,
   CheckoutReturnRoute: CheckoutReturnRoute,
   NewsSlugRoute: NewsSlugRoute,
+  GalleryIndexRoute: GalleryIndexRoute,
   NewsIndexRoute: NewsIndexRoute,
   ApiPublicArtworkImageRoute: ApiPublicArtworkImageRoute,
   ApiPublicPaymentsWebhookRoute: ApiPublicPaymentsWebhookRoute,
