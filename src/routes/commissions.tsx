@@ -18,6 +18,8 @@ export const Route = createFileRoute("/commissions")({
       { property: "og:title", content: title },
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
+      { property: "og:image", content: "https://anniedecamp.lovable.app/__l5e/assets-v1/89cc662c-2ce9-4198-858d-9220c5f50883/home-IMG_3836.jpg" },
+      { name: "twitter:image", content: "https://anniedecamp.lovable.app/__l5e/assets-v1/89cc662c-2ce9-4198-858d-9220c5f50883/home-IMG_3836.jpg" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
   }),

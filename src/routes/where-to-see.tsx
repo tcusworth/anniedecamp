@@ -14,6 +14,8 @@ export const Route = createFileRoute("/where-to-see")({
       { property: "og:title", content: title },
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
+      { property: "og:image", content: "https://anniedecamp.lovable.app/__l5e/assets-v1/9cf2115a-7b10-4c31-9625-3090f2303ed5/event-brochure-annie-decamp-art-show.jpeg" },
+      { name: "twitter:image", content: "https://anniedecamp.lovable.app/__l5e/assets-v1/9cf2115a-7b10-4c31-9625-3090f2303ed5/event-brochure-annie-decamp-art-show.jpeg" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
