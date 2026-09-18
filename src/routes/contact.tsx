@@ -21,7 +21,7 @@ export const Route = createFileRoute("/contact")({
 });
 
 const ROWS = [
-  { label: "Studio", value: "studio@annedecamp.com", href: "mailto:studio@annedecamp.com" },
+  { label: "Studio", value: "studio@anniedecamp.com", href: "mailto:studio@anniedecamp.com" },
   { label: "Press inquiries", value: "lu@staskoagency.com", href: "mailto:lu@staskoagency.com" },
   { label: "Telephone", value: "650-391-8405", href: "tel:+16503918405" },
   { label: "Instagram", value: "@anniedecampart", href: "https://www.instagram.com/anniedecampart/" },
