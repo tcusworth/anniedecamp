@@ -19,6 +19,8 @@ export const Route = createFileRoute("/gallery/")({
       { property: "og:title", content: title },
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
+      { property: "og:image", content: "https://anniedecamp.lovable.app/__l5e/assets-v1/84bc4f16-3c31-43db-b4dd-7368704ba84f/Franchesca_at_Night_oil_on_panel_framed_30x30.jpg" },
+      { name: "twitter:image", content: "https://anniedecamp.lovable.app/__l5e/assets-v1/84bc4f16-3c31-43db-b4dd-7368704ba84f/Franchesca_at_Night_oil_on_panel_framed_30x30.jpg" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
   }),

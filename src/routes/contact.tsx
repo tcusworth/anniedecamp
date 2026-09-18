@@ -14,6 +14,8 @@ export const Route = createFileRoute("/contact")({
       { property: "og:title", content: title },
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
+      { property: "og:image", content: "https://anniedecamp.lovable.app/__l5e/assets-v1/7e151909-473f-4f4f-b601-7eefb2f7a557/home-IMG_3834.jpg" },
+      { name: "twitter:image", content: "https://anniedecamp.lovable.app/__l5e/assets-v1/7e151909-473f-4f4f-b601-7eefb2f7a557/home-IMG_3834.jpg" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
   }),

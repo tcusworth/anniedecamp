@@ -19,6 +19,8 @@ export const Route = createFileRoute("/studio")({
       { property: "og:title", content: title },
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
+      { property: "og:image", content: "https://anniedecamp.lovable.app/__l5e/assets-v1/928f6dbe-b1fe-4b9f-a588-a6ee1b8b7802/studio-corner.jpeg" },
+      { name: "twitter:image", content: "https://anniedecamp.lovable.app/__l5e/assets-v1/928f6dbe-b1fe-4b9f-a588-a6ee1b8b7802/studio-corner.jpeg" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
   }),

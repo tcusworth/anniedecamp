@@ -22,6 +22,8 @@ export const Route = createFileRoute("/press")({
       { property: "og:title", content: title },
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
+      { property: "og:image", content: "https://anniedecamp.lovable.app/__l5e/assets-v1/3866494c-069f-45f4-8cd0-27b5f18edac2/press-aspen-times.jpg" },
+      { name: "twitter:image", content: "https://anniedecamp.lovable.app/__l5e/assets-v1/3866494c-069f-45f4-8cd0-27b5f18edac2/press-aspen-times.jpg" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
   }),

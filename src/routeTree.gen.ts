@@ -25,6 +25,7 @@ import { Route as AuthenticatedArtworkAdminRouteImport } from './routes/_authent
 import { Route as AuthenticatedNewsAdminRouteImport } from './routes/_authenticated/news-admin'
 import { Route as CheckoutReturnRouteImport } from './routes/checkout.return'
 import { Route as GalleryIndexRouteImport } from './routes/gallery.index'
+import { Route as GallerySlugRouteImport } from './routes/gallery.$slug'
 import { Route as NewsIndexRouteImport } from './routes/news.index'
 import { Route as NewsSlugRouteImport } from './routes/news.$slug'
 import { Route as ApiPublicArtworkImageRouteImport } from './routes/api/public/artwork-image'
@@ -110,6 +111,11 @@ const GalleryIndexRoute = GalleryIndexRouteImport.update({
   path: '/gallery/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const GallerySlugRoute = GallerySlugRouteImport.update({
+  id: '/gallery/$slug',
+  path: '/gallery/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const NewsIndexRoute = NewsIndexRouteImport.update({
   id: '/news/',
   path: '/news/',
@@ -147,6 +153,7 @@ export interface FileRoutesByFullPath {
   '/artwork-admin': typeof AuthenticatedArtworkAdminRoute
   '/news-admin': typeof AuthenticatedNewsAdminRoute
   '/checkout/return': typeof CheckoutReturnRoute
+  '/gallery/$slug': typeof GallerySlugRoute
   '/news/$slug': typeof NewsSlugRoute
   '/gallery/': typeof GalleryIndexRoute
   '/news/': typeof NewsIndexRoute
@@ -168,6 +175,7 @@ export interface FileRoutesByTo {
   '/artwork-admin': typeof AuthenticatedArtworkAdminRoute
   '/news-admin': typeof AuthenticatedNewsAdminRoute
   '/checkout/return': typeof CheckoutReturnRoute
+  '/gallery/$slug': typeof GallerySlugRoute
   '/news/$slug': typeof NewsSlugRoute
   '/gallery': typeof GalleryIndexRoute
   '/news': typeof NewsIndexRoute
@@ -191,6 +199,7 @@ export interface FileRoutesById {
   '/_authenticated/artwork-admin': typeof AuthenticatedArtworkAdminRoute
   '/_authenticated/news-admin': typeof AuthenticatedNewsAdminRoute
   '/checkout/return': typeof CheckoutReturnRoute
+  '/gallery/$slug': typeof GallerySlugRoute
   '/news/$slug': typeof NewsSlugRoute
   '/gallery/': typeof GalleryIndexRoute
   '/news/': typeof NewsIndexRoute
@@ -214,6 +223,7 @@ export interface FileRouteTypes {
     | '/artwork-admin'
     | '/news-admin'
     | '/checkout/return'
+    | '/gallery/$slug'
     | '/news/$slug'
     | '/gallery/'
     | '/news/'
@@ -235,6 +245,7 @@ export interface FileRouteTypes {
     | '/artwork-admin'
     | '/news-admin'
     | '/checkout/return'
+    | '/gallery/$slug'
     | '/news/$slug'
     | '/gallery'
     | '/news'
@@ -257,6 +268,7 @@ export interface FileRouteTypes {
     | '/_authenticated/artwork-admin'
     | '/_authenticated/news-admin'
     | '/checkout/return'
+    | '/gallery/$slug'
     | '/news/$slug'
     | '/gallery/'
     | '/news/'
@@ -278,6 +290,7 @@ export interface RootRouteChildren {
   StudioRoute: typeof StudioRoute
   WhereToSeeRoute: typeof WhereToSeeRoute
   CheckoutReturnRoute: typeof CheckoutReturnRoute
+  GallerySlugRoute: typeof GallerySlugRoute
   NewsSlugRoute: typeof NewsSlugRoute
   GalleryIndexRoute: typeof GalleryIndexRoute
   NewsIndexRoute: typeof NewsIndexRoute
@@ -399,6 +412,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GalleryIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/gallery/$slug': {
+      id: '/gallery/$slug'
+      path: '/gallery/$slug'
+      fullPath: '/gallery/$slug'
+      preLoaderRoute: typeof GallerySlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/news/': {
       id: '/news/'
       path: '/news'
@@ -457,6 +477,7 @@ const rootRouteChildren: RootRouteChildren = {
   StudioRoute: StudioRoute,
   WhereToSeeRoute: WhereToSeeRoute,
   CheckoutReturnRoute: CheckoutReturnRoute,
+  GallerySlugRoute: GallerySlugRoute,
   NewsSlugRoute: NewsSlugRoute,
   GalleryIndexRoute: GalleryIndexRoute,
   NewsIndexRoute: NewsIndexRoute,
