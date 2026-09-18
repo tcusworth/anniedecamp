@@ -6,7 +6,7 @@ import { PaymentTestModeBanner } from "@/components/PaymentTestModeBanner";
 import { getArtworkBySlug } from "@/lib/shop.functions";
 import { useCart, money } from "@/lib/cart";
 
-const SITE = "https://anniedecamp.lovable.app";
+const SITE = "https://anniedecampart.com";
 
 export const Route = createFileRoute("/gallery/$slug")({
   loader: async ({ params }) => {

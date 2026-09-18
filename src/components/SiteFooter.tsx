@@ -25,7 +25,7 @@ const SOCIALS = [
   },
   {
     label: "Email",
-    href: "mailto:studio@anniedecamp.com",
+    href: "mailto:studio@anniedecampart.com",
     path: "M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm9 8.1 8-5.1H4l8 5.1ZM4 17h16V9.6l-8 5.1-8-5.1V17Z",
   },
 ];
