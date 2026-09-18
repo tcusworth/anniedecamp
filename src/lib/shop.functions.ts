@@ -208,3 +208,26 @@ export const getOrderStatus = createServerFn({ method: "POST" })
       return { error: getStripeErrorMessage(error) };
     }
   });
+
+export const getArtworkBySlug = createServerFn({ method: "GET" })
+  .inputValidator((data: { slug: string }) => {
+    if (!/^[a-z0-9-]{1,120}$/i.test(data.slug)) throw new Error("Invalid slug");
+    return data;
+  })
+  .handler(async ({ data }): Promise<Artwork | null> => {
+    const supabase = publicClient();
+    const { data: row, error } = await supabase
+      .from("artworks")
+      .select(
+        "id, slug, title, year, medium, dimensions, description, image_url, original_price_cents, original_available, sort_order, print_options(id, label, kind, price_cents, sort_order)",
+      )
+      .eq("slug", data.slug)
+      .maybeSingle();
+    if (error) throw new Error(error.message);
+    if (!row) return null;
+    const artwork = row as unknown as Artwork;
+    return {
+      ...artwork,
+      print_options: [...(artwork.print_options ?? [])].sort((x, y) => x.sort_order - y.sort_order),
+    };
+  });
