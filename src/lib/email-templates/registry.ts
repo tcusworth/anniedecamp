@@ -1,5 +1,12 @@
 import type { ComponentType } from 'react'
 
+import { template as studioInquiryNotification } from './studio-inquiry-notification'
+import { template as studioInquiryConfirmation } from './studio-inquiry-confirmation'
+import { template as commissionRequestNotification } from './commission-request-notification'
+import { template as commissionRequestConfirmation } from './commission-request-confirmation'
+import { template as eventRsvpNotification } from './event-rsvp-notification'
+import { template as eventRsvpConfirmation } from './event-rsvp-confirmation'
+
 export interface TemplateEntry {
   component: ComponentType<any>
   subject: string | ((data: Record<string, any>) => string)
@@ -11,13 +18,12 @@ export interface TemplateEntry {
 
 /**
  * Template registry — maps template names to their React Email components.
- * Import and register new templates here after creating them in this directory.
- *
- * Example:
- *   import { template as welcomeTemplate } from './welcome'
- *   // then add to TEMPLATES: 'welcome': welcomeTemplate
  */
 export const TEMPLATES: Record<string, TemplateEntry> = {
-  // Add templates here as they are created, e.g.:
-  // 'welcome': welcomeTemplate,
+  'studio-inquiry-notification': studioInquiryNotification,
+  'studio-inquiry-confirmation': studioInquiryConfirmation,
+  'commission-request-notification': commissionRequestNotification,
+  'commission-request-confirmation': commissionRequestConfirmation,
+  'event-rsvp-notification': eventRsvpNotification,
+  'event-rsvp-confirmation': eventRsvpConfirmation,
 }
