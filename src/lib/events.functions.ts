@@ -16,19 +16,66 @@ export const submitEventSignup = createServerFn({ method: "POST" })
   .handler(async ({ data }) => {
     const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
 
-    const { error } = await supabaseAdmin.from("event_signups").insert({
-      event_slug: data.event_slug,
-      name: data.name,
-      email: data.email,
-      phone: data.phone || null,
-      guests: data.guests,
-      message: data.message || null,
-      preferred_day: data.preferred_day || null,
-    });
+    const { data: inserted, error } = await supabaseAdmin
+      .from("event_signups")
+      .insert({
+        event_slug: data.event_slug,
+        name: data.name,
+        email: data.email,
+        phone: data.phone || null,
+        guests: data.guests,
+        message: data.message || null,
+        preferred_day: data.preferred_day || null,
+      })
+      .select("id")
+      .single();
 
     if (error) {
       console.error("event signup insert failed", error.message);
       return { ok: false as const, error: "We could not save your RSVP. Please try again." };
+    }
+
+    const event = EVENTS[data.event_slug] ?? {
+      name: data.event_slug,
+      when: "",
+      where: "",
+    };
+    const { sendTemplateEmail } = await import("@/lib/email-templates/send-email");
+    const { STUDIO_NOTIFICATION_EMAIL } = await import("@/lib/email-templates/recipients");
+    const ref = inserted?.id ?? crypto.randomUUID();
+
+    try {
+      await sendTemplateEmail("event-rsvp-notification", STUDIO_NOTIFICATION_EMAIL, {
+        templateData: {
+          event_name: event.name,
+          name: data.name,
+          email: data.email,
+          phone: data.phone,
+          guests: data.guests,
+          preferred_day: data.preferred_day,
+          message: data.message,
+        },
+        idempotencyKey: `rsvp-notification-${ref}`,
+        replyTo: data.email,
+      });
+    } catch (e) {
+      console.error("rsvp notification failed", e);
+    }
+
+    try {
+      await sendTemplateEmail("event-rsvp-confirmation", data.email, {
+        templateData: {
+          name: data.name,
+          event_name: event.name,
+          event_when: event.when,
+          event_where: event.where,
+          preferred_day: data.preferred_day,
+          guests: data.guests,
+        },
+        idempotencyKey: `rsvp-confirmation-${ref}`,
+      });
+    } catch (e) {
+      console.error("rsvp confirmation failed", e);
     }
 
     return { ok: true as const };
