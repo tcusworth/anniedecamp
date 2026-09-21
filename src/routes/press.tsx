@@ -43,18 +43,6 @@ type PressItem = {
 
 const PRESS_ITEMS: PressItem[] = [
   {
-    outlet: "The Aspen Times",
-    headline:
-      "What They Said: Annie Decamp & Michael Dowling show together at Aspen's Red Brick Center",
-    date: "Aspen, CO",
-    kind: "Review",
-    excerpt:
-      "Decamp and Dowling show together at the Red Brick Center for the Arts in Aspen — a two-artist conversation across painting and mixed media.",
-    href: "http://www.aspentimes.com/explore-summit/entertainment/what-they-said-annie-decamp-michael-dowling-show-together-at-aspens-red-brick-center/",
-    image: aspenTimes,
-    alt: "The Aspen Times masthead logo",
-  },
-  {
     outlet: "Colorado Homes & Lifestyles",
     headline: "Annie Decamp's Path to Self-Love",
     date: "July/Aug 2021",
@@ -75,6 +63,18 @@ const PRESS_ITEMS: PressItem[] = [
     href: "http://www.coloradohomesmag.com/the-divine-bloom/",
     image: coloradoHomesDivineBloom,
     alt: "Colorado Homes & Lifestyles magazine cover, The Mountain Issue, March/April 2022",
+  },
+  {
+    outlet: "The Aspen Times",
+    headline:
+      "What They Said: Annie Decamp & Michael Dowling show together at Aspen's Red Brick Center",
+    date: "Aspen, CO",
+    kind: "Review",
+    excerpt:
+      "Decamp and Dowling show together at the Red Brick Center for the Arts in Aspen — a two-artist conversation across painting and mixed media.",
+    href: "http://www.aspentimes.com/explore-summit/entertainment/what-they-said-annie-decamp-michael-dowling-show-together-at-aspens-red-brick-center/",
+    image: aspenTimes,
+    alt: "The Aspen Times masthead logo",
   },
   {
     outlet: "CanvasRebel",
@@ -133,8 +133,6 @@ const PRESS_ITEMS: PressItem[] = [
   },
 ];
 
-const LEAD_INDEX = 0;
-
 function ReadLink({ item }: { item: PressItem }) {
   const isHttp = item.href.startsWith("http");
   return (
@@ -150,9 +148,6 @@ function ReadLink({ item }: { item: PressItem }) {
 }
 
 function PressPage() {
-  const lead = PRESS_ITEMS[LEAD_INDEX]!;
-  const rest = PRESS_ITEMS.filter((_, i) => i !== LEAD_INDEX);
-
   return (
     <div className="ct-page">
       <SiteHeader />
@@ -165,29 +160,13 @@ function PressPage() {
           </p>
         </header>
 
-        {/* Lead featured item */}
-        <article className="ct-press-lead" style={{ ["--i" as string]: "0" }}>
-          <figure className="ct-press-lead-figure">
-            <img src={lead.image.url} alt={lead.alt} loading="lazy" />
-          </figure>
-          <div className="ct-press-lead-text">
-            <span className="ct-press-date">{lead.date}</span>
-            <h3 className="ct-press-lead-title">
-              {lead.outlet}: <em>{lead.headline}</em>
-            </h3>
-            <span className="ct-press-rule" aria-hidden="true" />
-            <p className="ct-press-note">{lead.excerpt}</p>
-            <ReadLink item={lead} />
-          </div>
-        </article>
-
-        {/* Card grid of remaining items */}
+        {/* Card grid of all items */}
         <div className="ct-press-grid">
-          {rest.map((item, i) => (
+          {PRESS_ITEMS.map((item, i) => (
             <article
               key={item.outlet + i}
               className="ct-press-card"
-              style={{ ["--i" as string]: String(i + 1) }}
+              style={{ ["--i" as string]: String(i) }}
             >
               <figure className="ct-press-card-figure">
                 <img src={item.image.url} alt={item.alt} loading="lazy" />
