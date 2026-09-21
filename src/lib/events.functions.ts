@@ -11,6 +11,19 @@ const signupSchema = z.object({
   preferred_day: z.string().trim().max(200).optional().default(""),
 });
 
+const EVENTS: Record<string, { name: string; when: string; where: string }> = {
+  "annie-decamp-art-show-sept-24": {
+    name: "Annie Decamp Art Show",
+    when: "September 24, 4–7 pm",
+    where: "Rogala Design, 395 S. Broadway, Denver, Suite #118w",
+  },
+  "holiday-art-salon-nov-13-15": {
+    name: "Holiday Art Salon",
+    when: "Nov 13, 2–5 pm · Nov 14, noon–9 pm · Nov 15, noon–4 pm",
+    where: "100 N Gaylord Street, Denver CO 80206",
+  },
+};
+
 export const submitEventSignup = createServerFn({ method: "POST" })
   .inputValidator((input: unknown) => signupSchema.parse(input))
   .handler(async ({ data }) => {
