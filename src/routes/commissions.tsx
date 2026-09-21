@@ -202,8 +202,8 @@ function CommissionsPage() {
         <article className="ct-press-lead" style={{ ["--i" as string]: "0" }}>
           <figure className="ct-press-lead-figure">
             <img
-              src={franchesca.url}
-              alt="Franchesca at Night, oil on panel, 30 × 30 in."
+              src={commissionsStudio.url}
+              alt="Annie Decamp in her studio."
               loading="lazy"
             />
           </figure>
