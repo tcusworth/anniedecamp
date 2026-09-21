@@ -4,7 +4,7 @@ import { useServerFn } from "@tanstack/react-start";
 import { submitCommissionRequest } from "@/lib/commissions.functions";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
-import franchesca from "@/assets/Franchesca_at_Night_oil_on_panel_framed_30x30.jpg.asset.json";
+import commissionsStudio from "@/assets/commissions-annie-in-studio.jpeg.asset.json";
 
 const title = "Commissions — Annie Decamp Art";
 const description =
