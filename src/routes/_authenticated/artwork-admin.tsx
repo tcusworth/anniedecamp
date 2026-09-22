@@ -201,6 +201,8 @@ function ArtworkAdmin() {
   const saveBulk = useServerFn(saveArtworksBulk);
   const remove = useServerFn(deleteArtwork);
   const checkAdmin = useServerFn(getMyAdminStatus);
+  const loadRsvps = useServerFn(listEventSignups);
+  const [rsvps, setRsvps] = useState<EventSignup[]>([]);
 
   const [isAdmin, setIsAdmin] = useState<boolean | null>(null);
   const [artworks, setArtworks] = useState<AdminArtwork[]>([]);
