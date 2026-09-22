@@ -1963,3 +1963,16 @@ a.ct-work-title:hover {
   text-transform: uppercase;
   margin: 0 0 8px;
 }
+.ct-admin-rsvp-list { margin-top: 12px; }
+.ct-admin-rsvp-row {
+  display: block;
+  padding: 18px 0;
+}
+.ct-admin-rsvp-row .ct-admin-row-text {
+  width: 100%;
+  max-width: 720px;
+  line-height: 1.45;
+}
+.ct-admin-rsvp-row .ct-admin-row-text span {
+  overflow-wrap: anywhere;
+}
