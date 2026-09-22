@@ -406,6 +406,8 @@ function ArtworkAdmin() {
           anything already in the gallery.
         </p>
 
+        <RsvpDashboard rsvps={rsvps} />
+
         <section className="ct-admin-panel" aria-label="Bulk upload">
           <h3 className="ct-gallery-section-title">Bulk upload</h3>
           <p className="ct-page-note">
