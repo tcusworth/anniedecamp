@@ -80,9 +80,9 @@ function RsvpDashboard({ rsvps }: { rsvps: EventSignup[] }) {
                   {EVENT_NAMES[slug] ?? slug} — {list.length} RSVP
                   {list.length === 1 ? "" : "s"}, {guests} guest{guests === 1 ? "" : "s"}
                 </h4>
-                <ul className="ct-admin-list">
+                <ul className="ct-admin-list ct-admin-rsvp-list">
                   {list.map((r) => (
-                    <li key={r.id} className="ct-admin-row">
+                    <li key={r.id} className="ct-admin-row ct-admin-rsvp-row">
                       <div className="ct-admin-row-text">
                         <strong>
                           {r.name} · {r.guests} guest{r.guests === 1 ? "" : "s"}
