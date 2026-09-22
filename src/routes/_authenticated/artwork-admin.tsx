@@ -13,6 +13,99 @@ import {
   type AdminArtwork,
   type ArtworkInput,
 } from "@/lib/artworks-admin.functions";
+import { listEventSignups, type EventSignup } from "@/lib/rsvps-admin.functions";
+
+const EVENT_NAMES: Record<string, string> = {
+  "annie-decamp-art-show-sept-24": "Annie Decamp Art Show — Sept 24",
+  "holiday-art-salon-nov-13-15": "Holiday Art Salon — Nov 13–15",
+};
+
+function formatWhen(value: string) {
+  return new Date(value).toLocaleString("en-US", {
+    month: "short",
+    day: "numeric",
+    hour: "numeric",
+    minute: "2-digit",
+  });
+}
+
+function RsvpDashboard({ rsvps }: { rsvps: EventSignup[] }) {
+  const groups = new Map<string, EventSignup[]>();
+  for (const r of rsvps) {
+    const list = groups.get(r.event_slug) ?? [];
+    list.push(r);
+    groups.set(r.event_slug, list);
+  }
+
+  function downloadCsv() {
+    const header = ["Event", "Name", "Email", "Phone", "Guests", "Day", "Message", "Received"];
+    const rows = rsvps.map((r) => [
+      EVENT_NAMES[r.event_slug] ?? r.event_slug,
+      r.name,
+      r.email,
+      r.phone ?? "",
+      String(r.guests),
+      r.preferred_day ?? "",
+      r.message ?? "",
+      formatWhen(r.created_at),
+    ]);
+    const csv = [header, ...rows]
+      .map((row) => row.map((c) => `"${c.replace(/"/g, '""')}"`).join(","))
+      .join("\n");
+    const url = URL.createObjectURL(new Blob([csv], { type: "text/csv" }));
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "rsvps.csv";
+    a.click();
+    URL.revokeObjectURL(url);
+  }
+
+  return (
+    <section className="ct-admin-panel" aria-label="RSVPs">
+      <h3 className="ct-gallery-section-title">RSVPs ({rsvps.length})</h3>
+      {rsvps.length === 0 ? (
+        <p className="ct-page-note">No RSVPs yet.</p>
+      ) : (
+        <>
+          <p className="ct-page-note">
+            <button type="button" className="ct-link-btn" onClick={downloadCsv}>
+              Download as spreadsheet
+            </button>
+          </p>
+          {[...groups.entries()].map(([slug, list]) => {
+            const guests = list.reduce((sum, r) => sum + r.guests, 0);
+            return (
+              <div key={slug} className="ct-admin-rsvp-group">
+                <h4 className="ct-admin-rsvp-title">
+                  {EVENT_NAMES[slug] ?? slug} — {list.length} RSVP
+                  {list.length === 1 ? "" : "s"}, {guests} guest{guests === 1 ? "" : "s"}
+                </h4>
+                <ul className="ct-admin-list">
+                  {list.map((r) => (
+                    <li key={r.id} className="ct-admin-row">
+                      <div className="ct-admin-row-text">
+                        <strong>
+                          {r.name} · {r.guests} guest{r.guests === 1 ? "" : "s"}
+                        </strong>
+                        <span>
+                          <a href={`mailto:${r.email}`}>{r.email}</a>
+                          {r.phone ? ` · ${r.phone}` : ""}
+                        </span>
+                        {r.preferred_day ? <span>Attending: {r.preferred_day}</span> : null}
+                        {r.message ? <span>“{r.message}”</span> : null}
+                        <span>{formatWhen(r.created_at)}</span>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            );
+          })}
+        </>
+      )}
+    </section>
+  );
+}
 
 export const Route = createFileRoute("/_authenticated/artwork-admin")({
   head: () => ({
@@ -108,6 +201,8 @@ function ArtworkAdmin() {
   const saveBulk = useServerFn(saveArtworksBulk);
   const remove = useServerFn(deleteArtwork);
   const checkAdmin = useServerFn(getMyAdminStatus);
+  const loadRsvps = useServerFn(listEventSignups);
+  const [rsvps, setRsvps] = useState<EventSignup[]>([]);
 
   const [isAdmin, setIsAdmin] = useState<boolean | null>(null);
   const [artworks, setArtworks] = useState<AdminArtwork[]>([]);
@@ -124,6 +219,7 @@ function ArtworkAdmin() {
   async function refresh() {
     try {
       setArtworks(await loadAll());
+      setRsvps(await loadRsvps());
     } catch {
       setError("Could not load the artwork list.");
     }
@@ -309,6 +405,8 @@ function ArtworkAdmin() {
           Upload one painting at a time with full details, drop a whole folder in at once, or edit
           anything already in the gallery.
         </p>
+
+        <RsvpDashboard rsvps={rsvps} />
 
         <section className="ct-admin-panel" aria-label="Bulk upload">
           <h3 className="ct-gallery-section-title">Bulk upload</h3>

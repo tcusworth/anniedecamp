@@ -1955,3 +1955,11 @@ a.ct-work-title:hover {
   font-size: 12px;
   margin: 20px 0 8px;
 }
+
+.ct-admin-rsvp-group { margin-top: 24px; }
+.ct-admin-rsvp-title {
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 0 0 8px;
+}
