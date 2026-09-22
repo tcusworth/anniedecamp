@@ -219,6 +219,7 @@ function ArtworkAdmin() {
   async function refresh() {
     try {
       setArtworks(await loadAll());
+      setRsvps(await loadRsvps());
     } catch {
       setError("Could not load the artwork list.");
     }
