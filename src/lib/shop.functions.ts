@@ -98,13 +98,13 @@ export const createCartCheckout = createServerFn({ method: "POST" })
       if (optionIds.length) {
         const { data: opts, error: optError } = await supabase
           .from("print_options")
-          .select("id, label, artwork_id, stripe_price_key")
+          .select("id, label, artwork_id, price_cents")
           .in("id", optionIds);
         if (optError) throw new Error(optError.message);
         options = opts ?? [];
       }
 
-      const lineItems: { price: string; quantity: number }[] = [];
+      const lineItems: { price_data: { currency: string; unit_amount: number; product_data: { name: string } }; quantity: number }[] = [];
       const labels: string[] = [];
       const stripe = createStripeClient(data.environment);
 
@@ -112,7 +112,7 @@ export const createCartCheckout = createServerFn({ method: "POST" })
         const artwork = (artworks ?? []).find((a) => a.id === item.artworkId);
         if (!artwork) return { error: "One of the items could not be found." };
 
-        let priceKey: string | null;
+        let amount: number | null;
         let quantity = 1;
         let label: string;
 
@@ -121,23 +121,20 @@ export const createCartCheckout = createServerFn({ method: "POST" })
           if (!option || option.artwork_id !== artwork.id) {
             return { error: "One of the options is no longer available." };
           }
-          priceKey = (option.stripe_price_key as string | null) ?? null;
+          amount = (option.price_cents as number | null) ?? null;
           label = `${artwork.title} — ${option.label}`;
           quantity = Math.min(Math.max(item.quantity ?? 1, 1), 10);
         } else {
           if (!artwork.original_available || !artwork.original_price_cents) {
             return { error: `${artwork.title} has already sold.` };
           }
-          priceKey = (artwork.stripe_price_key as string | null) ?? null;
+          amount = artwork.original_price_cents;
           label = `${artwork.title} (original)`;
         }
 
-        if (!priceKey) return { error: "One of the items is not available for purchase yet." };
-        const prices = await stripe.prices.list({ lookup_keys: [priceKey] });
-        if (!prices.data.length) {
-          return { error: "One of the items is not available for purchase yet." };
-        }
-        lineItems.push({ price: prices.data[0]!.id, quantity });
+        if (!amount || amount < 50) return { error: "One of the items is not available for purchase yet." };
+        // Charge the current catalogue price so admin price edits apply immediately.
+        lineItems.push({ price_data: { currency: "usd", unit_amount: amount, product_data: { name: label } }, quantity });
         labels.push(label);
       }
 
