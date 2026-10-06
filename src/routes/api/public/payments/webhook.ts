@@ -24,21 +24,22 @@ async function fulfillSession(session: any, env: StripeEnv) {
   const stripe = createStripeClient(env);
   const lineItems = await stripe.checkout.sessions.listLineItems(session.id, {
     limit: 100,
-    expand: ["data.price"],
+    expand: ["data.price.product"],
   });
 
-  const lookupKeys = lineItems.data
-    .map((li: any) => li.price?.lookup_key)
-    .filter(Boolean) as string[];
+  // Each line item carries its catalogue ids in the Stripe product metadata.
+  const meta = (li: any): Record<string, string> => li.price?.product?.metadata ?? {};
+  const optionIds = lineItems.data.map((li: any) => meta(li)["print_option_id"]).filter(Boolean);
+  const merchIds = lineItems.data.map((li: any) => meta(li)["merch_product_id"]).filter(Boolean);
 
-  const { data: artworks } = await supabase
-    .from("artworks")
-    .select("id, title, image_url, stripe_price_key")
-    .in("stripe_price_key", lookupKeys.length ? lookupKeys : ["__none__"]);
   const { data: options } = await supabase
     .from("print_options")
-    .select("id, label, kind, artwork_id, printify_product_id, printify_variant_id, stripe_price_key")
-    .in("stripe_price_key", lookupKeys.length ? lookupKeys : ["__none__"]);
+    .select("id, kind, artwork_id, printify_product_id, printify_variant_id")
+    .in("id", optionIds.length ? optionIds : ["00000000-0000-0000-0000-000000000000"]);
+  const { data: merch } = await supabase
+    .from("merch_products")
+    .select("id, printify_product_id, printify_variant_id")
+    .in("id", merchIds.length ? merchIds : ["00000000-0000-0000-0000-000000000000"]);
 
   // Rebuild the order rows for this session so repeated webhooks stay idempotent.
   await supabase.from("orders").delete().eq("stripe_session_id", session.id);
@@ -61,14 +62,17 @@ async function fulfillSession(session: any, env: StripeEnv) {
   const printifyOrderRowIds: string[] = [];
 
   for (const li of lineItems.data as any[]) {
-    const key = li.price?.lookup_key as string | undefined;
-    const option = (options ?? []).find((o: any) => o.stripe_price_key === key);
-    const artwork = option
-      ? { id: option.artwork_id }
-      : (artworks ?? []).find((a: any) => a.stripe_price_key === key);
-    if (!artwork) continue;
+    const m = meta(li);
+    const merchItem = (merch ?? []).find((x: any) => x.id === m["merch_product_id"]);
+    const option = (options ?? []).find((o: any) => o.id === m["print_option_id"]);
+    const artworkId: string | null = option?.artwork_id ?? m["artwork_id"] ?? null;
+    if (!merchItem && !artworkId) continue;
 
-    const kind = option ? (option.kind === "merchandise" ? "merchandise" : "print") : "original";
+    const kind = merchItem
+      ? "merchandise"
+      : option
+        ? option.kind === "merchandise" ? "merchandise" : "print"
+        : "original";
     const quantity = li.quantity ?? 1;
     soldLabels.push(li.description ?? "Artwork");
 
@@ -76,8 +80,9 @@ async function fulfillSession(session: any, env: StripeEnv) {
       .from("orders")
       .insert({
         ...base,
-        artwork_id: artwork.id,
+        artwork_id: merchItem ? null : artworkId,
         print_option_id: option?.id ?? null,
+        merch_product_id: merchItem?.id ?? null,
         item_kind: kind,
         item_label: li.description ?? "Artwork",
         quantity,
@@ -89,7 +94,7 @@ async function fulfillSession(session: any, env: StripeEnv) {
     if (!paid || !saved) continue;
 
     if (kind === "original") {
-      await supabase.from("artworks").update({ original_available: false }).eq("id", artwork.id);
+      await supabase.from("artworks").update({ original_available: false }).eq("id", artworkId);
       await supabase
         .from("orders")
         .update({ fulfillment_status: "awaiting_shipment" })
@@ -99,10 +104,11 @@ async function fulfillSession(session: any, env: StripeEnv) {
 
     // Prints and merchandise with a Printify product mapping are batched into
     // a single Printify order for the whole session (submitted after the loop).
-    if (option?.printify_product_id && option?.printify_variant_id) {
+    const pf = merchItem ?? option;
+    if (pf?.printify_product_id && pf?.printify_variant_id) {
       printifyLines.push({
-        productId: option.printify_product_id,
-        variantId: option.printify_variant_id,
+        productId: pf.printify_product_id,
+        variantId: pf.printify_variant_id,
         quantity,
       });
       printifyOrderRowIds.push(saved["id"]);
