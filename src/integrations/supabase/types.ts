@@ -226,6 +226,7 @@ export type Database = {
           item_kind: string
           item_label: string
           print_option_id: string | null
+          printify_order_id: string | null
           prodigi_order_id: string | null
           quantity: number
           shipping_address: Json | null
@@ -247,6 +248,7 @@ export type Database = {
           item_kind: string
           item_label: string
           print_option_id?: string | null
+          printify_order_id?: string | null
           prodigi_order_id?: string | null
           quantity?: number
           shipping_address?: Json | null
@@ -268,6 +270,7 @@ export type Database = {
           item_kind?: string
           item_label?: string
           print_option_id?: string | null
+          printify_order_id?: string | null
           prodigi_order_id?: string | null
           quantity?: number
           shipping_address?: Json | null
@@ -301,6 +304,8 @@ export type Database = {
           kind: string
           label: string
           price_cents: number
+          printify_product_id: string | null
+          printify_variant_id: number | null
           prodigi_sku: string | null
           sort_order: number
           stripe_price_key: string | null
@@ -312,6 +317,8 @@ export type Database = {
           kind?: string
           label: string
           price_cents: number
+          printify_product_id?: string | null
+          printify_variant_id?: number | null
           prodigi_sku?: string | null
           sort_order?: number
           stripe_price_key?: string | null
@@ -323,6 +330,8 @@ export type Database = {
           kind?: string
           label?: string
           price_cents?: number
+          printify_product_id?: string | null
+          printify_variant_id?: number | null
           prodigi_sku?: string | null
           sort_order?: number
           stripe_price_key?: string | null

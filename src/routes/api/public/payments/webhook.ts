@@ -3,6 +3,7 @@ import { createClient } from "@supabase/supabase-js";
 import { type StripeEnv, verifyWebhook, createStripeClient } from "@/lib/stripe.server";
 import { sendTemplateEmail } from "@/lib/email-templates/send-email";
 import { STUDIO_SALES_NOTIFICATION_EMAILS } from "@/lib/email-templates/recipients";
+import { submitToPrintify, type PrintifyLine } from "@/lib/printify.server";
 
 let _supabase: any = null;
 function getSupabase(): any {
@@ -13,50 +14,6 @@ function getSupabase(): any {
     );
   }
   return _supabase;
-}
-
-async function submitToProdigi(order: Record<string, any>, session: any) {
-  const apiKey = process.env["PRODIGI_API_KEY"];
-  if (!apiKey || !order["prodigi_sku"]) return null;
-  const shipping = session.collected_information?.shipping_details ?? session.shipping_details;
-  const address = shipping?.address ?? session.customer_details?.address;
-  if (!address) return null;
-
-  const response = await fetch("https://api.prodigi.com/v4.0/Orders", {
-    method: "POST",
-    headers: { "X-API-Key": apiKey, "Content-Type": "application/json" },
-    body: JSON.stringify({
-      merchantReference: order["id"],
-      shippingMethod: "Standard",
-      recipient: {
-        name: shipping?.name ?? session.customer_details?.name ?? "Customer",
-        email: session.customer_details?.email,
-        address: {
-          line1: address.line1,
-          line2: address.line2 ?? undefined,
-          postalOrZipCode: address.postal_code,
-          countryCode: address.country,
-          townOrCity: address.city,
-          stateOrCounty: address.state ?? undefined,
-        },
-      },
-      items: [
-        {
-          sku: order["prodigi_sku"],
-          copies: order["quantity"] ?? 1,
-          sizing: "fillPrintArea",
-          assets: [{ printArea: "default", url: order["image_url"] }],
-        },
-      ],
-    }),
-  });
-
-  if (!response.ok) {
-    console.error("Prodigi order failed:", response.status, await response.text());
-    return null;
-  }
-  const body = (await response.json()) as any;
-  return body?.order?.id ?? null;
 }
 
 async function fulfillSession(session: any, env: StripeEnv) {
@@ -80,7 +37,7 @@ async function fulfillSession(session: any, env: StripeEnv) {
     .in("stripe_price_key", lookupKeys.length ? lookupKeys : ["__none__"]);
   const { data: options } = await supabase
     .from("print_options")
-    .select("id, label, kind, artwork_id, prodigi_sku, stripe_price_key")
+    .select("id, label, kind, artwork_id, printify_product_id, printify_variant_id, stripe_price_key")
     .in("stripe_price_key", lookupKeys.length ? lookupKeys : ["__none__"]);
 
   // Rebuild the order rows for this session so repeated webhooks stay idempotent.
@@ -100,6 +57,8 @@ async function fulfillSession(session: any, env: StripeEnv) {
   };
 
   const soldLabels: string[] = [];
+  const printifyLines: PrintifyLine[] = [];
+  const printifyOrderRowIds: string[] = [];
 
   for (const li of lineItems.data as any[]) {
     const key = li.price?.lookup_key as string | undefined;
@@ -138,30 +97,49 @@ async function fulfillSession(session: any, env: StripeEnv) {
       continue;
     }
 
-    const { data: art } = await supabase
-      .from("artworks")
-      .select("image_url")
-      .eq("id", artwork.id)
-      .maybeSingle();
-
-    const prodigiOrderId = await submitToProdigi(
-      {
-        id: saved["id"],
-        prodigi_sku: option?.prodigi_sku,
+    // Prints and merchandise with a Printify product mapping are batched into
+    // a single Printify order for the whole session (submitted after the loop).
+    if (option?.printify_product_id && option?.printify_variant_id) {
+      printifyLines.push({
+        productId: option.printify_product_id,
+        variantId: option.printify_variant_id,
         quantity,
-        image_url: art?.["image_url"],
+      });
+      printifyOrderRowIds.push(saved["id"]);
+    } else {
+      await supabase
+        .from("orders")
+        .update({ fulfillment_status: "awaiting_fulfillment", updated_at: new Date().toISOString() })
+        .eq("id", saved["id"]);
+    }
+  }
+
+  if (paid && printifyLines.length > 0) {
+    const printifyOrderId = await submitToPrintify({
+      externalId: session.id,
+      lines: printifyLines,
+      address: {
+        name: shipping?.name ?? session.customer_details?.name,
+        email: session.customer_details?.email,
+        phone: session.customer_details?.phone,
+        line1: shipping?.address?.line1 ?? session.customer_details?.address?.line1,
+        line2: shipping?.address?.line2 ?? session.customer_details?.address?.line2,
+        city: shipping?.address?.city ?? session.customer_details?.address?.city,
+        state: shipping?.address?.state ?? session.customer_details?.address?.state,
+        postal_code:
+          shipping?.address?.postal_code ?? session.customer_details?.address?.postal_code,
+        country: shipping?.address?.country ?? session.customer_details?.address?.country,
       },
-      session,
-    );
+    });
 
     await supabase
       .from("orders")
       .update({
-        prodigi_order_id: prodigiOrderId,
-        fulfillment_status: prodigiOrderId ? "submitted" : "awaiting_fulfillment",
+        printify_order_id: printifyOrderId,
+        fulfillment_status: printifyOrderId ? "submitted" : "awaiting_fulfillment",
         updated_at: new Date().toISOString(),
       })
-      .eq("id", saved["id"]);
+      .in("id", printifyOrderRowIds);
   }
 
   if (paid) {
