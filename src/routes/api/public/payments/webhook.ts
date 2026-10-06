@@ -163,6 +163,31 @@ async function fulfillSession(session: any, env: StripeEnv) {
       })
       .eq("id", saved["id"]);
   }
+
+  if (paid) {
+    const total = ((session.amount_total ?? 0) / 100).toLocaleString("en-US", {
+      style: "currency",
+      currency: (session.currency ?? "usd").toUpperCase(),
+    });
+    try {
+      await sendTemplateEmail("order-notification", STUDIO_NOTIFICATION_EMAIL, {
+        idempotencyKey: `order-${session.id}`,
+        templateData: {
+          items:
+            soldLabels.join(", ") ||
+            session.metadata?.["item_label"] ||
+            "Artwork",
+          total,
+          customer_name:
+            shipping?.name ?? session.customer_details?.name ?? null,
+          customer_email: session.customer_details?.email ?? null,
+          environment: env,
+        },
+      });
+    } catch (e) {
+      console.error("Sale notification email failed:", e);
+    }
+  }
 }
 
 async function handleWebhook(req: Request, env: StripeEnv) {
