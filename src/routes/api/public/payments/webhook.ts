@@ -37,7 +37,7 @@ async function fulfillSession(session: any, env: StripeEnv) {
     .in("stripe_price_key", lookupKeys.length ? lookupKeys : ["__none__"]);
   const { data: options } = await supabase
     .from("print_options")
-    .select("id, label, kind, artwork_id, prodigi_sku, stripe_price_key")
+    .select("id, label, kind, artwork_id, printify_product_id, printify_variant_id, stripe_price_key")
     .in("stripe_price_key", lookupKeys.length ? lookupKeys : ["__none__"]);
 
   // Rebuild the order rows for this session so repeated webhooks stay idempotent.
@@ -57,6 +57,8 @@ async function fulfillSession(session: any, env: StripeEnv) {
   };
 
   const soldLabels: string[] = [];
+  const printifyLines: PrintifyLine[] = [];
+  const printifyOrderRowIds: string[] = [];
 
   for (const li of lineItems.data as any[]) {
     const key = li.price?.lookup_key as string | undefined;
