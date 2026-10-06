@@ -8,3 +8,4 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+- Print/merch fulfillment goes to Printify; checkout line items carry catalogue ids in Stripe product metadata so the webhook can map purchases back without saved Stripe prices.
