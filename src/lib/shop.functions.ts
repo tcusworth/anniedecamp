@@ -66,6 +66,8 @@ export const listArtworks = createServerFn({ method: "GET" }).handler(
 
 type CheckoutResult = { clientSecret: string } | { error: string };
 
+const CUSTOM_LABEL: Record<string, string> = { scarf: "Scarf", tote: "Tote bag", notebook: "Notebook" };
+
 const UUID = /^[0-9a-fA-F-]{36}$/;
 
 type CartLine = {
@@ -113,9 +115,13 @@ export const createCartCheckout = createServerFn({ method: "POST" })
   .handler(async ({ data }): Promise<CheckoutResult> => {
     try {
       const supabase = publicClient();
-      const merchLines = data.items.filter((i) => i.kind === "merchandise");
-      const artLines = data.items.filter((i) => i.kind !== "merchandise");
-      const artworkIds = [...new Set(artLines.map((i) => i.artworkId))];
+      const merchLines = data.items.filter((i) => i.kind === "merchandise" || i.kind === "custom");
+      const artLines = data.items.filter((i) => i.kind !== "merchandise" && i.kind !== "custom");
+      const customArtIds = merchLines
+        .filter((i) => i.kind === "custom")
+        .map((i) => i.printOptionId)
+        .filter(Boolean) as string[];
+      const artworkIds = [...new Set([...artLines.map((i) => i.artworkId), ...customArtIds])];
       const optionIds = artLines.map((i) => i.printOptionId).filter(Boolean) as string[];
       const merchIds = [...new Set(merchLines.map((i) => i.artworkId))];
 
@@ -143,7 +149,7 @@ export const createCartCheckout = createServerFn({ method: "POST" })
       if (merchIds.length) {
         const { data: rows, error: mErr } = await supabase
           .from("merch_products")
-          .select("id, title, variant_label, price_cents")
+          .select("id, title, variant_label, price_cents, category")
           .in("id", merchIds);
         if (mErr) throw new Error(mErr.message);
         merch = rows ?? [];
@@ -164,12 +170,19 @@ export const createCartCheckout = createServerFn({ method: "POST" })
       for (const item of merchLines) {
         const m = merch.find((x) => x.id === item.artworkId);
         if (!m) return { error: "One of the items is no longer available." };
-        const label = m.variant_label ? `${m.title} — ${m.variant_label}` : m.title;
+        let label = m.variant_label ? `${m.title} — ${m.variant_label}` : m.title;
+        const metadata: Record<string, string> = { merch_product_id: m.id };
+        if (item.kind === "custom") {
+          const art = artworks.find((a) => a.id === item.printOptionId);
+          if (!art) return { error: "The chosen painting could not be found." };
+          label = `${CUSTOM_LABEL[m.category] ?? "Custom item"} — ${art.title}${m.variant_label ? ` (${m.variant_label})` : ""}`;
+          metadata["custom_artwork_id"] = art.id;
+        }
         lineItems.push({
           price_data: {
             currency: "usd",
             unit_amount: m.price_cents,
-            product_data: { name: label, metadata: { merch_product_id: m.id } },
+            product_data: { name: label, metadata },
           },
           quantity: Math.min(Math.max(item.quantity ?? 1, 1), 10),
         });
