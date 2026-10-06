@@ -3,7 +3,8 @@ import { createContext, useCallback, useContext, useEffect, useMemo, useState, t
 export type CartItem = {
   artworkId: string;
   printOptionId: string | null;
-  kind: "original" | "print" | "merchandise";
+  // "custom": artworkId = merch product row, printOptionId = chosen painting id.
+  kind: "original" | "print" | "merchandise" | "custom";
   label: string;
   priceCents: number;
   imageUrl: string;
