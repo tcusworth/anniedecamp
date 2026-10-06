@@ -109,7 +109,8 @@ function DesignYourOwn({ groups, artworks }: { groups: Group[]; artworks: Artwor
   if (!group || !artworks.length) return null;
   const v = group.variants.find((x) => x.id === variantId) ?? group.variants[0]!;
   const art = artworks.find((a) => a.id === artId) ?? artworks[0]!;
-  const itemName = templates.find((t) => t.key === cat)!.label.replace(/s$/, "");
+  const SINGULAR: Record<string, string> = { scarf: "Scarf", tote: "Tote bag", notebook: "Notebook" };
+  const itemName = SINGULAR[cat] ?? "Item";
   return (
     <section className="ct-merch-section ct-diy">
       <h3 className="ct-merch-heading">Design your own</h3>
@@ -123,7 +124,7 @@ function DesignYourOwn({ groups, artworks }: { groups: Group[]; artworks: Artwor
             Item
             <select value={cat} onChange={(e) => { setCat(e.target.value); setVariantId(""); }}>
               {templates.map((t) => (
-                <option key={t.key} value={t.key}>{t.label.replace(/s$/, "")}</option>
+                <option key={t.key} value={t.key}>{SINGULAR[t.key] ?? t.label}</option>
               ))}
             </select>
           </label>
