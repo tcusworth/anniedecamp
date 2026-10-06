@@ -68,7 +68,35 @@ type CheckoutResult = { clientSecret: string } | { error: string };
 
 const UUID = /^[0-9a-fA-F-]{36}$/;
 
-type CartLine = { artworkId: string; printOptionId?: string | null; quantity?: number };
+type CartLine = {
+  artworkId: string;
+  printOptionId?: string | null;
+  quantity?: number;
+  kind?: string;
+};
+
+export type MerchProduct = {
+  id: string;
+  printify_product_id: string;
+  title: string;
+  variant_label: string | null;
+  category: string;
+  price_cents: number;
+  image_url: string;
+  sort_order: number;
+};
+
+export const listMerchandise = createServerFn({ method: "GET" }).handler(
+  async (): Promise<MerchProduct[]> => {
+    const { data, error } = await publicClient()
+      .from("merch_products")
+      .select("id, printify_product_id, title, variant_label, category, price_cents, image_url, sort_order")
+      .eq("active", true)
+      .order("sort_order", { ascending: true });
+    if (error) throw new Error(error.message);
+    return (data ?? []) as MerchProduct[];
+  },
+);
 
 export const createCartCheckout = createServerFn({ method: "POST" })
   .inputValidator(
@@ -85,14 +113,21 @@ export const createCartCheckout = createServerFn({ method: "POST" })
   .handler(async ({ data }): Promise<CheckoutResult> => {
     try {
       const supabase = publicClient();
-      const artworkIds = [...new Set(data.items.map((i) => i.artworkId))];
-      const optionIds = data.items.map((i) => i.printOptionId).filter(Boolean) as string[];
+      const merchLines = data.items.filter((i) => i.kind === "merchandise");
+      const artLines = data.items.filter((i) => i.kind !== "merchandise");
+      const artworkIds = [...new Set(artLines.map((i) => i.artworkId))];
+      const optionIds = artLines.map((i) => i.printOptionId).filter(Boolean) as string[];
+      const merchIds = [...new Set(merchLines.map((i) => i.artworkId))];
 
-      const { data: artworks, error } = await supabase
-        .from("artworks")
-        .select("id, title, original_price_cents, original_available, stripe_price_key")
-        .in("id", artworkIds);
-      if (error) throw new Error(error.message);
+      let artworks: any[] = [];
+      if (artworkIds.length) {
+        const { data: rows, error } = await supabase
+          .from("artworks")
+          .select("id, title, original_price_cents, original_available")
+          .in("id", artworkIds);
+        if (error) throw new Error(error.message);
+        artworks = rows ?? [];
+      }
 
       let options: any[] = [];
       if (optionIds.length) {
@@ -104,12 +139,45 @@ export const createCartCheckout = createServerFn({ method: "POST" })
         options = opts ?? [];
       }
 
-      const lineItems: { price_data: { currency: string; unit_amount: number; product_data: { name: string } }; quantity: number }[] = [];
+      let merch: any[] = [];
+      if (merchIds.length) {
+        const { data: rows, error: mErr } = await supabase
+          .from("merch_products")
+          .select("id, title, variant_label, price_cents")
+          .in("id", merchIds);
+        if (mErr) throw new Error(mErr.message);
+        merch = rows ?? [];
+      }
+
+      type LineItem = {
+        price_data: {
+          currency: string;
+          unit_amount: number;
+          product_data: { name: string; metadata: Record<string, string> };
+        };
+        quantity: number;
+      };
+      const lineItems: LineItem[] = [];
       const labels: string[] = [];
       const stripe = createStripeClient(data.environment);
 
-      for (const item of data.items) {
-        const artwork = (artworks ?? []).find((a) => a.id === item.artworkId);
+      for (const item of merchLines) {
+        const m = merch.find((x) => x.id === item.artworkId);
+        if (!m) return { error: "One of the items is no longer available." };
+        const label = m.variant_label ? `${m.title} — ${m.variant_label}` : m.title;
+        lineItems.push({
+          price_data: {
+            currency: "usd",
+            unit_amount: m.price_cents,
+            product_data: { name: label, metadata: { merch_product_id: m.id } },
+          },
+          quantity: Math.min(Math.max(item.quantity ?? 1, 1), 10),
+        });
+        labels.push(label);
+      }
+
+      for (const item of artLines) {
+        const artwork = artworks.find((a) => a.id === item.artworkId);
         if (!artwork) return { error: "One of the items could not be found." };
 
         let amount: number | null;
@@ -134,7 +202,12 @@ export const createCartCheckout = createServerFn({ method: "POST" })
 
         if (!amount || amount < 50) return { error: "One of the items is not available for purchase yet." };
         // Charge the current catalogue price so admin price edits apply immediately.
-        lineItems.push({ price_data: { currency: "usd", unit_amount: amount, product_data: { name: label } }, quantity });
+        const metadata: Record<string, string> = { artwork_id: artwork.id };
+        if (item.printOptionId) metadata["print_option_id"] = item.printOptionId;
+        lineItems.push({
+          price_data: { currency: "usd", unit_amount: amount, product_data: { name: label, metadata } },
+          quantity,
+        });
         labels.push(label);
       }
 

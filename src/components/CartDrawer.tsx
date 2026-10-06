@@ -16,6 +16,7 @@ export function CartDrawer() {
           artworkId: i.artworkId,
           printOptionId: i.printOptionId,
           quantity: i.quantity,
+          kind: i.kind,
         })),
         returnUrl: `${window.location.origin}/checkout/return?session_id={CHECKOUT_SESSION_ID}`,
         environment: getStripeEnvironment(),

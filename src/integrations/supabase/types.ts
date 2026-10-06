@@ -146,6 +146,48 @@ export type Database = {
         }
         Relationships: []
       }
+      merch_products: {
+        Row: {
+          active: boolean
+          category: string
+          created_at: string
+          id: string
+          image_url: string
+          price_cents: number
+          printify_product_id: string
+          printify_variant_id: number
+          sort_order: number
+          title: string
+          variant_label: string | null
+        }
+        Insert: {
+          active?: boolean
+          category: string
+          created_at?: string
+          id?: string
+          image_url: string
+          price_cents: number
+          printify_product_id: string
+          printify_variant_id: number
+          sort_order?: number
+          title: string
+          variant_label?: string | null
+        }
+        Update: {
+          active?: boolean
+          category?: string
+          created_at?: string
+          id?: string
+          image_url?: string
+          price_cents?: number
+          printify_product_id?: string
+          printify_variant_id?: number
+          sort_order?: number
+          title?: string
+          variant_label?: string | null
+        }
+        Relationships: []
+      }
       news_articles: {
         Row: {
           body: string
@@ -225,6 +267,7 @@ export type Database = {
           id: string
           item_kind: string
           item_label: string
+          merch_product_id: string | null
           print_option_id: string | null
           printify_order_id: string | null
           prodigi_order_id: string | null
@@ -247,6 +290,7 @@ export type Database = {
           id?: string
           item_kind: string
           item_label: string
+          merch_product_id?: string | null
           print_option_id?: string | null
           printify_order_id?: string | null
           prodigi_order_id?: string | null
@@ -269,6 +313,7 @@ export type Database = {
           id?: string
           item_kind?: string
           item_label?: string
+          merch_product_id?: string | null
           print_option_id?: string | null
           printify_order_id?: string | null
           prodigi_order_id?: string | null
@@ -285,6 +330,13 @@ export type Database = {
             columns: ["artwork_id"]
             isOneToOne: false
             referencedRelation: "artworks"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "orders_merch_product_id_fkey"
+            columns: ["merch_product_id"]
+            isOneToOne: false
+            referencedRelation: "merch_products"
             referencedColumns: ["id"]
           },
           {
