@@ -6,6 +6,7 @@ import { template as commissionRequestNotification } from './commission-request-
 import { template as commissionRequestConfirmation } from './commission-request-confirmation'
 import { template as eventRsvpNotification } from './event-rsvp-notification'
 import { template as eventRsvpConfirmation } from './event-rsvp-confirmation'
+import { template as orderNotification } from './order-notification'
 
 export interface TemplateEntry {
   component: ComponentType<any>
@@ -26,4 +27,5 @@ export const TEMPLATES: Record<string, TemplateEntry> = {
   'commission-request-confirmation': commissionRequestConfirmation,
   'event-rsvp-notification': eventRsvpNotification,
   'event-rsvp-confirmation': eventRsvpConfirmation,
+  'order-notification': orderNotification,
 }
