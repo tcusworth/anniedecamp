@@ -1,0 +1,1 @@
+alter table public.print_options add column if not exists printify_product_id text, add column if not exists printify_variant_id integer; alter table public.orders add column if not exists printify_order_id text;
