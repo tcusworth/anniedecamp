@@ -1976,3 +1976,19 @@ a.ct-work-title:hover {
 .ct-admin-rsvp-row .ct-admin-row-text span {
   overflow-wrap: anywhere;
 }
+
+/* Merchandise */
+.ct-merch-section { margin-top: 56px; }
+.ct-merch-heading { font-size: 14px; text-transform: uppercase; letter-spacing: 0.08em; margin: 0 0 20px; padding-bottom: 10px; border-bottom: 1px solid var(--border); }
+.ct-merch-grid { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 40px 28px; }
+.ct-merch-card { display: flex; flex-direction: column; gap: 8px; }
+.ct-merch-image { aspect-ratio: 1 / 1; background: var(--muted); overflow: hidden; }
+.ct-merch-image img { width: 100%; height: 100%; object-fit: contain; display: block; }
+.ct-merch-title { font-size: 15px; font-weight: 400; margin: 6px 0 0; line-height: 1.35; }
+.ct-merch-price { font-size: 14px; margin: 0; color: var(--muted-foreground); }
+.ct-merch-variant { display: flex; align-items: center; gap: 8px; font-size: 13px; }
+.ct-merch-variant select { flex: 1; padding: 6px 8px; border: 1px solid var(--border); background: var(--background); color: var(--foreground); font: inherit; }
+.ct-merch-add { margin-top: 4px; padding: 10px 14px; border: 1px solid var(--foreground); background: transparent; color: var(--foreground); font: inherit; font-size: 13px; text-transform: uppercase; letter-spacing: 0.06em; cursor: pointer; transition: background-color 0.2s ease, color 0.2s ease; }
+.ct-merch-add:hover { background: var(--foreground); color: var(--background); }
+@media (max-width: 1023px) { .ct-merch-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 567px) { .ct-merch-grid { grid-template-columns: minmax(0, 1fr); } }
