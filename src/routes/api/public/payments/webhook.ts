@@ -3,7 +3,7 @@ import { createClient } from "@supabase/supabase-js";
 import { type StripeEnv, verifyWebhook, createStripeClient } from "@/lib/stripe.server";
 import { sendTemplateEmail } from "@/lib/email-templates/send-email";
 import { STUDIO_SALES_NOTIFICATION_EMAILS } from "@/lib/email-templates/recipients";
-import { submitToPrintify, type PrintifyLine } from "@/lib/printify.server";
+import { submitToPrintify, buildCustomLine, type PrintifyLine } from "@/lib/printify.server";
 
 let _supabase: any = null;
 function getSupabase(): any {
@@ -14,6 +14,19 @@ function getSupabase(): any {
     );
   }
   return _supabase;
+}
+
+// Public URL Printify can download for a painting image.
+async function paintingUrl(supabase: any, imageUrl: string): Promise<string | null> {
+  const storage = imageUrl.match(/artwork-image\?path=([^&]+)/);
+  if (storage) {
+    const { data } = await supabase.storage
+      .from("artwork-images")
+      .createSignedUrl(decodeURIComponent(storage[1]!), 60 * 60 * 24 * 7);
+    return data?.signedUrl ?? null;
+  }
+  if (/^https?:/.test(imageUrl)) return imageUrl;
+  return `https://anniedecampart.com${imageUrl.startsWith("/") ? "" : "/"}${imageUrl}`;
 }
 
 async function fulfillSession(session: any, env: StripeEnv) {
@@ -65,6 +78,7 @@ async function fulfillSession(session: any, env: StripeEnv) {
     const m = meta(li);
     const merchItem = (merch ?? []).find((x: any) => x.id === m["merch_product_id"]);
     const option = (options ?? []).find((o: any) => o.id === m["print_option_id"]);
+    const customArtworkId: string | null = merchItem ? (m["custom_artwork_id"] ?? null) : null;
     const artworkId: string | null = option?.artwork_id ?? m["artwork_id"] ?? null;
     if (!merchItem && !artworkId) continue;
 
@@ -80,7 +94,7 @@ async function fulfillSession(session: any, env: StripeEnv) {
       .from("orders")
       .insert({
         ...base,
-        artwork_id: merchItem ? null : artworkId,
+        artwork_id: merchItem ? customArtworkId : artworkId,
         print_option_id: option?.id ?? null,
         merch_product_id: merchItem?.id ?? null,
         item_kind: kind,
@@ -105,6 +119,32 @@ async function fulfillSession(session: any, env: StripeEnv) {
     // Prints and merchandise with a Printify product mapping are batched into
     // a single Printify order for the whole session (submitted after the loop).
     const pf = merchItem ?? option;
+    if (merchItem && customArtworkId) {
+      const { data: art } = await supabase
+        .from("artworks")
+        .select("image_url")
+        .eq("id", customArtworkId)
+        .maybeSingle();
+      const url = art ? await paintingUrl(supabase, art.image_url) : null;
+      const line = url
+        ? await buildCustomLine({
+            templateProductId: merchItem.printify_product_id,
+            variantId: merchItem.printify_variant_id,
+            quantity,
+            imageUrl: url,
+          })
+        : null;
+      if (line) {
+        printifyLines.push(line);
+        printifyOrderRowIds.push(saved["id"]);
+      } else {
+        await supabase
+          .from("orders")
+          .update({ fulfillment_status: "awaiting_fulfillment", updated_at: new Date().toISOString() })
+          .eq("id", saved["id"]);
+      }
+      continue;
+    }
     if (pf?.printify_product_id && pf?.printify_variant_id) {
       printifyLines.push({
         productId: pf.printify_product_id,
