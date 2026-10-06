@@ -68,7 +68,35 @@ type CheckoutResult = { clientSecret: string } | { error: string };
 
 const UUID = /^[0-9a-fA-F-]{36}$/;
 
-type CartLine = { artworkId: string; printOptionId?: string | null; quantity?: number };
+type CartLine = {
+  artworkId: string;
+  printOptionId?: string | null;
+  quantity?: number;
+  kind?: string;
+};
+
+export type MerchProduct = {
+  id: string;
+  printify_product_id: string;
+  title: string;
+  variant_label: string | null;
+  category: string;
+  price_cents: number;
+  image_url: string;
+  sort_order: number;
+};
+
+export const listMerchandise = createServerFn({ method: "GET" }).handler(
+  async (): Promise<MerchProduct[]> => {
+    const { data, error } = await publicClient()
+      .from("merch_products")
+      .select("id, printify_product_id, title, variant_label, category, price_cents, image_url, sort_order")
+      .eq("active", true)
+      .order("sort_order", { ascending: true });
+    if (error) throw new Error(error.message);
+    return (data ?? []) as MerchProduct[];
+  },
+);
 
 export const createCartCheckout = createServerFn({ method: "POST" })
   .inputValidator(
