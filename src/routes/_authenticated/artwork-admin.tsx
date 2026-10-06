@@ -186,7 +186,7 @@ function MerchCreator({ artworks }: { artworks: AdminArtwork[] }) {
         cost plus your markup, rounded up to the dollar.
       </p>
       <form onSubmit={onCreate} className="ct-form">
-        <label>
+        <label className="ct-field">
           Painting
           <select value={artworkId} onChange={(e) => setArtworkId(e.target.value)} disabled={busy}>
             <option value="">Choose…</option>
@@ -195,7 +195,7 @@ function MerchCreator({ artworks }: { artworks: AdminArtwork[] }) {
             ))}
           </select>
         </label>
-        <label>
+        <label className="ct-field">
           Product
           <select value={category} onChange={(e) => setCategory(e.target.value as any)} disabled={busy}>
             <option value="scarf">Scarf</option>
@@ -203,15 +203,15 @@ function MerchCreator({ artworks }: { artworks: AdminArtwork[] }) {
             <option value="notebook">Notebook</option>
           </select>
         </label>
-        <label>
+        <label className="ct-field">
           Markup %
           <input type="number" min={0} max={1000} value={markup} onChange={(e) => setMarkup(e.target.value)} disabled={busy} />
         </label>
-        <label>
+        <label className="ct-field">
           Product name (optional)
           <input value={title} onChange={(e) => setTitle(e.target.value)} placeholder="e.g. Bird Study Scarf" disabled={busy} />
         </label>
-        <button type="submit" className="ct-more-bar" disabled={busy}>
+        <button type="submit" className="ct-press-btn" disabled={busy}>
           {busy ? "Creating…" : "Create product"}
         </button>
       </form>
