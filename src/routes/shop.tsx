@@ -186,7 +186,10 @@ function DesignYourOwn({ groups, artworks }: { groups: Group[]; artworks: Artwor
 }
 
 function ShopPage() {
-  const { merch, artworks } = Route.useLoaderData();
+  const loaded = Route.useLoaderData() as unknown;
+  // Tolerate the older array-only loader shape (e.g. cached data during reloads).
+  const merch: MerchProduct[] = Array.isArray(loaded) ? loaded : ((loaded as any)?.merch ?? []);
+  const artworks: Artwork[] = Array.isArray(loaded) ? [] : ((loaded as any)?.artworks ?? []);
   const groups = groupProducts(merch);
   return (
     <div className="ct-page">
