@@ -3,6 +3,7 @@ import { createClient } from "@supabase/supabase-js";
 import { type StripeEnv, verifyWebhook, createStripeClient } from "@/lib/stripe.server";
 import { sendTemplateEmail } from "@/lib/email-templates/send-email";
 import { STUDIO_SALES_NOTIFICATION_EMAILS } from "@/lib/email-templates/recipients";
+import { submitToPrintify, type PrintifyLine } from "@/lib/printify.server";
 
 let _supabase: any = null;
 function getSupabase(): any {
@@ -13,50 +14,6 @@ function getSupabase(): any {
     );
   }
   return _supabase;
-}
-
-async function submitToProdigi(order: Record<string, any>, session: any) {
-  const apiKey = process.env["PRODIGI_API_KEY"];
-  if (!apiKey || !order["prodigi_sku"]) return null;
-  const shipping = session.collected_information?.shipping_details ?? session.shipping_details;
-  const address = shipping?.address ?? session.customer_details?.address;
-  if (!address) return null;
-
-  const response = await fetch("https://api.prodigi.com/v4.0/Orders", {
-    method: "POST",
-    headers: { "X-API-Key": apiKey, "Content-Type": "application/json" },
-    body: JSON.stringify({
-      merchantReference: order["id"],
-      shippingMethod: "Standard",
-      recipient: {
-        name: shipping?.name ?? session.customer_details?.name ?? "Customer",
-        email: session.customer_details?.email,
-        address: {
-          line1: address.line1,
-          line2: address.line2 ?? undefined,
-          postalOrZipCode: address.postal_code,
-          countryCode: address.country,
-          townOrCity: address.city,
-          stateOrCounty: address.state ?? undefined,
-        },
-      },
-      items: [
-        {
-          sku: order["prodigi_sku"],
-          copies: order["quantity"] ?? 1,
-          sizing: "fillPrintArea",
-          assets: [{ printArea: "default", url: order["image_url"] }],
-        },
-      ],
-    }),
-  });
-
-  if (!response.ok) {
-    console.error("Prodigi order failed:", response.status, await response.text());
-    return null;
-  }
-  const body = (await response.json()) as any;
-  return body?.order?.id ?? null;
 }
 
 async function fulfillSession(session: any, env: StripeEnv) {
