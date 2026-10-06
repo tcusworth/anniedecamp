@@ -3,6 +3,7 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import aspenTimes from "@/assets/press-aspen-times.jpg.asset.json";
 import canvasRebel from "@/assets/press-canvas-rebel.jpg.asset.json";
+import crawfordHotel from "@/assets/press-crawford-hotel.jpg.asset.json";
 import coloradoHomesSelfLove from "@/assets/press-colorado-homes-self-love.jpg.asset.json";
 import coloradoHomesDivineBloom from "@/assets/press-colorado-homes-divine-bloom.jpg.asset.json";
 import redBrick from "@/assets/press-red-brick.webp.asset.json";
@@ -63,6 +64,18 @@ const PRESS_ITEMS: PressItem[] = [
     href: "http://www.coloradohomesmag.com/the-divine-bloom/",
     image: coloradoHomesDivineBloom,
     alt: "Colorado Homes & Lifestyles magazine cover, The Mountain Issue, March/April 2022",
+  },
+  {
+    outlet: "5280",
+    headline:
+      "How To Make the Most of Your Stay at the Crawford Hotel, Which Just Got a Makeover",
+    date: "Aug 2024",
+    kind: "Feature",
+    excerpt:
+      "Sarah Kuta's tour of the revamped Crawford Hotel at Denver Union Station singles out Decamp's large-scale portrait of the hotel's namesake, Dana Crawford — 'part black-and-white photograph, part painting' — in the new lobby.",
+    href: "https://5280.com/how-to-make-the-most-of-your-stay-at-the-newly-revamped-crawford-hotel-denver/",
+    image: crawfordHotel,
+    alt: "Annie Decamp's mixed-media portrait of Dana Crawford installed above a credenza in the Crawford Hotel's new lobby at Denver Union Station",
   },
   {
     outlet: "The Aspen Times",
