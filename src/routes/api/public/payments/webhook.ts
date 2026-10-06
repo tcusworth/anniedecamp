@@ -97,30 +97,49 @@ async function fulfillSession(session: any, env: StripeEnv) {
       continue;
     }
 
-    const { data: art } = await supabase
-      .from("artworks")
-      .select("image_url")
-      .eq("id", artwork.id)
-      .maybeSingle();
-
-    const prodigiOrderId = await submitToProdigi(
-      {
-        id: saved["id"],
-        prodigi_sku: option?.prodigi_sku,
+    // Prints and merchandise with a Printify product mapping are batched into
+    // a single Printify order for the whole session (submitted after the loop).
+    if (option?.printify_product_id && option?.printify_variant_id) {
+      printifyLines.push({
+        productId: option.printify_product_id,
+        variantId: option.printify_variant_id,
         quantity,
-        image_url: art?.["image_url"],
+      });
+      printifyOrderRowIds.push(saved["id"]);
+    } else {
+      await supabase
+        .from("orders")
+        .update({ fulfillment_status: "awaiting_fulfillment", updated_at: new Date().toISOString() })
+        .eq("id", saved["id"]);
+    }
+  }
+
+  if (paid && printifyLines.length > 0) {
+    const printifyOrderId = await submitToPrintify({
+      externalId: session.id,
+      lines: printifyLines,
+      address: {
+        name: shipping?.name ?? session.customer_details?.name,
+        email: session.customer_details?.email,
+        phone: session.customer_details?.phone,
+        line1: shipping?.address?.line1 ?? session.customer_details?.address?.line1,
+        line2: shipping?.address?.line2 ?? session.customer_details?.address?.line2,
+        city: shipping?.address?.city ?? session.customer_details?.address?.city,
+        state: shipping?.address?.state ?? session.customer_details?.address?.state,
+        postal_code:
+          shipping?.address?.postal_code ?? session.customer_details?.address?.postal_code,
+        country: shipping?.address?.country ?? session.customer_details?.address?.country,
       },
-      session,
-    );
+    });
 
     await supabase
       .from("orders")
       .update({
-        prodigi_order_id: prodigiOrderId,
-        fulfillment_status: prodigiOrderId ? "submitted" : "awaiting_fulfillment",
+        printify_order_id: printifyOrderId,
+        fulfillment_status: printifyOrderId ? "submitted" : "awaiting_fulfillment",
         updated_at: new Date().toISOString(),
       })
-      .eq("id", saved["id"]);
+      .in("id", printifyOrderRowIds);
   }
 
   if (paid) {
