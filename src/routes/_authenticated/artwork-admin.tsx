@@ -13,6 +13,7 @@ import {
   type AdminArtwork,
   type ArtworkInput,
 } from "@/lib/artworks-admin.functions";
+import { createMerchFromArtwork } from "@/lib/printify-create.functions";
 import { listEventSignups, type EventSignup } from "@/lib/rsvps-admin.functions";
 
 const EVENT_NAMES: Record<string, string> = {
@@ -148,6 +149,76 @@ const EMPTY: Draft = {
   original_available: true,
   sort_order: "0",
 };
+
+function MerchCreator({ artworks }: { artworks: AdminArtwork[] }) {
+  const create = useServerFn(createMerchFromArtwork);
+  const [artworkId, setArtworkId] = useState("");
+  const [category, setCategory] = useState<"scarf" | "tote" | "notebook">("scarf");
+  const [markup, setMarkup] = useState("100");
+  const [title, setTitle] = useState("");
+  const [busy, setBusy] = useState(false);
+  const [msg, setMsg] = useState<string | null>(null);
+
+  async function onCreate(e: React.FormEvent) {
+    e.preventDefault();
+    if (!artworkId) return setMsg("Pick a painting first.");
+    setBusy(true);
+    setMsg("Sending the painting to Printify… this can take up to a minute.");
+    try {
+      const r = await create({
+        data: { artworkId, category, markupPercent: Number(markup) || 0, title: title || undefined },
+      });
+      setMsg(`Done — “${r.title}” is now on the Merchandise page at $${(r.priceCents / 100).toFixed(2)}.`);
+      setTitle("");
+    } catch (err) {
+      setMsg(err instanceof Error ? err.message : "Something went wrong.");
+    } finally {
+      setBusy(false);
+    }
+  }
+
+  return (
+    <section className="ct-admin-panel" aria-label="Create merchandise">
+      <h3 className="ct-gallery-section-title">Create merchandise</h3>
+      <p className="ct-page-note">
+        Pick a painting and a product. The painting is centred and fills the print area, the
+        product is made in Printify, and it appears on the Merchandise page. Price = Printify’s
+        cost plus your markup, rounded up to the dollar.
+      </p>
+      <form onSubmit={onCreate} className="ct-admin-form">
+        <label>
+          Painting
+          <select value={artworkId} onChange={(e) => setArtworkId(e.target.value)} disabled={busy}>
+            <option value="">Choose…</option>
+            {[...artworks].sort((a, b) => a.title.localeCompare(b.title)).map((a) => (
+              <option key={a.id} value={a.id}>{a.title}</option>
+            ))}
+          </select>
+        </label>
+        <label>
+          Product
+          <select value={category} onChange={(e) => setCategory(e.target.value as any)} disabled={busy}>
+            <option value="scarf">Scarf</option>
+            <option value="tote">Tote bag</option>
+            <option value="notebook">Notebook</option>
+          </select>
+        </label>
+        <label>
+          Markup %
+          <input type="number" min={0} max={1000} value={markup} onChange={(e) => setMarkup(e.target.value)} disabled={busy} />
+        </label>
+        <label>
+          Product name (optional)
+          <input value={title} onChange={(e) => setTitle(e.target.value)} placeholder="e.g. Bird Study Scarf" disabled={busy} />
+        </label>
+        <button type="submit" className="ct-more-bar" disabled={busy}>
+          {busy ? "Creating…" : "Create product"}
+        </button>
+      </form>
+      {msg ? <p className="ct-page-note">{msg}</p> : null}
+    </section>
+  );
+}
 
 function slugify(value: string) {
   return value
@@ -407,6 +478,8 @@ function ArtworkAdmin() {
         </p>
 
         <RsvpDashboard rsvps={rsvps} />
+
+        <MerchCreator artworks={artworks} />
 
         <section className="ct-admin-panel" aria-label="Bulk upload">
           <h3 className="ct-gallery-section-title">Bulk upload</h3>
