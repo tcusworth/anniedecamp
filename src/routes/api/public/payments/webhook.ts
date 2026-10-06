@@ -1,6 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { createClient } from "@supabase/supabase-js";
 import { type StripeEnv, verifyWebhook, createStripeClient } from "@/lib/stripe.server";
+import { sendTemplateEmail } from "@/lib/email-templates/send-email";
+import { STUDIO_NOTIFICATION_EMAIL } from "@/lib/email-templates/recipients";
 
 let _supabase: any = null;
 function getSupabase(): any {
@@ -97,6 +99,8 @@ async function fulfillSession(session: any, env: StripeEnv) {
     updated_at: new Date().toISOString(),
   };
 
+  const soldLabels: string[] = [];
+
   for (const li of lineItems.data as any[]) {
     const key = li.price?.lookup_key as string | undefined;
     const option = (options ?? []).find((o: any) => o.stripe_price_key === key);
@@ -107,6 +111,7 @@ async function fulfillSession(session: any, env: StripeEnv) {
 
     const kind = option ? (option.kind === "merchandise" ? "merchandise" : "print") : "original";
     const quantity = li.quantity ?? 1;
+    soldLabels.push(li.description ?? "Artwork");
 
     const { data: saved } = await supabase
       .from("orders")
