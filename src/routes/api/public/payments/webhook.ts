@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { createClient } from "@supabase/supabase-js";
 import { type StripeEnv, verifyWebhook, createStripeClient } from "@/lib/stripe.server";
 import { sendTemplateEmail } from "@/lib/email-templates/send-email";
-import { STUDIO_NOTIFICATION_EMAIL } from "@/lib/email-templates/recipients";
+import { STUDIO_SALES_NOTIFICATION_EMAILS } from "@/lib/email-templates/recipients";
 
 let _supabase: any = null;
 function getSupabase(): any {
@@ -169,23 +169,26 @@ async function fulfillSession(session: any, env: StripeEnv) {
       style: "currency",
       currency: (session.currency ?? "usd").toUpperCase(),
     });
-    try {
-      await sendTemplateEmail("order-notification", STUDIO_NOTIFICATION_EMAIL, {
-        idempotencyKey: `order-${session.id}`,
-        templateData: {
-          items:
-            soldLabels.join(", ") ||
-            session.metadata?.["item_label"] ||
-            "Artwork",
-          total,
-          customer_name:
-            shipping?.name ?? session.customer_details?.name ?? null,
-          customer_email: session.customer_details?.email ?? null,
-          environment: env,
-        },
-      });
-    } catch (e) {
-      console.error("Sale notification email failed:", e);
+    const notificationData = {
+      items:
+        soldLabels.join(", ") ||
+        session.metadata?.["item_label"] ||
+        "Artwork",
+      total,
+      customer_name: shipping?.name ?? session.customer_details?.name ?? null,
+      customer_email: session.customer_details?.email ?? null,
+      environment: env,
+    };
+
+    for (const recipientEmail of STUDIO_SALES_NOTIFICATION_EMAILS) {
+      try {
+        await sendTemplateEmail("order-notification", recipientEmail, {
+          idempotencyKey: `order-${session.id}-${recipientEmail}`,
+          templateData: notificationData,
+        });
+      } catch (e) {
+        console.error("Sale notification email failed:", e);
+      }
     }
   }
 }
