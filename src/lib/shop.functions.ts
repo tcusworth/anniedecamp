@@ -66,6 +66,8 @@ export const listArtworks = createServerFn({ method: "GET" }).handler(
 
 type CheckoutResult = { clientSecret: string } | { error: string };
 
+const CUSTOM_LABEL: Record<string, string> = { scarf: "Scarf", tote: "Tote bag", notebook: "Notebook" };
+
 const UUID = /^[0-9a-fA-F-]{36}$/;
 
 type CartLine = {
@@ -147,7 +149,7 @@ export const createCartCheckout = createServerFn({ method: "POST" })
       if (merchIds.length) {
         const { data: rows, error: mErr } = await supabase
           .from("merch_products")
-          .select("id, title, variant_label, price_cents")
+          .select("id, title, variant_label, price_cents, category")
           .in("id", merchIds);
         if (mErr) throw new Error(mErr.message);
         merch = rows ?? [];
