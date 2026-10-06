@@ -185,7 +185,7 @@ function MerchCreator({ artworks }: { artworks: AdminArtwork[] }) {
         product is made in Printify, and it appears on the Merchandise page. Price = Printify’s
         cost plus your markup, rounded up to the dollar.
       </p>
-      <form onSubmit={onCreate} className="ct-admin-form">
+      <form onSubmit={onCreate} className="ct-form">
         <label>
           Painting
           <select value={artworkId} onChange={(e) => setArtworkId(e.target.value)} disabled={busy}>
