@@ -219,6 +219,7 @@ function ShopPage() {
   const merch: MerchProduct[] = Array.isArray(loaded) ? loaded : ((loaded as any)?.merch ?? []);
   const artworks: Artwork[] = Array.isArray(loaded) ? [] : ((loaded as any)?.artworks ?? []);
   const groups = groupProducts(merch);
+  const photos: Record<string, MerchImage[]> = (loaded as any)?.photos ?? {};
   return (
     <div className="ct-page">
       <SiteHeader />
