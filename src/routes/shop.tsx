@@ -3,7 +3,14 @@ import { useState } from "react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { PaymentTestModeBanner } from "@/components/PaymentTestModeBanner";
-import { listMerchandise, listArtworks, type MerchProduct, type Artwork } from "@/lib/shop.functions";
+import {
+  listMerchandise,
+  listArtworks,
+  listMerchImages,
+  type MerchProduct,
+  type Artwork,
+  type MerchImage,
+} from "@/lib/shop.functions";
 import { useCart, money } from "@/lib/cart";
 
 const title = "Merchandise — Annie Decamp Art";
@@ -13,7 +20,9 @@ const description =
 export const Route = createFileRoute("/shop")({
   loader: async () => {
     const [merch, artworks] = await Promise.all([listMerchandise(), listArtworks()]);
-    return { merch, artworks };
+    const productIds = [...new Set(merch.map((m) => m.printify_product_id))];
+    const photos = await listMerchImages({ data: { productIds } }).catch(() => ({}));
+    return { merch, artworks, photos };
   },
   head: () => ({
     meta: [
@@ -53,15 +62,34 @@ function groupProducts(rows: MerchProduct[]): Group[] {
   return [...map.values()];
 }
 
-function ProductCard({ group }: { group: Group }) {
+function ProductCard({ group, photos }: { group: Group; photos: MerchImage[] }) {
   const { add } = useCart();
   const [variantId, setVariantId] = useState(group.variants[0]!.id);
   const v = group.variants.find((x) => x.id === variantId) ?? group.variants[0]!;
+  const srcs = photos.length ? photos.map((p) => p.src) : [group.image];
+  const [idx, setIdx] = useState(0);
+  const main = srcs[idx] ?? srcs[0];
   return (
     <li className="ct-merch-card">
       <div className="ct-merch-image">
-        <img src={group.image} alt={group.title} loading="lazy" width={600} height={600} />
+        <img src={main} alt={group.title} loading="lazy" width={600} height={600} />
       </div>
+      {srcs.length > 1 && (
+        <ul className="ct-merch-thumbs">
+          {srcs.map((s, i) => (
+            <li key={s}>
+              <button
+                type="button"
+                aria-label={`${group.title} photo ${i + 1}`}
+                className={i === idx ? "is-active" : undefined}
+                onClick={() => setIdx(i)}
+              >
+                <img src={s} alt="" loading="lazy" width={48} height={48} />
+              </button>
+            </li>
+          ))}
+        </ul>
+      )}
       <h3 className="ct-merch-title">{group.title}</h3>
       <p className="ct-merch-price">{money(v.price_cents)}</p>
       {group.variants.length > 1 && (
