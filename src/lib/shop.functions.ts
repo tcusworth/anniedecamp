@@ -100,6 +100,40 @@ export const listMerchandise = createServerFn({ method: "GET" }).handler(
   },
 );
 
+export type MerchImage = { src: string; variant_ids: number[]; is_default: boolean };
+
+// Product photos/mockups from Printify, keyed by Printify product id.
+export const listMerchImages = createServerFn({ method: "POST" })
+  .inputValidator((data: { productIds: string[] }) => {
+    const ids = (data.productIds ?? []).filter((id) => /^[a-zA-Z0-9]{1,64}$/.test(id)).slice(0, 40);
+    return { productIds: [...new Set(ids)] };
+  })
+  .handler(async ({ data }): Promise<Record<string, MerchImage[]>> => {
+    const token = process.env["PRINTIFY_API_TOKEN"];
+    const shopId = process.env["PRINTIFY_SHOP_ID"];
+    if (!token || !shopId) return {};
+    const out: Record<string, MerchImage[]> = {};
+    await Promise.all(
+      data.productIds.map(async (id) => {
+        try {
+          const r = await fetch(`https://api.printify.com/v1/shops/${shopId}/products/${id}.json`, {
+            headers: { Authorization: `Bearer ${token}` },
+          });
+          if (!r.ok) return;
+          const p = (await r.json()) as { images?: any[] };
+          out[id] = (p.images ?? []).slice(0, 12).map((i) => ({
+            src: String(i.src),
+            variant_ids: Array.isArray(i.variant_ids) ? i.variant_ids : [],
+            is_default: !!i.is_default,
+          }));
+        } catch {
+          /* fall back to stored image */
+        }
+      }),
+    );
+    return out;
+  });
+
 export const createCartCheckout = createServerFn({ method: "POST" })
   .inputValidator(
     (data: { items: CartLine[]; returnUrl: string; environment: StripeEnv }) => {
