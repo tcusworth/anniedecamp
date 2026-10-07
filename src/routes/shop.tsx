@@ -234,7 +234,7 @@ function ShopPage() {
               <h3 className="ct-merch-heading">{c.label}</h3>
               <ul className="ct-merch-grid">
                 {items.map((g) => (
-                  <ProductCard key={g.productId} group={g} />
+                  <ProductCard key={g.productId} group={g} photos={photos[g.productId] ?? []} />
                 ))}
               </ul>
             </section>
