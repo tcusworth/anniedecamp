@@ -66,7 +66,7 @@ function ProductCard({ group, photos }: { group: Group; photos: MerchImage[] }) 
   const { add } = useCart();
   const [variantId, setVariantId] = useState(group.variants[0]!.id);
   const v = group.variants.find((x) => x.id === variantId) ?? group.variants[0]!;
-  const srcs = photos.length ? photos.map((p) => p.src) : [group.image];
+  const srcs = photos?.length ? photos.map((p) => p.src) : [group.image];
   const [idx, setIdx] = useState(0);
   const main = srcs[idx] ?? srcs[0];
   return (
