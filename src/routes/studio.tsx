@@ -46,7 +46,7 @@ const PROCESS = [
 ];
 
 const CONTACTS = [
-  { label: "Studio", value: "studio@anniedecampart.com", href: "mailto:studio@anniedecampart.com" },
+  { label: "Studio", value: "annie@anniedecampart.com", href: "mailto:annie@anniedecampart.com" },
   { label: "Press inquiries", value: "lu@staskoagency.com", href: "mailto:lu@staskoagency.com" },
   { label: "Telephone", value: "650-391-8405", href: "tel:+16503918405" },
   { label: "Instagram", value: "@anniedecampart", href: "https://www.instagram.com/anniedecampart/" },
