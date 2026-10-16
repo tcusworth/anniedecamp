@@ -13,7 +13,7 @@ import {
 } from "@/lib/shop.functions";
 import { useCart, money } from "@/lib/cart";
 
-const title = "Merchandise — Annie Decamp Art";
+const title = "Shop Merchandise — Annie Decamp Art";
 const description =
   "Scarves, tote bags and notebooks featuring paintings by Annie Decamp, printed and shipped to order.";
 
@@ -225,7 +225,7 @@ function ShopPage() {
       <SiteHeader />
       <PaymentTestModeBanner />
       <main className="ct-page-main">
-        <h2 className="ct-page-title">Merchandise</h2>
+        <h2 className="ct-page-title">Shop Merchandise</h2>
         <p className="ct-page-lead">Printed to order and shipped directly to you.</p>
         {CATEGORIES.map((c) => {
           const items = groups.filter((g) => g.category === c.key);

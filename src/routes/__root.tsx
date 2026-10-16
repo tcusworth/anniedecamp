@@ -38,11 +38,49 @@ function NotFoundComponent() {
   );
 }
 
+// A crash caused by a stale module graph (the dev server restarted or re-bundled
+// while the page was loading) cannot be repaired in place — only a fresh document
+// load re-fetches the modules. Reload automatically, but never more than twice.
+const CRASH_RELOAD_KEY = "ct-crash-reloads";
+const MAX_AUTO_RELOADS = 2;
+
+function readReloadCount() {
+  try {
+    return Number(window.sessionStorage.getItem(CRASH_RELOAD_KEY) || "0") || 0;
+  } catch {
+    return 0;
+  }
+}
+
+function recordReload() {
+  try {
+    window.sessionStorage.setItem(CRASH_RELOAD_KEY, String(readReloadCount() + 1));
+  } catch {
+    /* storage unavailable — fall through to the manual retry UI */
+  }
+}
+
+function isStaleModuleCrash(error: unknown) {
+  const message = error instanceof Error ? `${error.name}: ${error.message}` : String(error);
+  return (
+    /Failed to fetch dynamically imported module|error loading dynamically imported module|Importing a module script failed|does not provide an export named|has already been declared|vite: (?:update|hot update) failed/i.test(
+      message,
+    ) ||
+    /Cannot read properties of (?:null|undefined) \(reading '(?:useState|useEffect|useContext|useMemo)'\)/i.test(
+      message,
+    )
+  );
+}
+
 function ErrorComponent({ error, reset }: ErrorComponentProps) {
   console.error(error);
   const router = useRouter();
   useEffect(() => {
     reportLovableError(error, { boundary: "tanstack_root_error_component" });
+    if (isStaleModuleCrash(error) && readReloadCount() < MAX_AUTO_RELOADS) {
+      recordReload();
+      window.location.reload();
+    }
   }, [error]);
 
   return (
@@ -59,6 +97,9 @@ function ErrorComponent({ error, reset }: ErrorComponentProps) {
             onClick={() => {
               router.invalidate();
               reset();
+              // A hard reload re-fetches the page's modules, which a client-side
+              // reset cannot do when the module graph itself is stale.
+              window.location.reload();
             }}
             className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
           >
@@ -126,6 +167,8 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+
+
 
   return (
     <QueryClientProvider client={queryClient}>
