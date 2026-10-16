@@ -15,6 +15,7 @@ import { Route as AboutRouteImport } from './routes/about'
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as CommissionsRouteImport } from './routes/commissions'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as CrashTestRouteImport } from './routes/crash-test'
 import { Route as PressRouteImport } from './routes/press'
 import { Route as RsvpRouteImport } from './routes/rsvp'
 import { Route as RsvpSalonRouteImport } from './routes/rsvp-salon'
@@ -60,6 +61,11 @@ const CommissionsRoute = CommissionsRouteImport.update({
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CrashTestRoute = CrashTestRouteImport.update({
+  id: '/crash-test',
+  path: '/crash-test',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PressRoute = PressRouteImport.update({
@@ -157,6 +163,7 @@ export interface FileRoutesByFullPath {
   '/auth': typeof AuthRoute
   '/commissions': typeof CommissionsRoute
   '/contact': typeof ContactRoute
+  '/crash-test': typeof CrashTestRoute
   '/press': typeof PressRoute
   '/rsvp': typeof RsvpRoute
   '/rsvp-salon': typeof RsvpSalonRoute
@@ -181,6 +188,7 @@ export interface FileRoutesByTo {
   '/auth': typeof AuthRoute
   '/commissions': typeof CommissionsRoute
   '/contact': typeof ContactRoute
+  '/crash-test': typeof CrashTestRoute
   '/press': typeof PressRoute
   '/rsvp': typeof RsvpRoute
   '/rsvp-salon': typeof RsvpSalonRoute
@@ -207,6 +215,7 @@ export interface FileRoutesById {
   '/auth': typeof AuthRoute
   '/commissions': typeof CommissionsRoute
   '/contact': typeof ContactRoute
+  '/crash-test': typeof CrashTestRoute
   '/press': typeof PressRoute
   '/rsvp': typeof RsvpRoute
   '/rsvp-salon': typeof RsvpSalonRoute
@@ -233,6 +242,7 @@ export interface FileRouteTypes {
     | '/auth'
     | '/commissions'
     | '/contact'
+    | '/crash-test'
     | '/press'
     | '/rsvp'
     | '/rsvp-salon'
@@ -257,6 +267,7 @@ export interface FileRouteTypes {
     | '/auth'
     | '/commissions'
     | '/contact'
+    | '/crash-test'
     | '/press'
     | '/rsvp'
     | '/rsvp-salon'
@@ -282,6 +293,7 @@ export interface FileRouteTypes {
     | '/auth'
     | '/commissions'
     | '/contact'
+    | '/crash-test'
     | '/press'
     | '/rsvp'
     | '/rsvp-salon'
@@ -308,6 +320,7 @@ export interface RootRouteChildren {
   AuthRoute: typeof AuthRoute
   CommissionsRoute: typeof CommissionsRoute
   ContactRoute: typeof ContactRoute
+  CrashTestRoute: typeof CrashTestRoute
   PressRoute: typeof PressRoute
   RsvpRoute: typeof RsvpRoute
   RsvpSalonRoute: typeof RsvpSalonRoute
@@ -367,6 +380,13 @@ declare module '@tanstack/react-router' {
       path: '/contact'
       fullPath: '/contact'
       preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/crash-test': {
+      id: '/crash-test'
+      path: '/crash-test'
+      fullPath: '/crash-test'
+      preLoaderRoute: typeof CrashTestRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/press': {
@@ -511,6 +531,7 @@ const rootRouteChildren: RootRouteChildren = {
   AuthRoute: AuthRoute,
   CommissionsRoute: CommissionsRoute,
   ContactRoute: ContactRoute,
+  CrashTestRoute: CrashTestRoute,
   PressRoute: PressRoute,
   RsvpRoute: RsvpRoute,
   RsvpSalonRoute: RsvpSalonRoute,
