@@ -9,6 +9,7 @@ const description =
   "Annie Decamp is a mixed-media artist based in Aspen, Colorado, whose work draws upon history, human nature, and the natural world.";
 
 export const Route = createFileRoute("/about")({
+  staticData: { sitemap: true },
   head: () => ({
     meta: [
       { title },

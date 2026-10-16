@@ -18,6 +18,7 @@ const description =
   "Scarves, tote bags and notebooks featuring paintings by Annie Decamp, printed and shipped to order.";
 
 export const Route = createFileRoute("/shop")({
+  staticData: { sitemap: true },
   loader: async () => {
     const [merch, artworks] = await Promise.all([listMerchandise(), listArtworks()]);
     const productIds = [...new Set(merch.map((m) => m.printify_product_id))];

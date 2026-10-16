@@ -12,6 +12,7 @@ const description =
   "Inside the studio of Annie Decamp: biography, working process, and how to contact the studio.";
 
 export const Route = createFileRoute("/studio")({
+  staticData: { sitemap: true },
   head: () => ({
     meta: [
       { title },

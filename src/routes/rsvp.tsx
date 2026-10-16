@@ -11,6 +11,7 @@ const description =
   "RSVP for the Annie Decamp Art Show, September 24, 4–7 pm at Rogala Design, Denver. New works by Annie Decamp with jewelry and textiles by Cornelia Lively.";
 
 export const Route = createFileRoute("/rsvp")({
+  staticData: { sitemap: true },
   head: () => ({
     meta: [
       { title },

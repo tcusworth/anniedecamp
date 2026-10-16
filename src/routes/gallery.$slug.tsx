@@ -9,6 +9,7 @@ import { useCart, money } from "@/lib/cart";
 const SITE = "https://anniedecampart.com";
 
 export const Route = createFileRoute("/gallery/$slug")({
+  staticData: { sitemap: true },
   loader: async ({ params }) => {
     const artwork = await getArtworkBySlug({ data: { slug: params.slug } });
     if (!artwork) throw notFound();

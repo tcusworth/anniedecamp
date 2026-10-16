@@ -7,6 +7,7 @@ const description =
   "Contact the studio of Annie Decamp: studio and press enquiries, telephone, and social channels.";
 
 export const Route = createFileRoute("/contact")({
+  staticData: { sitemap: true },
   head: () => ({
     meta: [
       { title },

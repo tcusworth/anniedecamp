@@ -11,6 +11,7 @@ const description =
   "Commission an original painting from Annie Decamp. Share the subject, size, medium, budget and timing, and the studio will be in touch.";
 
 export const Route = createFileRoute("/commissions")({
+  staticData: { sitemap: true },
   head: () => ({
     meta: [
       { title },

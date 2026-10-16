@@ -7,6 +7,7 @@ const description =
   "Annie Decamp — official website of the artist. Works, biography, publications, press and news.";
 
 export const Route = createFileRoute("/")({
+  staticData: { sitemap: true },
   head: () => ({
     meta: [
       { title },

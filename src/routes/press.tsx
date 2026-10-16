@@ -16,6 +16,7 @@ const description =
   "Selected publications, features, reviews, and interviews on Annie Decamp and her mixed-media practice, with links to the original coverage.";
 
 export const Route = createFileRoute("/press")({
+  staticData: { sitemap: true },
   head: () => ({
     meta: [
       { title },

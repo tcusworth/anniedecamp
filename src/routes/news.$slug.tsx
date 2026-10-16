@@ -5,6 +5,7 @@ import { getPublishedArticle, listPublishedArticles } from "@/lib/news.functions
 import { NewsSidebar, formatDate } from "./news.index";
 
 export const Route = createFileRoute("/news/$slug")({
+  staticData: { sitemap: true },
   loader: async ({ params }) => {
     const [article, articles] = await Promise.all([
       getPublishedArticle({ data: { slug: params.slug } }),

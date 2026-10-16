@@ -13,6 +13,7 @@ import {
 } from "@/lib/news.functions";
 
 export const Route = createFileRoute("/_authenticated/news-admin")({
+  staticData: { sitemap: false },
   head: () => ({
     meta: [
       { title: "Write news — Annie Decamp Art" },
