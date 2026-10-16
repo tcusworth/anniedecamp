@@ -40,30 +40,23 @@ function NotFoundComponent() {
 
 // A crash caused by a stale module graph (the dev server restarted or re-bundled
 // while the page was loading) cannot be repaired in place — only a fresh document
-// load re-fetches the modules. Reload once, and never twice in a row.
-const CRASH_RELOAD_FLAG = "ct-crash-reloaded";
+// load re-fetches the modules. Reload automatically, but never more than twice.
+const CRASH_RELOAD_KEY = "ct-crash-reloads";
+const MAX_AUTO_RELOADS = 2;
 
-function readFlag(key: string) {
+function readReloadCount() {
   try {
-    return window.sessionStorage.getItem(key);
+    return Number(window.sessionStorage.getItem(CRASH_RELOAD_KEY) || "0") || 0;
   } catch {
-    return null;
+    return 0;
   }
 }
 
-function writeFlag(key: string) {
+function recordReload() {
   try {
-    window.sessionStorage.setItem(key, "1");
+    window.sessionStorage.setItem(CRASH_RELOAD_KEY, String(readReloadCount() + 1));
   } catch {
     /* storage unavailable — fall through to the manual retry UI */
-  }
-}
-
-function clearFlag(key: string) {
-  try {
-    window.sessionStorage.removeItem(key);
-  } catch {
-    /* ignore */
   }
 }
 
@@ -84,8 +77,8 @@ function ErrorComponent({ error, reset }: ErrorComponentProps) {
   const router = useRouter();
   useEffect(() => {
     reportLovableError(error, { boundary: "tanstack_root_error_component" });
-    if (isStaleModuleCrash(error) && !readFlag(CRASH_RELOAD_FLAG)) {
-      writeFlag(CRASH_RELOAD_FLAG);
+    if (isStaleModuleCrash(error) && readReloadCount() < MAX_AUTO_RELOADS) {
+      recordReload();
       window.location.reload();
     }
   }, [error]);
@@ -104,6 +97,9 @@ function ErrorComponent({ error, reset }: ErrorComponentProps) {
             onClick={() => {
               router.invalidate();
               reset();
+              // A hard reload re-fetches the page's modules, which a client-side
+              // reset cannot do when the module graph itself is stale.
+              window.location.reload();
             }}
             className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
           >
@@ -172,11 +168,7 @@ function RootShell({ children }: { children: ReactNode }) {
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
 
-  // The page rendered fine, so allow one automatic reload if a later crash
-  // turns out to be another stale-module failure.
-  useEffect(() => {
-    clearFlag(CRASH_RELOAD_FLAG);
-  }, []);
+
 
   return (
     <QueryClientProvider client={queryClient}>
