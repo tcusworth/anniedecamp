@@ -10,3 +10,4 @@
 <!-- LOVABLE:END -->
 - Print/merch fulfillment goes to Printify; checkout line items carry catalogue ids in Stripe product metadata so the webhook can map purchases back without saved Stripe prices.
 - Customer "design your own" merch is sent to Printify as an order line built from an existing shop product (blueprint/provider/variant) plus the chosen painting image URL, so no Printify product is created per order.
+- Checkout assigns tax codes through the shared physical-product tax category helper to every inline Stripe product, so automatic tax never depends on an unset account default.

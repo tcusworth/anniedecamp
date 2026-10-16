@@ -1,5 +1,6 @@
 import { createServerFn } from "@tanstack/react-start";
 import { createClient } from "@supabase/supabase-js";
+import { productTaxCode } from "@/lib/product-tax";
 import {
   type StripeEnv,
   createStripeClient,
@@ -193,7 +194,7 @@ export const createCartCheckout = createServerFn({ method: "POST" })
         price_data: {
           currency: string;
           unit_amount: number;
-          product_data: { name: string; metadata: Record<string, string> };
+          product_data: { name: string; tax_code: string; metadata: Record<string, string> };
         };
         quantity: number;
       };
@@ -216,7 +217,7 @@ export const createCartCheckout = createServerFn({ method: "POST" })
           price_data: {
             currency: "usd",
             unit_amount: m.price_cents,
-            product_data: { name: label, metadata },
+            product_data: { name: label, tax_code: productTaxCode(m.category), metadata },
           },
           quantity: Math.min(Math.max(item.quantity ?? 1, 1), 10),
         });
@@ -252,7 +253,7 @@ export const createCartCheckout = createServerFn({ method: "POST" })
         const metadata: Record<string, string> = { artwork_id: artwork.id };
         if (item.printOptionId) metadata["print_option_id"] = item.printOptionId;
         lineItems.push({
-          price_data: { currency: "usd", unit_amount: amount, product_data: { name: label, metadata } },
+          price_data: { currency: "usd", unit_amount: amount, product_data: { name: label, tax_code: productTaxCode(), metadata } },
           quantity,
         });
         labels.push(label);
