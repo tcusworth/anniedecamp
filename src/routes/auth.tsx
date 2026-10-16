@@ -8,6 +8,7 @@ const title = "Studio sign in — Annie Decamp Art";
 const description = "Sign in to write and publish news articles for the Annie Decamp studio site.";
 
 export const Route = createFileRoute("/auth")({
+  staticData: { sitemap: false },
   head: () => ({
     meta: [
       { title },

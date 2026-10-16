@@ -12,6 +12,7 @@ const description =
   "Selected paintings by Annie Decamp, available as one-of-a-kind originals and fine art prints.";
 
 export const Route = createFileRoute("/gallery/")({
+  staticData: { sitemap: true },
   head: () => ({
     meta: [
       { title },

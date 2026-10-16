@@ -7,6 +7,7 @@ const description =
   "Current and upcoming exhibitions, museum collections and permanent installations where paintings by Annie Decamp can be seen.";
 
 export const Route = createFileRoute("/where-to-see")({
+  staticData: { sitemap: true },
   head: () => ({
     meta: [
       { title },

@@ -11,6 +11,7 @@ const description =
   "RSVP for the Holiday Art Salon with Annie Decamp & Ben Stanford, November 13–15 at 100 N Gaylord Street, Denver.";
 
 export const Route = createFileRoute("/rsvp-salon")({
+  staticData: { sitemap: true },
   head: () => ({
     meta: [
       { title },

@@ -109,6 +109,7 @@ function RsvpDashboard({ rsvps }: { rsvps: EventSignup[] }) {
 }
 
 export const Route = createFileRoute("/_authenticated/artwork-admin")({
+  staticData: { sitemap: false },
   head: () => ({
     meta: [
       { title: "Artwork admin — Annie Decamp Art" },

@@ -46,5 +46,6 @@ async function handleGet(request: Request) {
 }
 
 export const Route = createFileRoute("/api/printify-products")({
+  staticData: { sitemap: false },
   server: { handlers: { GET: ({ request }) => handleGet(request) } },
 });

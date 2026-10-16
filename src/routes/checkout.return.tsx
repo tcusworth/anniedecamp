@@ -9,6 +9,7 @@ const title = "Order confirmation — Annie Decamp Art";
 const description = "Confirmation for your purchase from the studio of Annie Decamp.";
 
 export const Route = createFileRoute("/checkout/return")({
+  staticData: { sitemap: false },
   head: () => ({
     meta: [
       { title },

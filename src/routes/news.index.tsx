@@ -8,6 +8,7 @@ const description =
   "Studio news, exhibition announcements and writing from the studio of Annie Decamp in Aspen, Colorado.";
 
 export const Route = createFileRoute("/news/")({
+  staticData: { sitemap: true },
   head: () => ({
     meta: [
       { title },

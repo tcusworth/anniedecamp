@@ -19,6 +19,7 @@ import { Route as PressRouteImport } from './routes/press'
 import { Route as RsvpRouteImport } from './routes/rsvp'
 import { Route as RsvpSalonRouteImport } from './routes/rsvp-salon'
 import { Route as ShopRouteImport } from './routes/shop'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as StudioRouteImport } from './routes/studio'
 import { Route as WhereToSeeRouteImport } from './routes/where-to-see'
 import { Route as AuthenticatedArtworkAdminRouteImport } from './routes/_authenticated/artwork-admin'
@@ -80,6 +81,11 @@ const RsvpSalonRoute = RsvpSalonRouteImport.update({
 const ShopRoute = ShopRouteImport.update({
   id: '/shop',
   path: '/shop',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
 const StudioRoute = StudioRouteImport.update({
@@ -161,6 +167,7 @@ export interface FileRoutesByFullPath {
   '/rsvp': typeof RsvpRoute
   '/rsvp-salon': typeof RsvpSalonRoute
   '/shop': typeof ShopRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/studio': typeof StudioRoute
   '/where-to-see': typeof WhereToSeeRoute
   '/artwork-admin': typeof AuthenticatedArtworkAdminRoute
@@ -185,6 +192,7 @@ export interface FileRoutesByTo {
   '/rsvp': typeof RsvpRoute
   '/rsvp-salon': typeof RsvpSalonRoute
   '/shop': typeof ShopRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/studio': typeof StudioRoute
   '/where-to-see': typeof WhereToSeeRoute
   '/artwork-admin': typeof AuthenticatedArtworkAdminRoute
@@ -211,6 +219,7 @@ export interface FileRoutesById {
   '/rsvp': typeof RsvpRoute
   '/rsvp-salon': typeof RsvpSalonRoute
   '/shop': typeof ShopRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/studio': typeof StudioRoute
   '/where-to-see': typeof WhereToSeeRoute
   '/_authenticated/artwork-admin': typeof AuthenticatedArtworkAdminRoute
@@ -237,6 +246,7 @@ export interface FileRouteTypes {
     | '/rsvp'
     | '/rsvp-salon'
     | '/shop'
+    | '/sitemap.xml'
     | '/studio'
     | '/where-to-see'
     | '/artwork-admin'
@@ -261,6 +271,7 @@ export interface FileRouteTypes {
     | '/rsvp'
     | '/rsvp-salon'
     | '/shop'
+    | '/sitemap.xml'
     | '/studio'
     | '/where-to-see'
     | '/artwork-admin'
@@ -286,6 +297,7 @@ export interface FileRouteTypes {
     | '/rsvp'
     | '/rsvp-salon'
     | '/shop'
+    | '/sitemap.xml'
     | '/studio'
     | '/where-to-see'
     | '/_authenticated/artwork-admin'
@@ -312,6 +324,7 @@ export interface RootRouteChildren {
   RsvpRoute: typeof RsvpRoute
   RsvpSalonRoute: typeof RsvpSalonRoute
   ShopRoute: typeof ShopRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   StudioRoute: typeof StudioRoute
   WhereToSeeRoute: typeof WhereToSeeRoute
   ApiPrintifyProductsRoute: typeof ApiPrintifyProductsRoute
@@ -395,6 +408,13 @@ declare module '@tanstack/react-router' {
       path: '/shop'
       fullPath: '/shop'
       preLoaderRoute: typeof ShopRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/studio': {
@@ -515,6 +535,7 @@ const rootRouteChildren: RootRouteChildren = {
   RsvpRoute: RsvpRoute,
   RsvpSalonRoute: RsvpSalonRoute,
   ShopRoute: ShopRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
   StudioRoute: StudioRoute,
   WhereToSeeRoute: WhereToSeeRoute,
   ApiPrintifyProductsRoute: ApiPrintifyProductsRoute,
