@@ -38,11 +38,56 @@ function NotFoundComponent() {
   );
 }
 
+// A crash caused by a stale module graph (the dev server restarted or re-bundled
+// while the page was loading) cannot be repaired in place — only a fresh document
+// load re-fetches the modules. Reload once, and never twice in a row.
+const CRASH_RELOAD_FLAG = "ct-crash-reloaded";
+
+function readFlag(key: string) {
+  try {
+    return window.sessionStorage.getItem(key);
+  } catch {
+    return null;
+  }
+}
+
+function writeFlag(key: string) {
+  try {
+    window.sessionStorage.setItem(key, "1");
+  } catch {
+    /* storage unavailable — fall through to the manual retry UI */
+  }
+}
+
+function clearFlag(key: string) {
+  try {
+    window.sessionStorage.removeItem(key);
+  } catch {
+    /* ignore */
+  }
+}
+
+function isStaleModuleCrash(error: unknown) {
+  const message = error instanceof Error ? `${error.name}: ${error.message}` : String(error);
+  return (
+    /Failed to fetch dynamically imported module|error loading dynamically imported module|Importing a module script failed|does not provide an export named|has already been declared|vite: (?:update|hot update) failed/i.test(
+      message,
+    ) ||
+    /Cannot read properties of (?:null|undefined) \(reading '(?:useState|useEffect|useContext|useMemo)'\)/i.test(
+      message,
+    )
+  );
+}
+
 function ErrorComponent({ error, reset }: ErrorComponentProps) {
   console.error(error);
   const router = useRouter();
   useEffect(() => {
     reportLovableError(error, { boundary: "tanstack_root_error_component" });
+    if (isStaleModuleCrash(error) && !readFlag(CRASH_RELOAD_FLAG)) {
+      writeFlag(CRASH_RELOAD_FLAG);
+      window.location.reload();
+    }
   }, [error]);
 
   return (
