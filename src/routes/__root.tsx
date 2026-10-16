@@ -172,6 +172,12 @@ function RootShell({ children }: { children: ReactNode }) {
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
 
+  // The page rendered fine, so allow one automatic reload if a later crash
+  // turns out to be another stale-module failure.
+  useEffect(() => {
+    clearFlag(CRASH_RELOAD_FLAG);
+  }, []);
+
   return (
     <QueryClientProvider client={queryClient}>
       <CartProvider>
