@@ -13,6 +13,7 @@ import { useEffect, type ReactNode } from "react";
 import appCss from "../styles.css?url";
 import { CartProvider } from "../lib/cart";
 import { CartDrawer } from "../components/CartDrawer";
+import { GoogleAnalytics } from "../components/GoogleAnalytics";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 
 function NotFoundComponent() {
@@ -132,6 +133,7 @@ function RootComponent() {
         {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
         <Outlet />
         <CartDrawer />
+        <GoogleAnalytics />
       </CartProvider>
     </QueryClientProvider>
   );
