@@ -4,7 +4,7 @@ import { subscribeToNewsletter } from "@/lib/newsletter.functions";
 const LINKS = [
   { label: "About", href: "/about" },
   { label: "Gallery", href: "/gallery" },
-  { label: "Merchandise", href: "/shop" },
+  { label: "Shop Merchandise", href: "/shop" },
   { label: "Events & Exhibitions", href: "/where-to-see" },
   { label: "Studio", href: "/studio" },
   { label: "Press", href: "/press" },
