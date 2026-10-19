@@ -4,5 +4,5 @@
 - [x] Record the approved SEO finding as fixed, awaiting rescan.
 
 # Navigation and Blog
-- [ ] Rename Gallery navigation to Shop & Gallery.
-- [ ] Add and verify the Blog page and navigation links.
+- [x] Rename Gallery navigation to Shop & Gallery.
+- [x] Add and verify the Blog page and navigation links.
