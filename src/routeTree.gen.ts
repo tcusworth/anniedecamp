@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as AuthRouteImport } from './routes/auth'
+import { Route as BlogRouteImport } from './routes/blog'
 import { Route as CommissionsRouteImport } from './routes/commissions'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as PressRouteImport } from './routes/press'
@@ -51,6 +52,11 @@ const AboutRoute = AboutRouteImport.update({
 const AuthRoute = AuthRouteImport.update({
   id: '/auth',
   path: '/auth',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogRoute = BlogRouteImport.update({
+  id: '/blog',
+  path: '/blog',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CommissionsRoute = CommissionsRouteImport.update({
@@ -161,6 +167,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/auth': typeof AuthRoute
+  '/blog': typeof BlogRoute
   '/commissions': typeof CommissionsRoute
   '/contact': typeof ContactRoute
   '/press': typeof PressRoute
@@ -186,6 +193,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/auth': typeof AuthRoute
+  '/blog': typeof BlogRoute
   '/commissions': typeof CommissionsRoute
   '/contact': typeof ContactRoute
   '/press': typeof PressRoute
@@ -213,6 +221,7 @@ export interface FileRoutesById {
   '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
   '/about': typeof AboutRoute
   '/auth': typeof AuthRoute
+  '/blog': typeof BlogRoute
   '/commissions': typeof CommissionsRoute
   '/contact': typeof ContactRoute
   '/press': typeof PressRoute
@@ -240,6 +249,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/auth'
+    | '/blog'
     | '/commissions'
     | '/contact'
     | '/press'
@@ -265,6 +275,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/auth'
+    | '/blog'
     | '/commissions'
     | '/contact'
     | '/press'
@@ -291,6 +302,7 @@ export interface FileRouteTypes {
     | '/_authenticated'
     | '/about'
     | '/auth'
+    | '/blog'
     | '/commissions'
     | '/contact'
     | '/press'
@@ -318,6 +330,7 @@ export interface RootRouteChildren {
   AuthenticatedRouteRoute: typeof AuthenticatedRouteRouteWithChildren
   AboutRoute: typeof AboutRoute
   AuthRoute: typeof AuthRoute
+  BlogRoute: typeof BlogRoute
   CommissionsRoute: typeof CommissionsRoute
   ContactRoute: typeof ContactRoute
   PressRoute: typeof PressRoute
@@ -366,6 +379,13 @@ declare module '@tanstack/react-router' {
       path: '/auth'
       fullPath: '/auth'
       preLoaderRoute: typeof AuthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog': {
+      id: '/blog'
+      path: '/blog'
+      fullPath: '/blog'
+      preLoaderRoute: typeof BlogRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/commissions': {
@@ -529,6 +549,7 @@ const rootRouteChildren: RootRouteChildren = {
   AuthenticatedRouteRoute: AuthenticatedRouteRouteWithChildren,
   AboutRoute: AboutRoute,
   AuthRoute: AuthRoute,
+  BlogRoute: BlogRoute,
   CommissionsRoute: CommissionsRoute,
   ContactRoute: ContactRoute,
   PressRoute: PressRoute,

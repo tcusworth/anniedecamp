@@ -4,11 +4,12 @@ import logoAsset from "@/assets/annie-decamp-logo.png.asset.json";
 
 const MENU_ITEMS = [
   { label: "About", href: "/about" },
-  { label: "Gallery", href: "/gallery" },
+  { label: "Shop & Gallery", href: "/gallery" },
   { label: "Shop Merchandise", href: "/shop" },
   { label: "Events & Exhibitions", href: "/where-to-see" },
   { label: "Studio", href: "/studio" },
   { label: "Press", href: "/press" },
+  { label: "Blog", href: "/blog" },
   { label: "Commissions", href: "/commissions" },
   { label: "Contact", href: "/contact" },
 ];
