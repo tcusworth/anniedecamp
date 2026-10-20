@@ -122,3 +122,24 @@ export async function buildCustomLine(opts: {
     printAreas: Object.fromEntries(positions.map((pos) => [pos, opts.imageUrl])),
   };
 }
+
+// Fine art print sizes sold on the site, mapped to Printify catalogue products
+// so print orders need no per-painting Printify product.
+const PRINT_CATALOG: { match: RegExp; blueprintId: number; printProviderId: number; variantId: number }[] = [
+  { match: /framed.*24\s*[×x]\s*32/i, blueprintId: 1236, printProviderId: 105, variantId: 93826 },
+  { match: /12\s*[×x]\s*16/i, blueprintId: 804, printProviderId: 99, variantId: 75290 },
+  { match: /18\s*[×x]\s*24/i, blueprintId: 804, printProviderId: 99, variantId: 100938 },
+  { match: /24\s*[×x]\s*32/i, blueprintId: 804, printProviderId: 99, variantId: 75295 },
+];
+
+export function printCatalogLine(label: string, imageUrl: string, quantity: number): PrintifyLine | null {
+  const hit = PRINT_CATALOG.find((p) => p.match.test(label));
+  if (!hit) return null;
+  return {
+    blueprintId: hit.blueprintId,
+    printProviderId: hit.printProviderId,
+    variantId: hit.variantId,
+    quantity,
+    printAreas: { front: imageUrl },
+  };
+}
