@@ -3,7 +3,7 @@ import { createClient } from "@supabase/supabase-js";
 import { type StripeEnv, verifyWebhook, createStripeClient } from "@/lib/stripe.server";
 import { sendTemplateEmail } from "@/lib/email-templates/send-email";
 import { STUDIO_SALES_NOTIFICATION_EMAILS } from "@/lib/email-templates/recipients";
-import { submitToPrintify, buildCustomLine, type PrintifyLine } from "@/lib/printify.server";
+import { submitToPrintify, buildCustomLine, printCatalogLine, type PrintifyLine } from "@/lib/printify.server";
 
 let _supabase: any = null;
 function getSupabase(): any {
@@ -47,7 +47,7 @@ async function fulfillSession(session: any, env: StripeEnv) {
 
   const { data: options } = await supabase
     .from("print_options")
-    .select("id, kind, artwork_id, printify_product_id, printify_variant_id")
+    .select("id, kind, label, artwork_id, printify_product_id, printify_variant_id")
     .in("id", optionIds.length ? optionIds : ["00000000-0000-0000-0000-000000000000"]);
   const { data: merch } = await supabase
     .from("merch_products")
@@ -144,6 +144,20 @@ async function fulfillSession(session: any, env: StripeEnv) {
           .eq("id", saved["id"]);
       }
       continue;
+    }
+    if (!merchItem && option?.kind === "print" && !option.printify_product_id && artworkId) {
+      const { data: art } = await supabase
+        .from("artworks")
+        .select("image_url")
+        .eq("id", artworkId)
+        .maybeSingle();
+      const url = art ? await paintingUrl(supabase, art.image_url) : null;
+      const line = url ? printCatalogLine(option.label ?? "", url, quantity) : null;
+      if (line) {
+        printifyLines.push(line);
+        printifyOrderRowIds.push(saved["id"]);
+        continue;
+      }
     }
     if (pf?.printify_product_id && pf?.printify_variant_id) {
       printifyLines.push({
