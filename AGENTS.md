@@ -13,3 +13,4 @@
 - Checkout assigns tax codes through the shared physical-product tax category helper to every inline Stripe product, so automatic tax never depends on an unset account default.
 - Sitemap static URLs derive from required route-level staticData.sitemap decisions; dynamic artwork and published news URLs use paginated public reads, so new routes stay explicit and private pages never leak into discovery.
 - The Blog page uses the existing published article catalogue and news-admin editor, retaining /news/$slug article URLs so existing links remain valid.
+- Print orders map print_options labels (size) to fixed Printify catalogue blueprints in printify.server.ts and send the painting image URL, so no per-painting Printify product is needed.
