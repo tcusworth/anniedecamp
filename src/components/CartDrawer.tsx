@@ -4,10 +4,19 @@ import { getStripe, getStripeEnvironment } from "@/lib/stripe";
 import { createCartCheckout } from "@/lib/shop.functions";
 import { PaymentTestModeBanner } from "@/components/PaymentTestModeBanner";
 import { useCart, money } from "@/lib/cart";
+import { Button } from "@/components/ui/button";
+import { ORIGINAL_COUPON, validateShopCoupon, originalCouponDiscount } from "@/lib/shop-coupon";
 
 export function CartDrawer() {
   const { items, count, totalCents, open, setOpen, setQuantity, remove } = useCart();
   const [checkingOut, setCheckingOut] = useState(false);
+  const [couponInput, setCouponInput] = useState("");
+  const [couponCode, setCouponCode] = useState("");
+  const [couponError, setCouponError] = useState("");
+  const discountCents = couponCode && !validateShopCoupon(couponCode)
+    ? items.reduce((sum, item) => sum + originalCouponDiscount(item.priceCents, item.kind === "original") * item.quantity, 0)
+    : 0;
+  const checkoutTotal = totalCents - discountCents;
 
   const fetchClientSecret = async (): Promise<string> => {
     const result = await createCartCheckout({
@@ -20,6 +29,7 @@ export function CartDrawer() {
         })),
         returnUrl: `${window.location.origin}/checkout/return?session_id={CHECKOUT_SESSION_ID}`,
         environment: getStripeEnvironment(),
+        couponCode: couponCode || undefined,
       },
     });
     if ("error" in result) throw new Error(result.error);
@@ -32,7 +42,7 @@ export function CartDrawer() {
       <div className="ct-checkout-overlay" role="dialog" aria-modal="true" aria-label="Checkout">
         <div className="ct-checkout-panel">
           <div className="ct-checkout-bar">
-            <span>Checkout — {money(totalCents)}</span>
+            <span>Checkout — {money(checkoutTotal)}</span>
             <button type="button" onClick={() => setCheckingOut(false)} aria-label="Back to cart">
               Back to cart
             </button>
@@ -99,10 +109,40 @@ export function CartDrawer() {
         )}
 
         <div className="ct-cart-foot">
+          {items.length > 0 && (
+            <form className="ct-cart-coupon" onSubmit={(event) => {
+              event.preventDefault();
+              const error = validateShopCoupon(couponInput);
+              if (error) { setCouponError(error); return; }
+              if (!items.some((item) => item.kind === "original")) {
+                setCouponError("ANNIE20 applies to original paintings only.");
+                return;
+              }
+              setCouponCode(ORIGINAL_COUPON.code);
+              setCouponError("");
+            }}>
+              <label htmlFor="cart-coupon">Coupon code</label>
+              <div className="ct-cart-coupon-controls">
+                <input id="cart-coupon" value={couponInput} maxLength={64} autoComplete="off" onChange={(event) => {
+                  setCouponInput(event.target.value); setCouponError("");
+                }} />
+                <Button type="submit" variant="outline">Apply</Button>
+              </div>
+              {couponError && <p role="alert" className="text-destructive">{couponError}</p>}
+              {couponCode && <div className="ct-cart-coupon-applied" role="status">
+                <span>{couponCode} · 20% off originals</span>
+                <Button type="button" variant="link" size="sm" onClick={() => { setCouponCode(""); setCouponInput(""); setCouponError(""); }}>Remove coupon</Button>
+              </div>}
+            </form>
+          )}
           <div className="ct-cart-total">
             <span>Subtotal</span>
             <span>{money(totalCents)}</span>
           </div>
+          {discountCents > 0 && <>
+            <div className="ct-cart-total ct-cart-discount"><span>Coupon discount</span><span>−{money(discountCents)}</span></div>
+            <div className="ct-cart-total"><span>Total before tax</span><span>{money(checkoutTotal)}</span></div>
+          </>}
           <p className="ct-cart-note">Shipping and any sales tax are calculated at checkout.</p>
           <button
             type="button"

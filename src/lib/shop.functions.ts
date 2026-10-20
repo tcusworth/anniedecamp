@@ -1,6 +1,7 @@
 import { createServerFn } from "@tanstack/react-start";
 import { createClient } from "@supabase/supabase-js";
 import { productTaxCode } from "@/lib/product-tax";
+import { ORIGINAL_COUPON, validateShopCoupon, originalCouponDiscount } from "@/lib/shop-coupon";
 import {
   type StripeEnv,
   createStripeClient,
@@ -137,9 +138,10 @@ export const listMerchImages = createServerFn({ method: "POST" })
 
 export const createCartCheckout = createServerFn({ method: "POST" })
   .inputValidator(
-    (data: { items: CartLine[]; returnUrl: string; environment: StripeEnv }) => {
+    (data: { items: CartLine[]; returnUrl: string; environment: StripeEnv; couponCode?: string }) => {
       if (!Array.isArray(data.items) || data.items.length === 0) throw new Error("Cart is empty");
       if (data.items.length > 20) throw new Error("Too many items");
+      if (data.couponCode !== undefined && (typeof data.couponCode !== "string" || data.couponCode.length > 64)) throw new Error("Invalid coupon");
       for (const item of data.items) {
         if (!UUID.test(item.artworkId)) throw new Error("Invalid artwork");
         if (item.printOptionId && !UUID.test(item.printOptionId)) throw new Error("Invalid option");
@@ -149,6 +151,13 @@ export const createCartCheckout = createServerFn({ method: "POST" })
   )
   .handler(async ({ data }): Promise<CheckoutResult> => {
     try {
+      if (data.couponCode) {
+        const couponError = validateShopCoupon(data.couponCode);
+        if (couponError) return { error: couponError };
+        if (!data.items.some((item) => item.kind !== "merchandise" && item.kind !== "custom" && !item.printOptionId)) {
+          return { error: "ANNIE20 applies to original paintings only." };
+        }
+      }
       const supabase = publicClient();
       const merchLines = data.items.filter((i) => i.kind === "merchandise" || i.kind === "custom");
       const artLines = data.items.filter((i) => i.kind !== "merchandise" && i.kind !== "custom");
@@ -252,8 +261,14 @@ export const createCartCheckout = createServerFn({ method: "POST" })
         // Charge the current catalogue price so admin price edits apply immediately.
         const metadata: Record<string, string> = { artwork_id: artwork.id };
         if (item.printOptionId) metadata["print_option_id"] = item.printOptionId;
+        const discount = data.couponCode ? originalCouponDiscount(amount, !item.printOptionId) : 0;
+        if (discount) {
+          metadata["coupon_code"] = ORIGINAL_COUPON.code;
+          metadata["original_price_cents"] = String(amount);
+          metadata["discount_cents"] = String(discount);
+        }
         lineItems.push({
-          price_data: { currency: "usd", unit_amount: amount, product_data: { name: label, tax_code: productTaxCode(), metadata } },
+          price_data: { currency: "usd", unit_amount: amount - discount, product_data: { name: label, tax_code: productTaxCode(), metadata } },
           quantity,
         });
         labels.push(label);
@@ -274,6 +289,7 @@ export const createCartCheckout = createServerFn({ method: "POST" })
         metadata: {
           item_label: summary,
           item_count: String(lineItems.length),
+          ...(data.couponCode ? { coupon_code: ORIGINAL_COUPON.code } : {}),
         },
       } as Parameters<typeof stripe.checkout.sessions.create>[0];
 
