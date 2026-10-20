@@ -1,6 +1,5 @@
-# SEO sitemap
 # Original painting coupon
-- [ ] Add ANNIE20 for 20% off originals through December 31, 2026; verify cart and checkout without payment.
+- [x] Add ANNIE20 for 20% off originals through December 31, 2026; verified original and mixed-cart totals in Stripe checkout without payment.
 
 # SEO sitemap
 - [x] Add router-derived sitemap with public artwork and published article pages.

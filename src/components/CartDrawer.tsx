@@ -29,7 +29,7 @@ export function CartDrawer() {
         })),
         returnUrl: `${window.location.origin}/checkout/return?session_id={CHECKOUT_SESSION_ID}`,
         environment: getStripeEnvironment(),
-        couponCode: couponCode || undefined,
+        ...(couponCode ? { couponCode } : {}),
       },
     });
     if ("error" in result) throw new Error(result.error);
