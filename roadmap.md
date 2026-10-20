@@ -1,4 +1,8 @@
 # SEO sitemap
+# Original painting coupon
+- [ ] Add ANNIE20 for 20% off originals through December 31, 2026; verify cart and checkout without payment.
+
+# SEO sitemap
 - [x] Add router-derived sitemap with public artwork and published article pages.
 - [x] Reference sitemap in crawler rules and verify public access, pagination and exclusions.
 - [x] Record the approved SEO finding as fixed, awaiting rescan.
