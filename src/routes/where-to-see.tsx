@@ -25,12 +25,6 @@ export const Route = createFileRoute("/where-to-see")({
 
 const EVENTS = [
   {
-    dates: "Sept 24th",
-    show: "Annie Decamp Art Show",
-    venue: "Rogala Design, 395 S. Broadway, Denver, Suite # 118w",
-    rsvp: "/rsvp",
-  },
-  {
     dates: "November 13–15",
     show: "Holiday Art Salon with Benjamin Stanford",
     venue: "100 N Gaylord Street, Denver CO 80206",
