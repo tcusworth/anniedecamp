@@ -9,3 +9,5 @@
 # Navigation and Blog
 - [x] Rename Gallery navigation to Shop & Gallery.
 - [x] Add and verify the Blog page and navigation links.
+- [x] Remove the passed September 24 art-show RSVP from Events; notice on /rsvp routes visitors to the salon form
+- [ ] Answered: RSVP notifications go to annie@anniedecampart.com only; add Trevor if requested
