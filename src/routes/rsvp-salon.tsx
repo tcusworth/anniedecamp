@@ -44,6 +44,15 @@ function RsvpSalonForm() {
     event.preventDefault();
     const form = event.currentTarget;
     const fd = new FormData(form);
+    const day = String(fd.get("preferred_day") ?? "");
+    const name = String(fd.get("name") ?? "").trim();
+    const email = String(fd.get("email") ?? "").trim();
+    const guestsRaw = Number(fd.get("guests") || 1);
+    if (!day) return setError("Please choose which day you'll attend.");
+    if (!name) return setError("Please enter your name.");
+    if (!/^\S+@\S+\.\S+$/.test(email)) return setError("Please enter a valid email address.");
+    if (!Number.isFinite(guestsRaw) || guestsRaw < 1 || guestsRaw > 20)
+      return setError("Number of guests must be between 1 and 20.");
     setStatus("sending");
     setError(null);
     try {
@@ -53,7 +62,7 @@ function RsvpSalonForm() {
           name: String(fd.get("name") ?? ""),
           email: String(fd.get("email") ?? ""),
           phone: String(fd.get("phone") ?? ""),
-          guests: Number(fd.get("guests") ?? 1),
+          guests: Math.round(guestsRaw),
           message: String(fd.get("message") ?? ""),
           preferred_day: String(fd.get("preferred_day") ?? ""),
         },
