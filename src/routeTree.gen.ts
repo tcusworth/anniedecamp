@@ -26,6 +26,7 @@ import { Route as WhereToSeeRouteImport } from './routes/where-to-see'
 import { Route as AuthenticatedArtworkAdminRouteImport } from './routes/_authenticated/artwork-admin'
 import { Route as AuthenticatedNewsAdminRouteImport } from './routes/_authenticated/news-admin'
 import { Route as ApiPrintifyProductsRouteImport } from './routes/api/printify-products'
+import { Route as BlogContemporaryWesternArtModernInteriorsRouteImport } from './routes/blog_.contemporary-western-art-modern-interiors'
 import { Route as CheckoutReturnRouteImport } from './routes/checkout.return'
 import { Route as GalleryIndexRouteImport } from './routes/gallery.index'
 import { Route as GallerySlugRouteImport } from './routes/gallery.$slug'
@@ -120,6 +121,12 @@ const ApiPrintifyProductsRoute = ApiPrintifyProductsRouteImport.update({
   path: '/api/printify-products',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BlogContemporaryWesternArtModernInteriorsRoute =
+  BlogContemporaryWesternArtModernInteriorsRouteImport.update({
+    id: '/blog_/contemporary-western-art-modern-interiors',
+    path: '/blog/contemporary-western-art-modern-interiors',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const CheckoutReturnRoute = CheckoutReturnRouteImport.update({
   id: '/checkout/return',
   path: '/checkout/return',
@@ -180,6 +187,7 @@ export interface FileRoutesByFullPath {
   '/artwork-admin': typeof AuthenticatedArtworkAdminRoute
   '/news-admin': typeof AuthenticatedNewsAdminRoute
   '/api/printify-products': typeof ApiPrintifyProductsRoute
+  '/blog/contemporary-western-art-modern-interiors': typeof BlogContemporaryWesternArtModernInteriorsRoute
   '/checkout/return': typeof CheckoutReturnRoute
   '/gallery/$slug': typeof GallerySlugRoute
   '/news/$slug': typeof NewsSlugRoute
@@ -206,6 +214,7 @@ export interface FileRoutesByTo {
   '/artwork-admin': typeof AuthenticatedArtworkAdminRoute
   '/news-admin': typeof AuthenticatedNewsAdminRoute
   '/api/printify-products': typeof ApiPrintifyProductsRoute
+  '/blog/contemporary-western-art-modern-interiors': typeof BlogContemporaryWesternArtModernInteriorsRoute
   '/checkout/return': typeof CheckoutReturnRoute
   '/gallery/$slug': typeof GallerySlugRoute
   '/news/$slug': typeof NewsSlugRoute
@@ -234,6 +243,7 @@ export interface FileRoutesById {
   '/_authenticated/artwork-admin': typeof AuthenticatedArtworkAdminRoute
   '/_authenticated/news-admin': typeof AuthenticatedNewsAdminRoute
   '/api/printify-products': typeof ApiPrintifyProductsRoute
+  '/blog_/contemporary-western-art-modern-interiors': typeof BlogContemporaryWesternArtModernInteriorsRoute
   '/checkout/return': typeof CheckoutReturnRoute
   '/gallery/$slug': typeof GallerySlugRoute
   '/news/$slug': typeof NewsSlugRoute
@@ -262,6 +272,7 @@ export interface FileRouteTypes {
     | '/artwork-admin'
     | '/news-admin'
     | '/api/printify-products'
+    | '/blog/contemporary-western-art-modern-interiors'
     | '/checkout/return'
     | '/gallery/$slug'
     | '/news/$slug'
@@ -288,6 +299,7 @@ export interface FileRouteTypes {
     | '/artwork-admin'
     | '/news-admin'
     | '/api/printify-products'
+    | '/blog/contemporary-western-art-modern-interiors'
     | '/checkout/return'
     | '/gallery/$slug'
     | '/news/$slug'
@@ -315,6 +327,7 @@ export interface FileRouteTypes {
     | '/_authenticated/artwork-admin'
     | '/_authenticated/news-admin'
     | '/api/printify-products'
+    | '/blog_/contemporary-western-art-modern-interiors'
     | '/checkout/return'
     | '/gallery/$slug'
     | '/news/$slug'
@@ -341,6 +354,7 @@ export interface RootRouteChildren {
   StudioRoute: typeof StudioRoute
   WhereToSeeRoute: typeof WhereToSeeRoute
   ApiPrintifyProductsRoute: typeof ApiPrintifyProductsRoute
+  BlogContemporaryWesternArtModernInteriorsRoute: typeof BlogContemporaryWesternArtModernInteriorsRoute
   CheckoutReturnRoute: typeof CheckoutReturnRoute
   GallerySlugRoute: typeof GallerySlugRoute
   NewsSlugRoute: typeof NewsSlugRoute
@@ -472,6 +486,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiPrintifyProductsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/blog_/contemporary-western-art-modern-interiors': {
+      id: '/blog_/contemporary-western-art-modern-interiors'
+      path: '/blog/contemporary-western-art-modern-interiors'
+      fullPath: '/blog/contemporary-western-art-modern-interiors'
+      preLoaderRoute: typeof BlogContemporaryWesternArtModernInteriorsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/checkout/return': {
       id: '/checkout/return'
       path: '/checkout/return'
@@ -560,6 +581,8 @@ const rootRouteChildren: RootRouteChildren = {
   StudioRoute: StudioRoute,
   WhereToSeeRoute: WhereToSeeRoute,
   ApiPrintifyProductsRoute: ApiPrintifyProductsRoute,
+  BlogContemporaryWesternArtModernInteriorsRoute:
+    BlogContemporaryWesternArtModernInteriorsRoute,
   CheckoutReturnRoute: CheckoutReturnRoute,
   GallerySlugRoute: GallerySlugRoute,
   NewsSlugRoute: NewsSlugRoute,

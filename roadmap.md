@@ -11,3 +11,7 @@
 - [x] Add and verify the Blog page and navigation links.
 - [x] Remove the passed September 24 art-show RSVP from Events; notice on /rsvp routes visitors to the salon form
 - [ ] Answered: RSVP notifications go to annie@anniedecampart.com only; add Trevor if requested
+
+# The Unexpected West blog
+- [x] Build the supplied article with three uploaded photos and the requested search information.
+- [x] Link it from Blog, verify editorial references, and check desktop and mobile reading; all images, gallery link, metadata and sitemap verified.

@@ -3,6 +3,7 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { listPublishedArticles } from "@/lib/news.functions";
 import { NewsSidebar, formatDate } from "./news.index";
+import { unexpectedWest } from "@/data/unexpected-west";
 
 const title = "Blog — Annie Decamp Art";
 const description = "Notes from Annie Decamp’s studio: paintings, exhibitions, and reflections on making art.";
@@ -47,9 +48,16 @@ function BlogPage() {
         <div className="ct-news-main">
           <h2 className="ct-page-title">Blog</h2>
           <p className="ct-page-lead">Notes from the studio.</p>
-          {articles.length === 0 ? (
-            <p className="ct-news-empty">No posts yet.</p>
-          ) : (
+          <article className="ct-blog-feature">
+            <time className="ct-news-date" dateTime={unexpectedWest.date}>October 22, 2026</time>
+            <Link to="/blog/contemporary-western-art-modern-interiors" className="ct-blog-feature-image" aria-label={`Read ${unexpectedWest.title}`}>
+              <img src={unexpectedWest.image} width={1024} height={768} alt="Annie Decamp painting of a seated figure with a black bear and a hawk." />
+            </Link>
+            <h3 className="ct-news-title"><Link to="/blog/contemporary-western-art-modern-interiors">{unexpectedWest.title}</Link></h3>
+            <p className="ct-news-excerpt">{unexpectedWest.excerpt}</p>
+            <Link to="/blog/contemporary-western-art-modern-interiors" className="ct-news-more">Read article</Link>
+          </article>
+          {articles.length > 0 ? (
             <ul className="ct-news-feed">
               {articles.map((article) => (
                 <li key={article.id} className="ct-news-item">
@@ -62,7 +70,7 @@ function BlogPage() {
                 </li>
               ))}
             </ul>
-          )}
+          ) : null}
         </div>
         {articles.length > 0 ? <NewsSidebar articles={articles} /> : null}
       </main>
