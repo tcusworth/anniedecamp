@@ -13,5 +13,5 @@
 - [ ] Answered: RSVP notifications go to annie@anniedecampart.com only; add Trevor if requested
 
 # The Unexpected West blog
-- [ ] Build the supplied article with three uploaded photos and the requested search information.
-- [ ] Link it from Blog, verify editorial references, and check desktop and mobile reading.
+- [x] Build the supplied article with three uploaded photos and the requested search information.
+- [x] Link it from Blog, verify editorial references, and check desktop and mobile reading; all images, gallery link, metadata and sitemap verified.
