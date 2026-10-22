@@ -129,10 +129,6 @@ function RsvpPage() {
         <header className="ct-rsvp-head">
           <h2 className="ct-page-title">Annie Decamp Art Show</h2>
           <p className="ct-rsvp-subtitle">September 24 · 4–7 pm · Rogala Design, Denver</p>
-          <p className="ct-rsvp-details">
-            This event has taken place. For the Holiday Art Salon, November 13–15, please RSVP at{" "}
-            <a href="/rsvp-salon">anniedecampart.com/rsvp-salon</a>.
-          </p>
         </header>
 
         <div className="ct-rsvp-body">
