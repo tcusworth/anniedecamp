@@ -1646,6 +1646,11 @@
 .ct-journal-text p { margin: 0 0 22px; }
 .ct-journal h2 { margin: 48px 0 22px; font-size: 30px; line-height: 1.25; font-weight: 400; letter-spacing: 0; }
 .ct-journal a { color: inherit; text-underline-offset: 4px; }
+.ct-journal-text a { color: #c8202a; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; background: rgba(200, 32, 42, 0.08); box-decoration-break: clone; -webkit-box-decoration-break: clone; transition: background-color 0.2s ease, color 0.2s ease; }
+.ct-journal-text a:hover, .ct-journal-text a:focus-visible { background: rgba(200, 32, 42, 0.18); color: #a5161f; }
+.ct-journal-text .ct-journal-gallery, .ct-journal-text .ct-journal-gallery:hover { color: inherit; background: none; text-decoration: none; }
+
+
 .ct-journal-portrait { max-width: 620px; }
 .ct-journal-interior { max-width: 800px; }
 .ct-journal-signoff { margin-top: 42px; padding-top: 24px; border-top: 1px solid var(--border); }
