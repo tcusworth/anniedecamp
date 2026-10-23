@@ -8,6 +8,7 @@ import coloradoHomesSelfLove from "@/assets/press-colorado-homes-self-love.jpg.a
 import coloradoHomesDivineBloom from "@/assets/press-colorado-homes-divine-bloom.jpg.asset.json";
 import redBrick from "@/assets/press-red-brick.webp.asset.json";
 import urbanLife from "@/assets/press-urban-life-wash-park.jpg.asset.json";
+import kdvr from "@/assets/press-kdvr.png.asset.json";
 import vailDaily from "@/assets/press-vail-daily.png.asset.json";
 import voyageDenver from "@/assets/press-voyage-denver.jpg.asset.json";
 
@@ -65,6 +66,17 @@ const PRESS_ITEMS: PressItem[] = [
     href: "http://www.coloradohomesmag.com/the-divine-bloom/",
     image: coloradoHomesDivineBloom,
     alt: "Colorado Homes & Lifestyles magazine cover, The Mountain Issue, March/April 2022",
+  },
+  {
+    outlet: "KDVR",
+    headline: "Yard Art Contemporary kicks off the summer season this weekend",
+    date: "June 2022",
+    kind: "Story",
+    excerpt:
+      "KDVR's preview of the third season of Yard Art Contemporary, the neighborhood-based Denver event Decamp presents with Michael Dowling, turning private yards and closed streets into open-air galleries where visitors meet and buy directly from artists.",
+    href: "https://kdvr.com/news/yard-art-contemporary-kicks-off-the-summer-season-this-weekend/",
+    image: kdvr,
+    alt: "FOX31 Denver station logo",
   },
   {
     outlet: "5280",
