@@ -145,6 +145,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { rel: "icon", href: "/favicon.png", type: "image/png" },
     ],
+    scripts: [
+      { src: "https://stats.fcstudio.us/js/pa-HKHd8TWfKo-OqmFdiMJZo.js", async: true },
+      {
+        children:
+          "window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};plausible.init()",
+      },
+    ],
   }),
   shellComponent: RootShell,
   component: RootComponent,
