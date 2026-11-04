@@ -155,7 +155,7 @@ export const createCartCheckout = createServerFn({ method: "POST" })
         const couponError = validateShopCoupon(data.couponCode);
         if (couponError) return { error: couponError };
         if (!data.items.some((item) => item.kind !== "merchandise" && item.kind !== "custom" && !item.printOptionId)) {
-          return { error: "ANNIE20 applies to original paintings only." };
+          return { error: `${ORIGINAL_COUPON.code} applies to original paintings only.` };
         }
       }
       const supabase = publicClient();
