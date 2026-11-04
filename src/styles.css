@@ -1846,6 +1846,15 @@
 }
 
 /* Gallery controls */
+.ct-gallery-promo {
+  margin: 20px 0 0;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  color: #a5161f;
+  background: rgba(200, 32, 42, 0.08);
+  border: 1px solid rgba(200, 32, 42, 0.22);
+  padding: 10px 14px;
+}
 .ct-gallery-controls {
   display: flex;
   flex-wrap: wrap;
