@@ -115,7 +115,7 @@ export function CartDrawer() {
               const error = validateShopCoupon(couponInput);
               if (error) { setCouponError(error); return; }
               if (!items.some((item) => item.kind === "original")) {
-                setCouponError("ANNIE20 applies to original paintings only.");
+                setCouponError(`${ORIGINAL_COUPON.code} applies to original paintings only.`);
                 return;
               }
               setCouponCode(ORIGINAL_COUPON.code);
@@ -130,7 +130,7 @@ export function CartDrawer() {
               </div>
               {couponError && <p role="alert" className="text-destructive">{couponError}</p>}
               {couponCode && <div className="ct-cart-coupon-applied" role="status">
-                <span>{couponCode} · 20% off originals</span>
+                <span>{couponCode} · {ORIGINAL_COUPON.percentOff}% off originals</span>
                 <Button type="button" variant="link" size="sm" onClick={() => { setCouponCode(""); setCouponInput(""); setCouponError(""); }}>Remove coupon</Button>
               </div>}
             </form>

@@ -1,6 +1,6 @@
 export const ORIGINAL_COUPON = {
-  code: "ANNIE20",
-  percentOff: 20,
+  code: "ANNIE15",
+  percentOff: 15,
   // Valid through December 31 in the studio's Denver time zone (MST).
   expiresAt: Date.parse("2027-01-01T00:00:00-07:00"),
 };

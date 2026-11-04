@@ -51,6 +51,10 @@ function GalleryPage() {
           <a href="/shop">merchandise page</a>.
         </p>
 
+        <p className="ct-gallery-promo">
+          Use code ANNIE15 for 15% off — valid until December 31, 2026.
+        </p>
+
         <div className="ct-gallery-controls">
           <div className="ct-gallery-filters" role="group" aria-label="Filter works">
             {(["all", "available", "sold"] as const).map((f) => (
