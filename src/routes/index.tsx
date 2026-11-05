@@ -28,9 +28,6 @@ function Index() {
     <div className="ct-container">
       <SiteHeader />
       <div className="ct-content">
-        <p className="ct-gallery-promo ct-home-promo">
-          Use code ANNIE15 for 15% off original paintings — valid until December 31, 2026.
-        </p>
         <HomeSlideshow />
       </div>
       <footer className="ct-footer" />
