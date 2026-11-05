@@ -2056,3 +2056,17 @@ a.ct-work-title:hover {
 .ct-merch-thumbs button { width: 48px; height: 48px; padding: 0; border: 1px solid var(--border); background: var(--muted); cursor: pointer; opacity: .7; }
 .ct-merch-thumbs button.is-active, .ct-merch-thumbs button:hover { opacity: 1; border-color: var(--foreground); }
 .ct-merch-thumbs img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+.ct-home-promo {
+  position: fixed;
+  left: 50%;
+  bottom: 38px;
+  transform: translateX(-50%);
+  margin: 0;
+  z-index: 5;
+  white-space: nowrap;
+  max-width: calc(100vw - 24px);
+}
+@media (max-width: 640px) {
+  .ct-home-promo { white-space: normal; text-align: center; font-size: 12px; }
+}
