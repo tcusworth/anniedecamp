@@ -2060,10 +2060,12 @@ a.ct-work-title:hover {
 .ct-home-promo {
   position: fixed;
   left: 50%;
-  bottom: 38px;
+  bottom: 34px;
   transform: translateX(-50%);
   margin: 0;
-  z-index: 5;
+  padding: 4px 14px;
+  font-size: 13px;
+  z-index: 60;
   white-space: nowrap;
   max-width: calc(100vw - 24px);
 }
