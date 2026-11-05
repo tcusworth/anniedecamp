@@ -228,6 +228,9 @@ function ShopPage() {
       <main className="ct-page-main">
         <h2 className="ct-page-title">Shop Merchandise</h2>
         <p className="ct-page-lead">Printed to order and shipped directly to you.</p>
+        <p className="ct-gallery-promo">
+          Use code ANNIE15 for 15% off original paintings — valid until December 31, 2026.
+        </p>
         {CATEGORIES.map((c) => {
           const items = groups.filter((g) => g.category === c.key);
           if (!items.length) return null;
