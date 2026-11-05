@@ -186,6 +186,9 @@ export function HomeSlideshow() {
 
       <div className="ct-description">
         <h3 key={active.caption}>{active.caption}</h3>
+        <p className="ct-gallery-promo ct-home-promo">
+          Use code ANNIE15 for 15% off original paintings — valid until December 31, 2026.
+        </p>
         <a href="/gallery" className="ct-read-more">
           More information
         </a>
